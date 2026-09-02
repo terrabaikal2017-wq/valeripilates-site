@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/content";
+import { getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     "Book a Reformer Pilates class at VALERI in Arjan, Dubai. New clients start with the AED 80 first class. Booking runs through the VALERI app.",
 };
 
-export default function BookPage() {
+export default async function BookPage() {
+  const site = await getSiteSettings();
   return (
     <>
       <section className="pagehead has-media">
@@ -130,9 +131,24 @@ export default function BookPage() {
                   <Link href={site.instagramUrl}>Instagram {site.instagram}</Link>
                 </p>
               </div>
-              <div className="mapbox" style={{ marginTop: 20 }}>
-                Map — to embed
-              </div>
+              {site.mapEmbedUrl ? (
+                <iframe
+                  title="VALERI on the map"
+                  src={site.mapEmbedUrl}
+                  loading="lazy"
+                  style={{
+                    marginTop: 20,
+                    width: "100%",
+                    minHeight: "clamp(240px,32vw,340px)",
+                    border: 0,
+                    borderRadius: 16,
+                  }}
+                />
+              ) : (
+                <div className="mapbox" style={{ marginTop: 20 }}>
+                  Map — to embed
+                </div>
+              )}
             </div>
           </div>
         </div>

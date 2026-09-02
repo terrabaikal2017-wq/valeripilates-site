@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { team, stories, events, socialImages, site } from "@/content";
+import { getTeam, getStories, getEvents, getSocial, getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
@@ -10,7 +10,15 @@ export const metadata: Metadata = {
     "The people behind VALERI — instructors, members and the social side of a women-only Reformer studio in Arjan, Dubai.",
 };
 
-export default function ValeriLifePage() {
+export default async function ValeriLifePage() {
+  const [team, stories, events, social, settings] = await Promise.all([
+    getTeam(),
+    getStories(),
+    getEvents(),
+    getSocial(),
+    getSiteSettings(),
+  ]);
+
   return (
     <>
       <section className="pagehead has-media">
@@ -46,7 +54,11 @@ export default function ValeriLifePage() {
             {team.map((t) => (
               <div className="tcard" key={t.id}>
                 <div className="ph">
-                  <span className="plabel">Portrait — to shoot</span>
+                  {t.photoUrl ? (
+                    <Image src={t.photoUrl} alt={t.name} width={440} height={550} />
+                  ) : (
+                    <span className="plabel">Portrait — to shoot</span>
+                  )}
                 </div>
                 <div className="nm">{t.name}</div>
                 <div className="st">{t.style}</div>
@@ -75,10 +87,15 @@ export default function ValeriLifePage() {
           </p>
           <div className="story-grid">
             {stories.map((s) => (
-              <div className="scard" key={s.title}>
-                <span className="fmt">{s.format}</span>
+              <div className="scard" key={s.id}>
+                <span className="fmt">{s.format || "Story"}</span>
                 <h3>{s.title}</h3>
                 <p>{s.excerpt}</p>
+                {s.memberName ? (
+                  <p style={{ color: "var(--ink)", fontWeight: 500 }}>
+                    — {s.memberName}
+                  </p>
+                ) : null}
               </div>
             ))}
           </div>
@@ -103,7 +120,27 @@ export default function ValeriLifePage() {
               is where it lives — image, date, short description and a button to
               RSVP.
             </div>
-          ) : null}
+          ) : (
+            <div className="story-grid">
+              {events.map((e) => (
+                <div className="scard" key={e.id}>
+                  <span className="fmt">
+                    {new Date(e.date).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "long",
+                    })}
+                  </span>
+                  <h3>{e.title}</h3>
+                  <p>{e.description}</p>
+                  {e.rsvpUrl ? (
+                    <a href={e.rsvpUrl} className="btn-ghost">
+                      RSVP →
+                    </a>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -116,14 +153,14 @@ export default function ValeriLifePage() {
               </div>
               <h2>Lately at VALERI.</h2>
             </div>
-            <Link href={site.instagramUrl} className="btn-ghost">
-              Follow {site.instagram}
+            <Link href={settings.instagramUrl} className="btn-ghost">
+              Follow {settings.instagram}
             </Link>
           </div>
           <div className="social-grid">
-            {socialImages.map((src, i) => (
-              <div className="ph" key={i}>
-                <Image src={src} alt="" width={400} height={400} />
+            {social.map((s) => (
+              <div className="ph" key={s.id}>
+                <Image src={s.url} alt={s.caption ?? ""} width={400} height={400} />
               </div>
             ))}
           </div>

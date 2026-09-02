@@ -1,32 +1,34 @@
 import Link from "next/link";
-import { site } from "@/content";
+import type { SiteSettings } from "@/data";
 
-export default function Footer() {
+export default function Footer({ settings }: { settings: SiteSettings }) {
   return (
     <footer className="footer">
       <div className="wrap">
         <div className="foot-inner">
           <div>
             <Link href="/" className="logo">
-              {site.name}
+              {settings.name}
             </Link>
             <p>Women-only Reformer Pilates</p>
             <p>Oxford Gardens · Arjan · Dubai</p>
           </div>
           <div className="foot-contact">
-            <p className={site.whatsapp ? undefined : "tbd"}>
-              {site.whatsapp ?? "WhatsApp — to confirm"}
+            <p className={settings.whatsapp ? undefined : "tbd"}>
+              {settings.whatsapp ?? "WhatsApp — to confirm"}
             </p>
-            <p className={site.hours ? undefined : "tbd"}>
-              {site.hours ?? "Hours — to confirm"}
+            <p className={settings.hours ? undefined : "tbd"}>
+              {settings.hours ?? "Hours — to confirm"}
             </p>
             <p>
-              <Link href={site.instagramUrl}>Instagram {site.instagram}</Link>
+              <Link href={settings.instagramUrl}>
+                Instagram {settings.instagram}
+              </Link>
             </p>
           </div>
         </div>
         <div className="foot-bottom">
-          <span>© 2026 {site.legalName}</span>
+          <span>© 2026 {settings.legalName}</span>
           <nav className="foot-legal" aria-label="Legal">
             <Link href="/terms">Terms &amp; Conditions</Link>
             <Link href="/privacy">Privacy Policy</Link>

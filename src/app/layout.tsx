@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Newsreader, Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import MobileBook from "@/components/MobileBook";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -28,7 +25,7 @@ const instrument = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://valeri.example"), // TODO: real domain
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://valeri.example"),
   title: {
     default: "VALERI | Reformer Pilates in Arjan, Dubai",
     template: "%s | VALERI",
@@ -52,12 +49,7 @@ export default function RootLayout({
       lang="en"
       className={`${newsreader.variable} ${bricolage.variable} ${instrument.variable}`}
     >
-      <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <MobileBook />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

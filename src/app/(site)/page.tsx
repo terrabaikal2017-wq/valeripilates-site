@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { classLevels, socialImages, site } from "@/content";
+import { classLevels } from "@/content";
+import { getSocial, getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [social, settings] = await Promise.all([getSocial(), getSiteSettings()]);
   return (
     <>
       {/* HERO */}
@@ -17,7 +19,7 @@ export default function HomePage() {
         />
         <div className="hero-inner">
           <span className="eyebrow">
-            Women-only Reformer Pilates in {site.city}
+            Women-only Reformer Pilates in {settings.city}
           </span>
           <h1>
             Real Pilates.
@@ -163,14 +165,14 @@ export default function HomePage() {
               >
                 Lately at VALERI
               </span>
-              <Link href={site.instagramUrl} className="btn-ghost">
-                Follow {site.instagram}
+              <Link href={settings.instagramUrl} className="btn-ghost">
+                Follow {settings.instagram}
               </Link>
             </div>
             <div className="social-grid" style={{ gridTemplateColumns: "repeat(5,1fr)" }}>
-              {socialImages.slice(0, 5).map((src, i) => (
-                <div className="ph" key={i}>
-                  <Image src={src} alt="" width={400} height={400} />
+              {social.slice(0, 5).map((s) => (
+                <div className="ph" key={s.id}>
+                  <Image src={s.url} alt={s.caption ?? ""} width={400} height={400} />
                 </div>
               ))}
             </div>
