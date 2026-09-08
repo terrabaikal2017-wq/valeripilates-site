@@ -52,12 +52,12 @@ export default async function HomePage() {
               </p>
               <p className="sig">Come for Pilates. Stay for how it feels.</p>
             </div>
-            <div className="ph tall">
+            <div className="ph belong-photo">
               <Image
                 src="/images/belong.jpg"
                 alt="Two VALERI members, different ages, after class"
                 width={720}
-                height={900}
+                height={540}
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ export default async function HomePage() {
       </section>
 
       {/* NEW TO VALERI */}
-      <section id="first" className="section on-sage">
+      <section id="first" className="section on-sand">
         <div className="wrap">
           <div className="split">
             <div className="col">
@@ -132,7 +132,7 @@ export default async function HomePage() {
       </section>
 
       {/* LATELY AT VALERI — compact social strip */}
-      <section id="lately" className="section on-sand">
+      <section id="lately" className="section">
         <div className="wrap">
           <div className="social-head">
             <h2>Lately at VALERI.</h2>

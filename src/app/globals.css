@@ -8,8 +8,8 @@
 
   --paper: #FCFAF4;        /* near-white, faint warmth (was butter #FBF6EA) */
   --card: #FFFFFF;
-  --sand: #F6ECC6;        /* butter — the one warm accent band */
-  --sage-bg: #F3F0E8;     /* soft warm panel (was powder-blue) */
+  --sand: #F6ECC6;        /* butter — used only for the intro-offer moments */
+  --sage-bg: #F1EDE2;     /* soft warm greige panel (was powder-blue) */
   --ink: #2A2E36;
   --ink-soft: #5F6470;
   --line: #E9E3D6;
@@ -22,7 +22,7 @@
   --sans: var(--font-instrument), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   --wrap: 1120px;
-  --gap: clamp(56px, 8vw, 104px);
+  --gap: clamp(44px, 6vw, 84px);
 }
 
 * { box-sizing: border-box; }
@@ -172,6 +172,25 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .pagehead .inner { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; max-width: 46ch; }
 .pagehead.has-media .wrap { display: grid; grid-template-columns: 1fr .92fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
 .pagehead .ph { aspect-ratio: 4 / 3; }
+
+/* home: "every body belongs here" — shorter photo */
+.belong-photo { aspect-ratio: 4 / 3; }
+
+/* first visit: step grid */
+.steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 3vw, 36px); margin-top: 32px; }
+.step { border-top: 1px solid var(--line-dark); padding-top: 18px; }
+.step .k { font-family: var(--grot); font-weight: 700; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.step h3 { font-family: var(--serif); font-size: 1.25rem; margin-bottom: 6px; }
+.step p { color: var(--ink-soft); font-size: .95rem; }
+
+/* FAQ */
+.faq { max-width: 74ch; margin-top: 28px; border-top: 1px solid var(--line-dark); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; padding: 18px 2px; font-family: var(--grot); font-weight: 700; font-size: 1rem; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--accent); font-size: 1.2rem; line-height: 1; }
+.faq details[open] summary::after { content: "–"; }
+.faq .fa { padding: 0 2px 18px; color: var(--ink-soft); font-size: .96rem; max-width: 64ch; }
 
 /* two-column content */
 .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 5vw, 68px); align-items: center; }
@@ -330,6 +349,10 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
   .split .col { gap: 16px; }
   .split h2.sticky { position: static; }
   .split .ph { order: -1; }
+  .steps { grid-template-columns: 1fr; gap: 0; }
+  .step { padding: 20px 0; }
+  .class-row { grid-template-columns: 1fr; gap: 6px; padding: 20px 2px; }
+  .class-row a { justify-self: start; }
   .pagehead.has-media .wrap { grid-template-columns: 1fr; }
   .pagehead .ph { order: -1; }
   .cd { grid-template-columns: 110px 1fr; gap: 12px 20px; }

@@ -159,7 +159,7 @@ export default async function TeamPage() {
         </section>
       )}
 
-      <section className="section on-sand">
+      <section className="section">
         <div className="wrap">
           <div className="social-head">
             <div>
