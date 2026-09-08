@@ -149,9 +149,9 @@ export const firstVisitSteps = [
    exists in Sanity. At launch only the Instagram strip is shown; flip a
    flag to preview a section's layout, or just add content in the CMS. */
 export const flags = {
-  showTeam: false,
-  showStories: false,
-  showEvents: false,
+  showTeam: true,
+  showStories: true,
+  showEvents: true,
 };
 
 /* ---------- VALERI Life (placeholders, used only when a flag above is on) ---------- */

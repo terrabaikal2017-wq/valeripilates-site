@@ -59,7 +59,8 @@ export default async function ValeriLifePage() {
             <div className="tier-label">Our team</div>
             <h2>Meet the people you’ll move with.</h2>
             <p className="lead">
-              Qualified instructors who coach properly and know your name.
+              Qualified instructors who coach properly and know your name. Full
+              profiles go live as the team is confirmed.
             </p>
             <div className="team-grid">
               {team.map((t) => (
@@ -94,6 +95,10 @@ export default async function ValeriLifePage() {
           <div className="wrap">
             <div className="tier-label">People of VALERI</div>
             <h2>Real members, in their own words.</h2>
+            <p className="lead">
+              First classes, milestones, why they started, the friend they met
+              here. We publish these as members are ready to share them.
+            </p>
             <div className="story-grid">
               {stories.map((s) => (
                 <div className="scard" key={s.id}>
@@ -108,6 +113,10 @@ export default async function ValeriLifePage() {
                 </div>
               ))}
             </div>
+            <p className="mnote">
+              This section stays empty until real stories exist — nothing here is
+              invented.
+            </p>
           </div>
         </section>
       )}
