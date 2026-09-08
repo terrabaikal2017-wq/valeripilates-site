@@ -1,20 +1,20 @@
 /* ============================================================
    VALERI — design system
-   Butter-cream + powder-blue, deep denim accent. Single warm light theme.
+   Warm near-white + one butter band, deep denim accent. Single warm light theme.
    ============================================================ */
 
 :root {
   color-scheme: light;
 
-  --paper: #FBF6EA;
+  --paper: #FCFAF4;        /* near-white, faint warmth (was butter #FBF6EA) */
   --card: #FFFFFF;
-  --sand: #F8EEC9;        /* butter — warm section ground */
-  --sage-bg: #DEE8F1;     /* powder-blue tint */
-  --ink: #282D38;
-  --ink-soft: #5D6472;
-  --line: #E6DFD0;
-  --line-dark: #CDC6B4;
-  --accent: #3F5E86;      /* deep denim */
+  --sand: #F6ECC6;        /* butter — the one warm accent band */
+  --sage-bg: #F3F0E8;     /* soft warm panel (was powder-blue) */
+  --ink: #2A2E36;
+  --ink-soft: #5F6470;
+  --line: #E9E3D6;
+  --line-dark: #D5CEBE;
+  --accent: #3F5E86;      /* deep denim — the only real colour */
   --accent-deep: #324C6E;
 
   --serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
@@ -77,7 +77,7 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 /* header */
 .header {
   position: sticky; top: 0; z-index: 60;
-  background: #FBF6EA; border-bottom: 1px solid var(--line);
+  background: var(--paper); border-bottom: 1px solid var(--line);
 }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 0; }
 .logo { font-family: var(--grot); font-weight: 800; letter-spacing: .24em; font-size: 1.02rem; }
@@ -132,7 +132,7 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .mobilebook {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; display: none;
   padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-  background: #FBF6EA; border-top: 1px solid var(--line);
+  background: var(--paper); border-top: 1px solid var(--line);
   box-shadow: 0 -8px 24px -14px rgba(40,45,56,.28);
 }
 .mobilebook .btn { width: 100%; }
