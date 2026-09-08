@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   introOffers,
@@ -36,19 +35,12 @@ function Cards({ plans }: { plans: Plan[] }) {
 export default function PricingPage() {
   return (
     <>
-      <section className="pagehead has-media">
+      <section className="pagehead compact">
         <div className="wrap">
-          <div className="inner">
-            <span className="eyebrow">Pricing</span>
-            <h1>
-              Start easy.
-              <br />
-              Pay less as it becomes routine.
-            </h1>
-            <p className="lead">
-              Begin with your first classes, then choose the pack or membership
-              that matches how often you move — the more often you come, the less
-              you pay per class.
+          <div className="inner" style={{ maxWidth: "none" }}>
+            <h1>Pricing.</h1>
+            <p className="lead" style={{ fontSize: "1rem" }}>
+              Start easy — pay less as you settle into a routine.
             </p>
             <p className="facts">All prices include 5% VAT · No lock-in</p>
             <div className="jump">
@@ -57,14 +49,6 @@ export default function PricingPage() {
               <a href="#members">Memberships</a>
               <a href="#private">Private &amp; semi</a>
             </div>
-          </div>
-          <div className="ph">
-            <Image
-              src="/images/pricing-hero.jpg"
-              alt="VALERI regulars after class"
-              width={720}
-              height={540}
-            />
           </div>
         </div>
       </section>

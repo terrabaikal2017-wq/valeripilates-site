@@ -34,7 +34,7 @@ export default async function HomePage() {
       </section>
 
       {/* EVERY BODY BELONGS HERE */}
-      <section className="section on-white">
+      <section className="section on-sage">
         <div className="wrap">
           <div className="split">
             <div className="col">
@@ -65,7 +65,7 @@ export default async function HomePage() {
       </section>
 
       {/* CLASSES PREVIEW */}
-      <section id="classes" className="section">
+      <section id="classes" className="section on-white">
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow">Classes</span>
