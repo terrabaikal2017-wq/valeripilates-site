@@ -34,7 +34,7 @@ function Cards({ plans }: { plans: Plan[] }) {
 
 export default function PricingPage() {
   return (
-    <>
+    <div className="pricing-page">
       <section className="pagehead compact">
         <div className="wrap">
           <div className="inner" style={{ maxWidth: "none" }}>
@@ -53,7 +53,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section id="intro" className="section on-white">
+      <section id="intro" className="section">
         <div className="wrap">
           <div className="tier-label">New to VALERI</div>
           <h2>Your first classes.</h2>
@@ -65,7 +65,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section id="packs" className="section on-sage">
+      <section id="packs" className="section">
         <div className="wrap">
           <div className="tier-label">Move your way</div>
           <h2>Class packs.</h2>
@@ -77,7 +77,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section id="members" className="section on-white">
+      <section id="members" className="section">
         <div className="wrap">
           <div className="tier-label">Make it your routine</div>
           <h2>Memberships.</h2>
@@ -92,7 +92,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section id="private" className="section on-sage">
+      <section id="private" className="section">
         <div className="wrap">
           <div className="tier-label">One-to-one</div>
           <h2>Private &amp; semi-private.</h2>
@@ -119,6 +119,6 @@ export default function PricingPage() {
       </section>
 
       <FinalCta />
-    </>
+    </div>
   );
 }
