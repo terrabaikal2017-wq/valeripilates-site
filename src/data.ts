@@ -76,7 +76,7 @@ export async function getTeam(): Promise<TeamMember[]> {
       photoUrl: r.photo?.url,
     }));
   }
-  return fb.team.map((t) => ({ ...t }));
+  return fb.flags.showTeam ? fb.team.map((t) => ({ ...t })) : [];
 }
 
 /* ---------- member stories ---------- */
@@ -111,7 +111,7 @@ export async function getStories(): Promise<Story[]> {
       photoUrl: r.photo?.url,
     }));
   }
-  return fb.stories.map((s, i) => ({ id: `fb-${i}`, ...s }));
+  return fb.flags.showStories ? fb.stories.map((s, i) => ({ id: `fb-${i}`, ...s })) : [];
 }
 
 /* ---------- events ---------- */
@@ -145,8 +145,15 @@ export async function getEvents(): Promise<EventItem[]> {
       imageUrl: r.image?.url,
     }));
   }
-  return fb.events.map((e, i) => ({ id: `fb-${i}`, ...e }));
+  return [];
 }
+
+/** True when a flag is on but there's no real content — used to show a "coming soon" placeholder. */
+export const preview = {
+  team: fb.flags.showTeam,
+  stories: fb.flags.showStories,
+  events: fb.flags.showEvents,
+};
 
 /* ---------- social strip ---------- */
 export type SocialItem = { id: string; url: string; caption?: string; link?: string };

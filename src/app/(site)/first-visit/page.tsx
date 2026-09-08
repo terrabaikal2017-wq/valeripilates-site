@@ -93,7 +93,7 @@ export default function FirstVisitPage() {
           />
         </div>
         <figcaption>
-          The room you’ll walk into — eight Reformers, warm light, women only.
+          The room you’ll walk into — eight Reformers, warm light.
         </figcaption>
       </figure>
 

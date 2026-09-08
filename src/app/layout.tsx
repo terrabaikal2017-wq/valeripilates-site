@@ -31,11 +31,11 @@ export const metadata: Metadata = {
     template: "%s | VALERI",
   },
   description:
-    "Women-only Reformer Pilates in Oxford Gardens, Arjan — Dubai. Small classes, real coaching, every level welcome. Book your first class from AED 80.",
+    "Reformer Pilates in Oxford Gardens, Arjan — Dubai. Small classes, real coaching, every level welcome. Book your first class from AED 80.",
   openGraph: {
     title: "VALERI | Reformer Pilates in Arjan, Dubai",
     description:
-      "Women-only Reformer Pilates in Arjan, Dubai. Small classes, real coaching, every level welcome.",
+      "Reformer Pilates in Arjan, Dubai. Small classes, real coaching, every level welcome.",
     type: "website",
     locale: "en_AE",
   },

@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getTeam, getStories, getEvents, getSocial, getSiteSettings } from "@/data";
+import {
+  getTeam,
+  getStories,
+  getEvents,
+  getSocial,
+  getSiteSettings,
+  preview,
+} from "@/data";
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
   title: "VALERI Life",
   description:
-    "The people behind VALERI — instructors, members and the social side of a women-only Reformer studio in Arjan, Dubai.",
+    "The people behind VALERI — instructors, members and the social side of a Reformer Pilates studio in Arjan, Dubai.",
 };
 
 export default async function ValeriLifePage() {
@@ -18,6 +25,10 @@ export default async function ValeriLifePage() {
     getSocial(),
     getSiteSettings(),
   ]);
+
+  const showTeam = team.length > 0;
+  const showStories = stories.length > 0;
+  const showEvents = events.length > 0 || preview.events;
 
   return (
     <>
@@ -42,107 +53,104 @@ export default async function ValeriLifePage() {
         </div>
       </section>
 
-      <section className="section on-white">
-        <div className="wrap">
-          <div className="tier-label">Our team</div>
-          <h2>Meet the people you’ll move with.</h2>
-          <p className="lead">
-            Qualified instructors who coach properly and know your name. Full
-            profiles go live as the team is confirmed.
-          </p>
-          <div className="team-grid">
-            {team.map((t) => (
-              <div className="tcard" key={t.id}>
-                <div className="ph">
-                  {t.photoUrl ? (
-                    <Image src={t.photoUrl} alt={t.name} width={440} height={550} />
-                  ) : (
-                    <span className="plabel">Portrait — to shoot</span>
-                  )}
+      {showTeam && (
+        <section className="section on-white">
+          <div className="wrap">
+            <div className="tier-label">Our team</div>
+            <h2>Meet the people you’ll move with.</h2>
+            <p className="lead">
+              Qualified instructors who coach properly and know your name.
+            </p>
+            <div className="team-grid">
+              {team.map((t) => (
+                <div className="tcard" key={t.id}>
+                  <div className="ph">
+                    {t.photoUrl ? (
+                      <Image src={t.photoUrl} alt={t.name} width={440} height={550} />
+                    ) : (
+                      <span className="plabel">Portrait — to shoot</span>
+                    )}
+                  </div>
+                  <div className="nm">{t.name}</div>
+                  <div className="st">{t.style}</div>
+                  <div className="tr">
+                    <b>You’ll love her class if…</b> {t.loveIf}
+                  </div>
+                  <div className="tr">
+                    <b>Training focus</b> {t.focus}
+                  </div>
+                  <div className="tr">
+                    <b>Off the Reformer</b> {t.offReformer}
+                  </div>
                 </div>
-                <div className="nm">{t.name}</div>
-                <div className="st">{t.style}</div>
-                <div className="tr">
-                  <b>You’ll love her class if…</b> {t.loveIf}
-                </div>
-                <div className="tr">
-                  <b>Training focus</b> {t.focus}
-                </div>
-                <div className="tr">
-                  <b>Off the Reformer</b> {t.offReformer}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section on-sage">
-        <div className="wrap">
-          <div className="tier-label">People of VALERI</div>
-          <h2>Real members, in their own words.</h2>
-          <p className="lead">
-            First classes, milestones, why they started, the friend they met
-            here. We publish these as members are ready to share them.
-          </p>
-          <div className="story-grid">
-            {stories.map((s) => (
-              <div className="scard" key={s.id}>
-                <span className="fmt">{s.format || "Story"}</span>
-                <h3>{s.title}</h3>
-                <p>{s.excerpt}</p>
-                {s.memberName ? (
-                  <p style={{ color: "var(--ink)", fontWeight: 500 }}>
-                    — {s.memberName}
-                  </p>
-                ) : null}
-              </div>
-            ))}
-          </div>
-          <p className="mnote">
-            This section stays empty until real stories exist — nothing here is
-            invented.
-          </p>
-        </div>
-      </section>
-
-      <section className="section on-white">
-        <div className="wrap">
-          <div className="tier-label">What’s happening</div>
-          <h2>Things worth doing together.</h2>
-          <p className="lead">
-            Coffee mornings, workshops, talks, the occasional Saturday walk.
-            Confirmed monthly events show here with a date and an RSVP.
-          </p>
-          {events.length === 0 ? (
-            <div className="ecard">
-              Nothing on the calendar just yet. When an event is confirmed, this
-              is where it lives — image, date, short description and a button to
-              RSVP.
+              ))}
             </div>
-          ) : (
+          </div>
+        </section>
+      )}
+
+      {showStories && (
+        <section className="section on-sage">
+          <div className="wrap">
+            <div className="tier-label">People of VALERI</div>
+            <h2>Real members, in their own words.</h2>
             <div className="story-grid">
-              {events.map((e) => (
-                <div className="scard" key={e.id}>
-                  <span className="fmt">
-                    {new Date(e.date).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                    })}
-                  </span>
-                  <h3>{e.title}</h3>
-                  <p>{e.description}</p>
-                  {e.rsvpUrl ? (
-                    <a href={e.rsvpUrl} className="btn-ghost">
-                      RSVP →
-                    </a>
+              {stories.map((s) => (
+                <div className="scard" key={s.id}>
+                  <span className="fmt">{s.format || "Story"}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.excerpt}</p>
+                  {s.memberName ? (
+                    <p style={{ color: "var(--ink)", fontWeight: 500 }}>
+                      — {s.memberName}
+                    </p>
                   ) : null}
                 </div>
               ))}
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
+
+      {showEvents && (
+        <section className="section on-white">
+          <div className="wrap">
+            <div className="tier-label">What’s happening</div>
+            <h2>Things worth doing together.</h2>
+            <p className="lead">
+              Coffee mornings, workshops, talks, the occasional Saturday walk.
+              Confirmed monthly events show here with a date and an RSVP.
+            </p>
+            {events.length === 0 ? (
+              <div className="ecard">
+                Nothing on the calendar just yet. When an event is confirmed,
+                this is where it lives — image, date, short description and a
+                button to RSVP.
+              </div>
+            ) : (
+              <div className="story-grid">
+                {events.map((e) => (
+                  <div className="scard" key={e.id}>
+                    <span className="fmt">
+                      {new Date(e.date).toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "long",
+                      })}
+                    </span>
+                    <h3>{e.title}</h3>
+                    <p>{e.description}</p>
+                    {e.rsvpUrl ? (
+                      <a href={e.rsvpUrl} className="btn-ghost">
+                        RSVP →
+                      </a>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="section on-sand">
         <div className="wrap">

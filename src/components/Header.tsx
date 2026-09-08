@@ -90,7 +90,7 @@ export default function Header() {
         </Link>
         <div className="mm-foot">
           <span>Oxford Gardens · Arjan · Dubai</span>
-          <span>Women-only Reformer Pilates</span>
+          <span>Reformer Pilates studio</span>
           <span>{site.instagram}</span>
         </div>
       </div>

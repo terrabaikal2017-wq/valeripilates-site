@@ -10,7 +10,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <Link href="/" className="logo">
               {settings.name}
             </Link>
-            <p>Women-only Reformer Pilates</p>
+            <p>Reformer Pilates studio</p>
             <p>Oxford Gardens · Arjan · Dubai</p>
           </div>
           <div className="foot-contact">

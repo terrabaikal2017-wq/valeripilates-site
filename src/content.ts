@@ -8,7 +8,7 @@
 export const site = {
   name: "VALERI",
   legalName: "Valeri Pilates Fitness Club LLC",
-  tagline: "Women-only Reformer Pilates",
+  tagline: "Reformer Pilates studio",
   city: "Arjan, Dubai",
   addressLines: ["Oxford Gardens, Arjan", "Dubai, United Arab Emirates"],
   instagram: "@valeri",
@@ -130,7 +130,7 @@ export const faq: { q: string; a: string }[] = [
   { q: "What should I wear?", a: "Comfortable activewear you can move in. Avoid zips (they can catch on the equipment) and loose jewellery." },
   { q: "Do I need grip socks?", a: "Yes — grip socks are required for all Reformer classes. Bring your own or buy a pair at reception." },
   { q: "How long is a class, and how many people?", a: "Every group class is 50 minutes, with never more than eight clients." },
-  { q: "Is VALERI really women-only?", a: "Yes. VALERI is a women-only studio." },
+  { q: "Are all classes for women?", a: "All VALERI classes are currently for women." },
   { q: "Do you have classes for teens?", a: "Not at launch." },
   { q: "I have an injury or I’m pregnant — can I still come?", a: "Tell us in your First Visit profile and speak to your instructor before class. Please get medical advice first if you have any concerns. We may ask you to complete a health declaration." },
   { q: "What if I’m running late?", a: "Please arrive before the start. For safety, you may not be able to join once class has begun — a late arrival can be treated as a late cancellation and the class credit used." },
@@ -144,7 +144,17 @@ export const firstVisitSteps = [
   { k: "After class", h: "A quick, honest check-in", p: "How did it feel? What felt easy or hard? What would you like to work on? We help you pick the right next class or level — no hard sell." },
 ];
 
-/* ---------- VALERI Life (placeholders) ---------- */
+/* ---------- VALERI Life — launch visibility ----------
+   Each section on /valeri-life shows if its flag is true OR real content
+   exists in Sanity. At launch only the Instagram strip is shown; flip a
+   flag to preview a section's layout, or just add content in the CMS. */
+export const flags = {
+  showTeam: false,
+  showStories: false,
+  showEvents: false,
+};
+
+/* ---------- VALERI Life (placeholders, used only when a flag above is on) ---------- */
 export const team = Array.from({ length: 4 }).map((_, i) => ({
   id: `placeholder-${i + 1}`,
   placeholder: true as const,

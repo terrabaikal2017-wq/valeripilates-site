@@ -105,7 +105,7 @@ export default async function BookPage() {
               Grip socks are required; arrive about 10 minutes early.{" "}
               <Link href="/first-visit">How a first visit works →</Link>
             </li>
-            <li>VALERI is a women-only studio.</li>
+            <li>All VALERI classes are currently for women.</li>
           </ul>
         </div>
       </section>

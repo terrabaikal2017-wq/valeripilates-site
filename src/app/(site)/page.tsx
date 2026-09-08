@@ -19,7 +19,7 @@ export default async function HomePage() {
         />
         <div className="hero-inner">
           <span className="eyebrow">
-            Women-only Reformer Pilates in {settings.city}
+            Reformer Pilates in {settings.city}
           </span>
           <h1>
             Real Pilates.
@@ -131,52 +131,34 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* LIFE AT VALERI */}
+      {/* LATELY AT VALERI — compact social strip */}
       <section id="life" className="section on-sand">
         <div className="wrap">
-          <div className="split">
-            <div className="col">
+          <div className="social-head">
+            <div>
               <span className="eyebrow">VALERI Life</span>
-              <h2>Life at VALERI.</h2>
-              <p className="lead">
-                The Pilates is why you come. The people are why you stay — coffee
-                after class, names you know, the group chat you didn’t expect to
-                be in.
-              </p>
-              <Link href="/valeri-life" className="btn btn-line">
-                Meet the regulars
-              </Link>
+              <h2 style={{ marginTop: 6 }}>Lately at VALERI.</h2>
             </div>
-            <div className="ph tall">
-              <Image
-                src="/images/life.jpg"
-                alt="VALERI members outside the studio with coffee"
-                width={720}
-                height={900}
-              />
-            </div>
+            <Link href={settings.instagramUrl} className="btn-ghost">
+              Follow {settings.instagram}
+            </Link>
           </div>
-
-          <div style={{ marginTop: "clamp(36px,5vw,56px)" }}>
-            <div className="social-head">
-              <span
-                className="eyebrow"
-                style={{ color: "var(--ink-soft)" }}
-              >
-                Lately at VALERI
-              </span>
-              <Link href={settings.instagramUrl} className="btn-ghost">
-                Follow {settings.instagram}
-              </Link>
-            </div>
-            <div className="social-grid" style={{ gridTemplateColumns: "repeat(5,1fr)" }}>
-              {social.slice(0, 5).map((s) => (
-                <div className="ph" key={s.id}>
-                  <Image src={s.url} alt={s.caption ?? ""} width={400} height={400} />
-                </div>
-              ))}
-            </div>
+          <div
+            className="social-grid"
+            style={{ gridTemplateColumns: "repeat(5,1fr)" }}
+          >
+            {social.slice(0, 5).map((s) => (
+              <div className="ph" key={s.id}>
+                <Image src={s.url} alt={s.caption ?? ""} width={400} height={400} />
+              </div>
+            ))}
           </div>
+          <p className="mnote">
+            Studio moments as they happen.{" "}
+            <Link href="/valeri-life" style={{ color: "var(--accent)", borderBottom: "1px solid" }}>
+              More on VALERI Life →
+            </Link>
+          </p>
         </div>
       </section>
 
