@@ -1,5 +1,5 @@
 export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
-  hours, whatsapp, email, instagramHandle, instagramUrl, mapEmbedUrl
+  hours, whatsapp, phone, email, instagramHandle, instagramUrl, mapEmbedUrl
 }`;
 
 export const TEAM_QUERY = `*[_type == "instructor"] | order(order asc, name asc){

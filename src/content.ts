@@ -16,6 +16,7 @@ export const site = {
   // TODO — confirm before launch:
   hours: null as string | null,
   whatsapp: null as string | null,
+  phone: null as string | null,
   email: null as string | null,
   mapEmbedUrl: null as string | null,
 };

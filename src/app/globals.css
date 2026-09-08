@@ -110,6 +110,24 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
   color: var(--ink-soft); display: flex; flex-direction: column; gap: 5px;
 }
 
+/* floating contact (WhatsApp / call) */
+.floating-contact {
+  position: fixed; right: 16px; bottom: 16px; z-index: 55;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.fc-btn {
+  width: 48px; height: 48px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; box-shadow: 0 6px 20px -6px rgba(20,24,32,.4);
+  transition: transform .12s ease, filter .16s ease;
+}
+.fc-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.fc-wa { background: #25D366; }
+.fc-call { background: var(--accent); }
+@media (max-width: 860px) {
+  .floating-contact { bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
+
 /* sticky mobile book */
 .mobilebook {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; display: none;

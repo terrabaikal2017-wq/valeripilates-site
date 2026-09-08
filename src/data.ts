@@ -21,6 +21,7 @@ export type SiteSettings = typeof fb.site;
 type SettingsRow = {
   hours?: string;
   whatsapp?: string;
+  phone?: string;
   email?: string;
   instagramHandle?: string;
   instagramUrl?: string;
@@ -36,6 +37,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     instagramUrl: s.instagramUrl || fb.site.instagramUrl,
     hours: s.hours ?? fb.site.hours,
     whatsapp: s.whatsapp ?? fb.site.whatsapp,
+    phone: s.phone ?? fb.site.phone,
     email: s.email ?? fb.site.email,
     mapEmbedUrl: s.mapEmbedUrl ?? fb.site.mapEmbedUrl,
   };
