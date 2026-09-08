@@ -16,7 +16,7 @@ studio. Domain ≈ $10–15/year.
 ```
 valeri-site/
 ├─ src/app/(site)/…      one folder per page: /, first-visit, classes, pricing,
-│                        valeri-life, book, terms, privacy  (+ not-found)
+│                        team, book, terms, privacy  (+ not-found)
 ├─ src/app/studio/…      the Sanity editor, served at /studio
 ├─ src/app/globals.css   the whole design system (colours, type, components)
 ├─ src/content.ts        placeholder content + site defaults
@@ -150,7 +150,7 @@ Log in with the same Sanity account. You'll see:
 | **Team** | One entry per instructor: name, portrait, 3-word style, "you'll love her class if…", training focus, one human detail, order. |
 | **People of VALERI** | Member stories. They only appear on the site when **Published** is on. |
 | **What's Happening** | Events with a date; past events drop off automatically. |
-| **Lately at VALERI** | Social images for the strip on Home and VALERI Life. |
+| **Lately at VALERI** | Social images for the strip on Home and the Team page. |
 
 As soon as a section has content in Sanity, the site uses it instead of the
 placeholder — no code change. Content updates appear within ~1 minute.

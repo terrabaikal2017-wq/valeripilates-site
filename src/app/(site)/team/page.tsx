@@ -12,12 +12,12 @@ import {
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
-  title: "VALERI Life",
+  title: "Team",
   description:
-    "The people behind VALERI — instructors, members and the social side of a Reformer Pilates studio in Arjan, Dubai.",
+    "Meet the instructors at VALERI — a Reformer Pilates studio in Oxford Gardens, Arjan, Dubai.",
 };
 
-export default async function ValeriLifePage() {
+export default async function TeamPage() {
   const [team, stories, events, social, settings] = await Promise.all([
     getTeam(),
     getStories(),
@@ -35,17 +35,17 @@ export default async function ValeriLifePage() {
       <section className="pagehead has-media">
         <div className="wrap">
           <div className="inner">
-            <span className="eyebrow">VALERI Life</span>
-            <h1>Life at VALERI.</h1>
+            <span className="eyebrow">Team</span>
+            <h1>Meet the people you’ll move with.</h1>
             <p className="lead">
-              The Pilates is why you come. The people are why you stay —
-              familiar faces, conversations, coffee, and progress you share.
+              Qualified instructors who coach properly and know your name.
+              This is who’s teaching at VALERI.
             </p>
           </div>
           <div className="ph">
             <Image
               src="/images/life-hero.jpg"
-              alt="VALERI members together"
+              alt="VALERI instructors"
               width={720}
               height={540}
             />
@@ -56,11 +56,9 @@ export default async function ValeriLifePage() {
       {showTeam && (
         <section className="section on-white">
           <div className="wrap">
-            <div className="tier-label">Our team</div>
-            <h2>Meet the people you’ll move with.</h2>
-            <p className="lead">
-              Qualified instructors who coach properly and know your name. Full
-              profiles go live as the team is confirmed.
+            <div className="tier-label">Instructors</div>
+            <p className="lead" style={{ marginBottom: 4 }}>
+              Full profiles go live as the team is confirmed.
             </p>
             <div className="team-grid">
               {team.map((t) => (

@@ -238,7 +238,7 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .finewrap li:first-child { border-top: 1px solid var(--line-dark); }
 .finewrap a { color: var(--accent); border-bottom: 1px solid currentColor; }
 
-/* team / stories / events / social (VALERI Life) */
+/* team / stories / events / social (Team page) */
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; margin-top: 26px; }
 .tcard { display: flex; flex-direction: column; gap: 2px; }
 .tcard .ph { aspect-ratio: 4 / 5; margin-bottom: 12px; }

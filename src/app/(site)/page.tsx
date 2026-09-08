@@ -132,13 +132,10 @@ export default async function HomePage() {
       </section>
 
       {/* LATELY AT VALERI — compact social strip */}
-      <section id="life" className="section on-sand">
+      <section id="lately" className="section on-sand">
         <div className="wrap">
           <div className="social-head">
-            <div>
-              <span className="eyebrow">VALERI Life</span>
-              <h2 style={{ marginTop: 6 }}>Lately at VALERI.</h2>
-            </div>
+            <h2>Lately at VALERI.</h2>
             <Link href={settings.instagramUrl} className="btn-ghost">
               Follow {settings.instagram}
             </Link>
@@ -153,12 +150,7 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-          <p className="mnote">
-            Studio moments as they happen.{" "}
-            <Link href="/valeri-life" style={{ color: "var(--accent)", borderBottom: "1px solid" }}>
-              More on VALERI Life →
-            </Link>
-          </p>
+          <p className="mnote">Studio moments as they happen.</p>
         </div>
       </section>
 

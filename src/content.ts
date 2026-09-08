@@ -24,7 +24,7 @@ export const nav = [
   { href: "/first-visit", label: "First Visit", key: "first" },
   { href: "/classes", label: "Classes", key: "classes" },
   { href: "/pricing", label: "Pricing", key: "pricing" },
-  { href: "/valeri-life", label: "VALERI Life", key: "life" },
+  { href: "/team", label: "Team", key: "team" },
 ];
 
 /* ---------- classes ---------- */
@@ -144,17 +144,17 @@ export const firstVisitSteps = [
   { k: "After class", h: "A quick, honest check-in", p: "How did it feel? What felt easy or hard? What would you like to work on? We help you pick the right next class or level — no hard sell." },
 ];
 
-/* ---------- VALERI Life — launch visibility ----------
-   Each section on /valeri-life shows if its flag is true OR real content
-   exists in Sanity. At launch only the Instagram strip is shown; flip a
-   flag to preview a section's layout, or just add content in the CMS. */
+/* ---------- Team page — section visibility ----------
+   Each section on /team shows if its flag is true OR real content exists
+   in Sanity. Flip a flag to preview a section's layout with placeholders,
+   or just add content in the CMS and it appears on its own. */
 export const flags = {
   showTeam: true,
   showStories: true,
   showEvents: true,
 };
 
-/* ---------- VALERI Life (placeholders, used only when a flag above is on) ---------- */
+/* ---------- Team-page placeholders (used only when a flag above is on) ---------- */
 export const team = Array.from({ length: 4 }).map((_, i) => ({
   id: `placeholder-${i + 1}`,
   placeholder: true as const,
