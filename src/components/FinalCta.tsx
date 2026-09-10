@@ -14,7 +14,7 @@ export default function FinalCta() {
           Book your first class
         </Link>
         <p className="fine">
-          Booking, schedule and your account all live in the VALERI app.
+          Book, cancel and manage everything from your VALERI account.
         </p>
       </div>
     </section>

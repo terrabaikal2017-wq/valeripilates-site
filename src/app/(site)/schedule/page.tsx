@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
@@ -15,38 +14,20 @@ export default async function SchedulePage() {
   const site = await getSiteSettings();
   return (
     <>
-      <section className="pagehead has-media">
+      <section className="pagehead compact">
         <div className="wrap">
-          <div className="inner">
-            <span className="eyebrow">Schedule</span>
-            <h1>See what&rsquo;s on. Book a time.</h1>
-            <p className="lead">
-              The live class schedule, your account, class packs and memberships
-              all run through the VALERI app. Create an account once and book
-              from your phone.
+          <div className="inner" style={{ maxWidth: "none" }}>
+            <h1>Schedule.</h1>
+            <p className="lead" style={{ fontSize: "1rem" }}>
+              See what&rsquo;s on, pick a time, book. New here? Choose “First
+              Class — AED&nbsp;80”.
             </p>
-            <p className="facts">
-              New here? Choose “First Class — AED 80” when you book
-            </p>
-            <a href="#widget" className="btn btn-fill">
-              Open the schedule
-            </a>
-          </div>
-          <div className="ph">
-            <Image
-              src="/images/book-hero.jpg"
-              alt="A VALERI Reformer class"
-              width={720}
-              height={540}
-            />
           </div>
         </div>
       </section>
 
-      <section id="widget" className="section on-white">
+      <section id="widget" className="section">
         <div className="wrap">
-          <div className="tier-label">Live schedule</div>
-          <h2>Choose a class and book.</h2>
           <GlofoxEmbed view="schedule" />
         </div>
       </section>
@@ -74,7 +55,7 @@ export default async function SchedulePage() {
           <ul>
             <li>
               Create an account once, then book, cancel and manage everything
-              from the app.
+              from your VALERI account.
             </li>
             <li>
               New to Reformer? Book a Beginner / Foundations class — no

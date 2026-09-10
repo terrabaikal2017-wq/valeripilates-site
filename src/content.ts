@@ -74,7 +74,7 @@ export const classLevels: ClassLevel[] = [
     meta: "One instructor, one client",
     blurb:
       "Built entirely around your goals, your body and your form. Good for starting from zero, working around an injury, or going deep on technique.",
-    requirement: "Book by request through the app.",
+    requirement: "Book by request.",
     image: "/images/class-4.jpg",
   },
   {
@@ -136,7 +136,7 @@ export const faq: { q: string; a: string }[] = [
   { q: "Do you have classes for teens?", a: "Not at launch." },
   { q: "I have an injury or I’m pregnant — can I still come?", a: "Tell us in your First Visit profile and speak to your instructor before class. Please get medical advice first if you have any concerns. We may ask you to complete a health declaration." },
   { q: "What if I’m running late?", a: "Please arrive before the start. For safety, you may not be able to join once class has begun — a late arrival can be treated as a late cancellation and the class credit used." },
-  { q: "How do I cancel or reschedule?", a: "Free up to 12 hours before class, from your account in the VALERI app. Inside 12 hours, the class credit is used. Missing a class without cancelling works the same way." },
+  { q: "How do I cancel or reschedule?", a: "Free up to 12 hours before class, from your VALERI account. Inside 12 hours, the class credit is used. Missing a class without cancelling works the same way." },
 ];
 
 export const firstVisitSteps = [

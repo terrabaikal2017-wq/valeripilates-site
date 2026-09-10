@@ -63,7 +63,7 @@ export default function ClassesPage() {
               <div className="cd-body">
                 <p>{c.blurb}</p>
                 <p className="req">{c.requirement}</p>
-                <Link href="/schedule">Book in the app →</Link>
+                <Link href="/schedule">Book →</Link>
               </div>
             </div>
           ))}
@@ -92,7 +92,7 @@ export default function ClassesPage() {
             <div>
               <p className="lead">
                 The live class schedule, spots, waitlists, class packs and
-                memberships all live in the VALERI app — so what you see is
+                memberships all live in your VALERI account — so what you see is
                 always current. Create an account once and book from your phone.
               </p>
               <div style={{ marginTop: 20 }}>
