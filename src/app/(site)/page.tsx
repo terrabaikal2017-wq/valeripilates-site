@@ -27,7 +27,7 @@ export default async function HomePage() {
             For real you.
           </h1>
           <p className="sub">Feel stronger. Move better. See progress.</p>
-          <Link href="/book" className="btn btn-fill">
+          <Link href="/schedule" className="btn btn-fill">
             Book your first class
           </Link>
         </div>
@@ -79,19 +79,13 @@ export default async function HomePage() {
               <div className="class-row" key={c.slug}>
                 <h3>{c.name}</h3>
                 <p>{c.blurb}</p>
-                <Link href="/book">Book →</Link>
+                <Link href="/schedule">Book →</Link>
               </div>
             ))}
           </div>
           <p className="helper">
-            New to Reformer? Start with Foundations. Not sure where you fit —{" "}
-            <Link
-              href="/book"
-              style={{ color: "var(--accent)", borderBottom: "1px solid" }}
-            >
-              message us
-            </Link>{" "}
-            and we’ll help you choose.
+            New to Reformer? Start with Foundations. Not sure where you fit —
+            message us on WhatsApp and we’ll help you choose.
           </p>
         </div>
       </section>
@@ -115,7 +109,7 @@ export default async function HomePage() {
               <span className="fineprint">
                 First-timers only. Includes 5% VAT.
               </span>
-              <Link href="/book" className="btn btn-fill">
+              <Link href="/schedule" className="btn btn-fill">
                 Book your first class
               </Link>
               <p className="alt">

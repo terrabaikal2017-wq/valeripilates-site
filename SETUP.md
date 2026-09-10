@@ -15,8 +15,8 @@ studio. Domain ≈ $10–15/year.
 
 ```
 valeri-site/
-├─ src/app/(site)/…      one folder per page: /, first-visit, classes, pricing,
-│                        team, book, terms, privacy  (+ not-found)
+├─ src/app/(site)/…      one folder per page: /, first-visit, classes, pricing, schedule,
+│                        team, terms, privacy  (+ not-found)
 ├─ src/app/studio/…      the Sanity editor, served at /studio
 ├─ src/app/globals.css   the whole design system (colours, type, components)
 ├─ src/content.ts        placeholder content + site defaults
@@ -171,7 +171,7 @@ The pages are already built for it:
 
 | Page | What appears there |
 |---|---|
-| `/book` | Glofox **schedule** block (`<GlofoxEmbed view="schedule" />`) |
+| `/schedule` | Glofox **schedule** block (`<GlofoxEmbed view="schedule" />`) |
 | `/pricing` | Glofox **pricing** block — replaces the designed cards automatically once connected |
 
 Until it's connected, both show a labelled placeholder and `/pricing` keeps the
@@ -197,7 +197,7 @@ designed cards as a preview / the pricing spec.
    ```
 2. Open `src/components/GlofoxEmbed.tsx` → the **LIVE** branch. If Glofox's
    snippet differs from the container + script pattern already there, replace
-   that block with Glofox's exact markup. `view` is `"schedule"` on /book and
+   that block with Glofox's exact markup. `view` is `"schedule"` on /schedule and
    `"pricing"` on /pricing.
 3. Redeploy. The placeholders disappear, the live blocks load, and on /pricing
    the designed cards are hidden automatically.

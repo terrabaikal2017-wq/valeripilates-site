@@ -22,7 +22,7 @@ export default function FirstVisitPage() {
               Your first class doesn’t have to be perfect. It just has to be your
               first. Here’s exactly what happens.
             </p>
-            <Link href="/book" className="btn btn-fill">
+            <Link href="/schedule" className="btn btn-fill">
               Book your first class — AED 80
             </Link>
           </div>
@@ -64,7 +64,7 @@ export default function FirstVisitPage() {
               First-timers only · includes 5% VAT · or a 3-class intro for AED 300
             </div>
           </div>
-          <Link href="/book" className="btn btn-fill">
+          <Link href="/schedule" className="btn btn-fill">
             Book your first class
           </Link>
         </div>

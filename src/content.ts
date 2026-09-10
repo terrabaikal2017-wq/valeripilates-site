@@ -24,6 +24,7 @@ export const site = {
 export const nav = [
   { href: "/first-visit", label: "First Visit", key: "first" },
   { href: "/classes", label: "Classes", key: "classes" },
+  { href: "/schedule", label: "Schedule", key: "schedule" },
   { href: "/pricing", label: "Pricing", key: "pricing" },
   { href: "/team", label: "Team", key: "team" },
 ];

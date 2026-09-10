@@ -34,7 +34,7 @@ export default function ClassesPage() {
             <p className="facts">
               50 minutes · Never more than eight · Every level welcome
             </p>
-            <Link href="/book" className="btn btn-fill">
+            <Link href="/schedule" className="btn btn-fill">
               Book your first class
             </Link>
           </div>
@@ -63,7 +63,7 @@ export default function ClassesPage() {
               <div className="cd-body">
                 <p>{c.blurb}</p>
                 <p className="req">{c.requirement}</p>
-                <Link href="/book">Book in the app →</Link>
+                <Link href="/schedule">Book in the app →</Link>
               </div>
             </div>
           ))}
@@ -96,7 +96,7 @@ export default function ClassesPage() {
                 always current. Create an account once and book from your phone.
               </p>
               <div style={{ marginTop: 20 }}>
-                <Link href="/book" className="btn btn-fill">
+                <Link href="/schedule" className="btn btn-fill">
                   Open booking
                 </Link>
               </div>
@@ -114,7 +114,7 @@ export default function ClassesPage() {
               First-timers only · includes 5% VAT · or a 3-class intro for AED 300
             </div>
           </div>
-          <Link href="/book" className="btn btn-fill">
+          <Link href="/schedule" className="btn btn-fill">
             Book your first class
           </Link>
         </div>

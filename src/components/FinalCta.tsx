@@ -7,7 +7,7 @@ export default function FinalCta() {
         <span className="where">Oxford Gardens · Arjan · Dubai</span>
         <h2>Ready to meet your Reformer?</h2>
         <Link
-          href="/book"
+          href="/schedule"
           className="btn btn-fill"
           style={{ background: "#F8F3E7", color: "var(--accent)" }}
         >

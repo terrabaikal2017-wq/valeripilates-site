@@ -50,7 +50,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="hdr-cta">
-            <Link href="/book" className="btn btn-fill">
+            <Link href="/schedule" className="btn btn-fill">
               Book
             </Link>
           </div>
@@ -85,9 +85,6 @@ export default function Header() {
             {item.label}
           </Link>
         ))}
-        <Link href="/book" className="mm-link">
-          Book
-        </Link>
         <div className="mm-foot">
           <span>Oxford Gardens · Arjan · Dubai</span>
           <span>Reformer Pilates studio</span>

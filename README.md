@@ -23,7 +23,7 @@ plus the pre-launch checklist.
 
 | Path | What |
 |---|---|
-| `src/app/(site)/*` | one folder per route: `/`, `first-visit`, `classes`, `pricing`, `team`, `book`, `terms`, `privacy` (+ `not-found`) |
+| `src/app/(site)/*` | one folder per route: `/`, `first-visit`, `classes`, `pricing`, `schedule`, `team`, `terms`, `privacy` (+ `not-found`) |
 | `src/app/studio/*` | Sanity Studio, served at `/studio` |
 | `src/app/globals.css` | the entire design system |
 | `src/content.ts` | placeholder content + site defaults (fallback) |

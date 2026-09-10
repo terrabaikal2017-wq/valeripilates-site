@@ -6,30 +6,30 @@ import FinalCta from "@/components/FinalCta";
 import GlofoxEmbed from "@/components/GlofoxEmbed";
 
 export const metadata: Metadata = {
-  title: "Book",
+  title: "Schedule",
   description:
-    "Book a Reformer Pilates class at VALERI in Arjan, Dubai. New clients start with the AED 80 first class. Booking runs through the VALERI app.",
+    "The VALERI class schedule — see what's on, pick a time and book. New clients start with the AED 80 first class. Reformer Pilates in Arjan, Dubai.",
 };
 
-export default async function BookPage() {
+export default async function SchedulePage() {
   const site = await getSiteSettings();
   return (
     <>
       <section className="pagehead has-media">
         <div className="wrap">
           <div className="inner">
-            <span className="eyebrow">Book</span>
-            <h1>Book your class.</h1>
+            <span className="eyebrow">Schedule</span>
+            <h1>See what&rsquo;s on. Book a time.</h1>
             <p className="lead">
-              Pick a class, create your account once, and you’re in. The
-              schedule, payments, class packs and memberships all run through the
-              VALERI app.
+              The live class schedule, your account, class packs and memberships
+              all run through the VALERI app. Create an account once and book
+              from your phone.
             </p>
             <p className="facts">
               New here? Choose “First Class — AED 80” when you book
             </p>
             <a href="#widget" className="btn btn-fill">
-              Open booking
+              Open the schedule
             </a>
           </div>
           <div className="ph">
