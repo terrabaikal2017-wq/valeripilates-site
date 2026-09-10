@@ -9,6 +9,8 @@ import {
   type Plan,
 } from "@/content";
 import FinalCta from "@/components/FinalCta";
+import GlofoxEmbed from "@/components/GlofoxEmbed";
+import { glofoxConfigured } from "@/lib/glofox";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -43,65 +45,80 @@ export default function PricingPage() {
               Start easy — pay less as you settle into a routine.
             </p>
             <p className="facts">All prices include 5% VAT · No lock-in</p>
-            <div className="jump">
-              <a href="#intro">New to VALERI</a>
-              <a href="#packs">Class packs</a>
-              <a href="#members">Memberships</a>
-              <a href="#private">Private &amp; semi</a>
-            </div>
+            {!glofoxConfigured && (
+              <div className="jump">
+                <a href="#intro">New to VALERI</a>
+                <a href="#packs">Class packs</a>
+                <a href="#members">Memberships</a>
+                <a href="#private">Private &amp; semi</a>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      <section id="intro" className="section">
-        <div className="wrap">
-          <div className="tier-label">New to VALERI</div>
-          <h2>Your first classes.</h2>
-          <Cards plans={introOffers} />
-          <p className="tier-note">
-            The First Class is an introductory rate for new clients — not a free
-            trial. It can be purchased once.
-          </p>
-        </div>
-      </section>
+      {/* When Glofox is connected, its pricing block replaces the designed
+          cards below. The cards double as the pricing spec until then. */}
+      {glofoxConfigured ? (
+        <section className="section">
+          <div className="wrap">
+            <GlofoxEmbed view="pricing" />
+          </div>
+        </section>
+      ) : (
+        <>
+          <section id="intro" className="section">
+            <div className="wrap">
+              <div className="tier-label">New to VALERI</div>
+              <h2>Your first classes.</h2>
+              <Cards plans={introOffers} />
+              <p className="tier-note">
+                The First Class is an introductory rate for new clients — not a
+                free trial. It can be purchased once.
+              </p>
+            </div>
+          </section>
 
-      <section id="packs" className="section">
-        <div className="wrap">
-          <div className="tier-label">Move your way</div>
-          <h2>Class packs.</h2>
-          <Cards plans={classPacks} />
-          <p className="tier-note">
-            Validity starts from your first class. Activate within 30 days of
-            purchase. Any classes left after the validity period expire.
-          </p>
-        </div>
-      </section>
+          <section id="packs" className="section">
+            <div className="wrap">
+              <div className="tier-label">Move your way</div>
+              <h2>Class packs.</h2>
+              <Cards plans={classPacks} />
+              <p className="tier-note">
+                Validity starts from your first class. Activate within 30 days of
+                purchase. Any classes left after the validity period expire.
+              </p>
+            </div>
+          </section>
 
-      <section id="members" className="section">
-        <div className="wrap">
-          <div className="tier-label">Make it your routine</div>
-          <h2>Memberships.</h2>
-          <Cards plans={memberships} />
-          <p className="tier-note">
-            If you train every week, membership is the lowest per-class rate we
-            offer. Renews automatically each month, no minimum commitment. Cancel
-            any time with 7 days’ notice before your next billing date. One
-            freeze per 12 months, up to 30 days. Unused monthly classes don’t
-            roll over.
-          </p>
-        </div>
-      </section>
+          <section id="members" className="section">
+            <div className="wrap">
+              <div className="tier-label">Make it your routine</div>
+              <h2>Memberships.</h2>
+              <Cards plans={memberships} />
+              <p className="tier-note">
+                If you train every week, membership is the lowest per-class rate
+                we offer. Renews automatically each month, no minimum commitment.
+                Cancel any time with 7 days’ notice before your next billing
+                date. One freeze per 12 months, up to 30 days. Unused monthly
+                classes don’t roll over.
+              </p>
+            </div>
+          </section>
 
-      <section id="private" className="section">
-        <div className="wrap">
-          <div className="tier-label">One-to-one</div>
-          <h2>Private &amp; semi-private.</h2>
-          <Cards plans={privateSessions} />
-          <p className="tier-note">
-            Often easiest to book at off-peak times — ask us about availability.
-          </p>
-        </div>
-      </section>
+          <section id="private" className="section">
+            <div className="wrap">
+              <div className="tier-label">One-to-one</div>
+              <h2>Private &amp; semi-private.</h2>
+              <Cards plans={privateSessions} />
+              <p className="tier-note">
+                Often easiest to book at off-peak times — ask us about
+                availability.
+              </p>
+            </div>
+          </section>
+        </>
+      )}
 
       <section className="section">
         <div className="wrap finewrap">

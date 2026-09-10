@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
+import GlofoxEmbed from "@/components/GlofoxEmbed";
 
 export const metadata: Metadata = {
   title: "Book",
@@ -46,25 +47,7 @@ export default async function BookPage() {
         <div className="wrap">
           <div className="tier-label">Live schedule</div>
           <h2>Choose a class and book.</h2>
-          {/* Integration point — platform-agnostic.
-              Replace this block with the selected provider's embed or a redirect.
-              See BOOKING_PROVIDER config when the platform (Glofox / Mindbody) is chosen. */}
-          <div className="bookbox">
-            <span className="lbl">VALERI booking · integration point</span>
-            <p>
-              This is where the live schedule, your account, class packs and
-              memberships load — from VALERI’s studio management platform (Glofox
-              or Mindbody, once selected). It can appear embedded here or open
-              directly in the app.
-            </p>
-            <p>
-              The website connects to whichever platform is chosen, and can be
-              re-connected to another later without a redesign.
-            </p>
-            <a href="#widget" className="btn btn-fill">
-              Open the VALERI app
-            </a>
-          </div>
+          <GlofoxEmbed view="schedule" />
         </div>
       </section>
 

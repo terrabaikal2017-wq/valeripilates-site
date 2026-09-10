@@ -160,7 +160,59 @@ placeholder — no code change. Content updates appear within ~1 minute.
 
 ---
 
-## 6. Before launch — checklist
+## 6. Connect Glofox (booking + payments)
+
+VALERI uses Glofox's **embedded Website Integration** — the schedule, pricing,
+account form and card payment all open in an overlay *on this site*; the visitor
+never leaves for glofox.com (the reformerypilates.com model, not the balans.ae
+"redirect to Glofox" model).
+
+The pages are already built for it:
+
+| Page | What appears there |
+|---|---|
+| `/book` | Glofox **schedule** block (`<GlofoxEmbed view="schedule" />`) |
+| `/pricing` | Glofox **pricing** block — replaces the designed cards automatically once connected |
+
+Until it's connected, both show a labelled placeholder and `/pricing` keeps the
+designed cards as a preview / the pricing spec.
+
+### 6.1 In the Glofox dashboard
+
+1. **Settings → Integrations → Website Integration** → copy the **branch id**
+   (and API key, if shown).
+2. Set the **brand colour** to VALERI denim `#3F5E86`.
+3. Create the intro pricing options:
+   - **First Class — AED 80** — new clients only, 1 use, short validity.
+   - **Intro — 3 classes, AED 300** — new clients only, valid 14 days.
+   - Plus the packs and memberships from the Pricing page.
+4. Note the exact **embed snippet** Glofox gives you on that page.
+
+### 6.2 In the code
+
+1. Add to `.env.local` and to **Vercel → Settings → Environment Variables**:
+   ```
+   NEXT_PUBLIC_GLOFOX_BRANCH_ID=your-branch-id
+   NEXT_PUBLIC_GLOFOX_API_KEY=your-api-key   # only if Glofox shows one
+   ```
+2. Open `src/components/GlofoxEmbed.tsx` → the **LIVE** branch. If Glofox's
+   snippet differs from the container + script pattern already there, replace
+   that block with Glofox's exact markup. `view` is `"schedule"` on /book and
+   `"pricing"` on /pricing.
+3. Redeploy. The placeholders disappear, the live blocks load, and on /pricing
+   the designed cards are hidden automatically.
+
+> If Glofox only offers a **redirect** (not an embed) for a given view, point
+> that page's button at the Glofox URL instead — but the embed keeps people on
+> the site and is the better experience.
+
+**Note on instructors:** keep the Team page on Sanity (rich cards). Glofox can
+list staff, but its version is plain and can't hold "you'll love her class if…"
+etc. — a downgrade for a new studio.
+
+---
+
+## 7. Before launch — checklist
 
 - [ ] **Photography** — replace every file in `public/images/` with the real
       VALERI shoot (keep the same file names, or update the paths in the page
@@ -171,10 +223,9 @@ placeholder — no code change. Content updates appear within ~1 minute.
       complete the legal review; then remove the `robots: { index: false }`
       lines in `src/app/(site)/terms/page.tsx` and `…/privacy/page.tsx` if you
       want them indexed.
-- [ ] **Booking platform** — once Glofox or Mindbody is chosen, replace the
-      `.bookbox` placeholder in `src/app/(site)/book/page.tsx` (marked
-      "integration point") with the provider's embed snippet or a redirect.
-      Also point the "Book" links at the real flow if it lives on another host.
+- [ ] **Glofox** — connect the Website Integration (section 6): set
+      `NEXT_PUBLIC_GLOFOX_BRANCH_ID`, drop the snippet into `GlofoxEmbed.tsx`,
+      configure the intro offers + brand colour in the Glofox dashboard.
 - [ ] **Domain** connected in Vercel; `NEXT_PUBLIC_SITE_URL` set to it.
 - [ ] **Footer** — the "Prototype — imagery is placeholder" line in
       `src/components/Footer.tsx` can be removed once real photos are in.
@@ -183,7 +234,7 @@ placeholder — no code change. Content updates appear within ~1 minute.
 - [ ] **Favicon / logo** — `src/app/favicon.ico` is the Next default; swap for
       the VALERI mark. There's no logo image yet, just the "VALERI" wordmark.
 
-## 7. Later (not needed for launch)
+## 8. Later (not needed for launch)
 
 - Arabic / RTL: the copy lives in `src/content.ts` and `src/legal.ts` and the
   pages are simple — add `next-intl` and an `ar` message file when needed. No
