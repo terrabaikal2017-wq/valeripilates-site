@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import { Newsreader, Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+
+// Brand wordmark face — VALERI logo is set in Insigma (modern decorative serif).
+const insigma = localFont({
+  src: "../fonts/Insigma.otf",
+  weight: "400",
+  variable: "--font-insigma",
+  display: "swap",
+});
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -47,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${bricolage.variable} ${instrument.variable}`}
+      className={`${newsreader.variable} ${bricolage.variable} ${instrument.variable} ${insigma.variable}`}
     >
       <body>{children}</body>
     </html>

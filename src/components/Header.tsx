@@ -35,8 +35,11 @@ export default function Header() {
     <>
       <header className="header">
         <div className="wrap bar">
-          <Link href="/" className="logo">
+          <Link href="/" className="logo" aria-label={`${site.name} — Pilates studio, home`}>
             {site.name}
+            <span className="logo-sub" aria-hidden>
+              pilates studio
+            </span>
           </Link>
           <nav className="nav" aria-label="Primary">
             {nav.map((item) => (
@@ -71,7 +74,12 @@ export default function Header() {
         aria-hidden={!open}
       >
         <div className="mm-top">
-          <span className="logo">{site.name}</span>
+          <span className="logo">
+            {site.name}
+            <span className="logo-sub" aria-hidden>
+              pilates studio
+            </span>
+          </span>
           <button
             className="menu-toggle"
             aria-label="Close menu"
