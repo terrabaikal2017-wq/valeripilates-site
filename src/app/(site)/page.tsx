@@ -22,9 +22,9 @@ export default async function HomePage() {
             Reformer Pilates in {settings.city}
           </span>
           <h1>
-            Real Pilates.
+            Pilates that
             <br />
-            For real you.
+            feels like you.
           </h1>
           <p className="sub">Feel stronger. Move better. See progress.</p>
           <Link href="/schedule" className="btn btn-fill">
