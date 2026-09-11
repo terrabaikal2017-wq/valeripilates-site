@@ -83,7 +83,7 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 14px; padding-bottom: 14px; }
 .logo {
   font-family: var(--display); font-weight: 400; letter-spacing: .1em;
-  font-size: 1.4rem; line-height: 1; color: var(--ink);
+  font-size: 1.4rem; line-height: 1; color: var(--accent-deep);
   display: inline-flex; flex-direction: column; gap: 3px;
 }
 .logo .logo-sub {
