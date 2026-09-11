@@ -85,12 +85,12 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 14px; padding-bottom: 14px; }
 .logo {
   font-family: var(--display); font-weight: 400; letter-spacing: .1em;
-  font-size: 1.4rem; line-height: 1; color: var(--accent-deep);
-  display: inline-flex; flex-direction: column; gap: 3px;
+  font-size: 1.75rem; line-height: 1; color: var(--accent-deep);
+  display: inline-flex; flex-direction: column; gap: 4px;
 }
 .logo .logo-sub {
-  font-family: var(--grot); font-weight: 600; font-size: .5rem;
-  letter-spacing: .34em; text-transform: lowercase; color: var(--ink-soft);
+  font-family: var(--grot); font-weight: 600; font-size: .56rem;
+  letter-spacing: .32em; text-transform: lowercase; color: var(--ink-soft);
 }
 .nav { display: flex; align-items: center; gap: 28px; }
 .nav a {
