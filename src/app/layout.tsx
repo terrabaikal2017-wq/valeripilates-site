@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
+import { Newsreader, Instrument_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -19,16 +19,12 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-bricolage",
-  display: "swap",
-});
-
+// UI voice — nav, buttons, labels and body copy all read from this one
+// humanist sans so they feel of a piece with the Newsreader headlines,
+// instead of a third, harder-edged typeface fighting the serif.
 const instrument = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-instrument",
   display: "swap",
 });
@@ -56,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${bricolage.variable} ${instrument.variable} ${insigma.variable}`}
+      className={`${newsreader.variable} ${instrument.variable} ${insigma.variable}`}
     >
       <body>{children}</body>
     </html>
