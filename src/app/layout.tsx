@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, Instrument_Sans } from "next/font/google";
+import { Fraunces, Instrument_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -11,11 +11,15 @@ const insigma = localFont({
   display: "swap",
 });
 
-const newsreader = Newsreader({
+// Headline face — soft, slightly wonky terminals, more character than a
+// plain literary serif. Variable opsz axis so it stays crisp/text-like
+// at small sizes and gets more expressive at display sizes.
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["500"],
+  weight: "variable",
   style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  axes: ["opsz"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -52,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${instrument.variable} ${insigma.variable}`}
+      className={`${fraunces.variable} ${instrument.variable} ${insigma.variable}`}
     >
       <body>{children}</body>
     </html>
