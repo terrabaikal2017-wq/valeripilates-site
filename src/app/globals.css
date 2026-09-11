@@ -174,7 +174,7 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
   display: flex; flex-direction: column; gap: 18px; align-items: flex-start;
 }
 .hero .eyebrow { color: #E7DED0; }
-.hero h1 { font-family: var(--serif); color: #FCFBF7; font-size: clamp(2.9rem, 6.2vw, 4.6rem); letter-spacing: -.02em; line-height: 1.02; text-shadow: 0 2px 30px rgba(12,9,7,.4); }
+.hero h1 { font-family: var(--serif); color: #FCFBF7; font-size: clamp(2.4rem, 4.8vw, 3.6rem); letter-spacing: -.02em; line-height: 1.05; text-shadow: 0 2px 30px rgba(12,9,7,.4); }
 .hero .sub { font-size: 1.2rem; color: #EFEBE1; text-shadow: 0 1px 14px rgba(12,9,7,.5); }
 .hero .btn-fill { margin-top: 4px; box-shadow: 0 10px 30px -12px rgba(0,0,0,.5); }
 
