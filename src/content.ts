@@ -56,7 +56,7 @@ export const classLevels: ClassLevel[] = [
     blurb:
       "Faster transitions, longer holds, more load. You’ll build real strength, control and flow once the basic repertoire feels familiar.",
     requirement:
-      "Prerequisite: a few Foundations classes or equivalent Reformer experience.",
+      "For clients who’ve done a handful of Foundations classes, or have Reformer experience elsewhere.",
     image: "/images/class-2.jpg",
   },
   {
