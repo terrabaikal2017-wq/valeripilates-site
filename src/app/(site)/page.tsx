@@ -24,7 +24,7 @@ export default async function HomePage() {
           <h1>
             Pilates that
             <br />
-            feels like you.
+            feels good.
           </h1>
           <p className="sub">Feel stronger. Move better. See progress.</p>
           <Link href="/schedule" className="btn btn-fill">
