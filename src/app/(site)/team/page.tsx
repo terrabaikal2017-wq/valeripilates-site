@@ -25,6 +25,8 @@ export default async function TeamPage() {
     getSocial(),
     getSiteSettings(),
   ]);
+  const page = settings.copy.team;
+  const { images } = settings;
 
   const showTeam = team.length > 0;
   const showStories = stories.length > 0;
@@ -35,17 +37,14 @@ export default async function TeamPage() {
       <section className="pagehead has-media">
         <div className="wrap">
           <div className="inner">
-            <span className="eyebrow">Team</span>
-            <h1>Meet the people you’ll move with.</h1>
-            <p className="lead">
-              Qualified instructors who coach properly and know your name.
-              This is who’s teaching at VALERI.
-            </p>
+            <span className="eyebrow">{page.eyebrow}</span>
+            <h1>{page.headline}</h1>
+            <p className="lead">{page.lead}</p>
           </div>
           <div className="ph">
             <Image
-              src="/images/life-hero.jpg"
-              alt="VALERI instructors"
+              src={images.teamHero.src}
+              alt={images.teamHero.alt}
               width={720}
               height={540}
             />
@@ -56,9 +55,9 @@ export default async function TeamPage() {
       {showTeam && (
         <section className="section on-white">
           <div className="wrap">
-            <div className="tier-label">Instructors</div>
+            <div className="tier-label">{page.instructorsLabel}</div>
             <p className="lead" style={{ marginBottom: 4 }}>
-              Full profiles go live as the team is confirmed.
+              {page.instructorsLead}
             </p>
             <div className="team-grid">
               {team.map((t) => (
@@ -91,12 +90,9 @@ export default async function TeamPage() {
       {showStories && (
         <section className="section on-sage">
           <div className="wrap">
-            <div className="tier-label">People of VALERI</div>
-            <h2>Real members, in their own words.</h2>
-            <p className="lead">
-              First classes, milestones, why they started, the friend they met
-              here. We publish these as members are ready to share them.
-            </p>
+            <div className="tier-label">{page.storiesLabel}</div>
+            <h2>{page.storiesHeadline}</h2>
+            <p className="lead">{page.storiesLead}</p>
             <div className="story-grid">
               {stories.map((s) => (
                 <div className="scard" key={s.id}>
@@ -111,10 +107,7 @@ export default async function TeamPage() {
                 </div>
               ))}
             </div>
-            <p className="mnote">
-              This section stays empty until real stories exist — nothing here is
-              invented.
-            </p>
+            <p className="mnote">{page.storiesNote}</p>
           </div>
         </section>
       )}
@@ -122,18 +115,11 @@ export default async function TeamPage() {
       {showEvents && (
         <section className="section on-white">
           <div className="wrap">
-            <div className="tier-label">What’s happening</div>
-            <h2>Things worth doing together.</h2>
-            <p className="lead">
-              Coffee mornings, workshops, talks, the occasional Saturday walk.
-              Confirmed monthly events show here with a date and an RSVP.
-            </p>
+            <div className="tier-label">{page.eventsLabel}</div>
+            <h2>{page.eventsHeadline}</h2>
+            <p className="lead">{page.eventsLead}</p>
             {events.length === 0 ? (
-              <div className="ecard">
-                Nothing on the calendar just yet. When an event is confirmed,
-                this is where it lives — image, date, short description and a
-                button to RSVP.
-              </div>
+              <div className="ecard">{page.eventsEmpty}</div>
             ) : (
               <div className="story-grid">
                 {events.map((e) => (
@@ -164,9 +150,9 @@ export default async function TeamPage() {
           <div className="social-head">
             <div>
               <div className="tier-label" style={{ marginBottom: 6 }}>
-                We’re social
+                {page.socialLabel}
               </div>
-              <h2>Lately at VALERI.</h2>
+              <h2>{page.socialHeadline}</h2>
             </div>
             <Link href={settings.instagramUrl} className="btn-ghost">
               Follow {settings.instagram}
@@ -179,14 +165,11 @@ export default async function TeamPage() {
               </div>
             ))}
           </div>
-          <p className="mnote">
-            A curated mix of studio posts and tagged client content, pulled from
-            Instagram.
-          </p>
+          <p className="mnote">{page.socialNote}</p>
         </div>
       </section>
 
-      <FinalCta />
+      <FinalCta settings={settings} />
     </>
   );
 }

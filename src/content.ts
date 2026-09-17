@@ -10,9 +10,25 @@ export const site = {
   legalName: "Valeri Pilates Fitness Club LLC",
   tagline: "Reformer Pilates studio",
   city: "Arjan, Dubai",
+  addressLine1: "Oxford Gardens, Arjan",
+  addressLine2: "Dubai, United Arab Emirates",
   addressLines: ["Oxford Gardens, Arjan", "Dubai, United Arab Emirates"],
+  addressShort: "Oxford Gardens · Arjan · Dubai",
   instagram: "@valeri",
   instagramUrl: "#", // TODO: real handle URL
+  logoSub: "pilates studio",
+  headerCta: "Book",
+  bookCta: "Book your first class",
+  seoTitle: "VALERI | Reformer Pilates in Arjan, Dubai",
+  seoDescription:
+    "Reformer Pilates in Oxford Gardens, Arjan — Dubai. Small classes, real coaching, every level welcome. Book your first class from AED 80.",
+  copyrightYear: "2026",
+  footerTagline: "Reformer Pilates studio",
+  footerNote: "Prototype — imagery is placeholder.",
+  showFooterNote: true,
+  legalLastUpdated: null as string | null,
+  legalDraft: true,
+  legalDraftNote: "Draft — pending final legal review before publication",
   // TODO — confirm before launch:
   hours: null as string | null,
   whatsapp: null as string | null,
@@ -20,6 +36,147 @@ export const site = {
   email: null as string | null,
   mapEmbedUrl: null as string | null,
 };
+
+export type CmsImage = { src: string; alt: string };
+
+export const images = {
+  homeHero: { src: "/images/home-hero.jpg", alt: "VALERI members after a Reformer class" },
+  belong: { src: "/images/belong.jpg", alt: "Two VALERI members, different ages, after class" },
+  classesHero: { src: "/images/classes-hero.jpg", alt: "A VALERI class" },
+  studio: { src: "/images/studio.jpg", alt: "The VALERI studio" },
+  firstVisitHero: { src: "/images/fv-hero.jpg", alt: "VALERI members together" },
+  teamHero: { src: "/images/life-hero.jpg", alt: "VALERI instructors" },
+};
+
+export const copy = {
+  home: {
+    eyebrow: "",
+    headline: "Pilates that\nfeels good.",
+    sub: "Feel stronger. Move better. See progress.",
+    cta: "Book your first class",
+    belongEyebrow: "New here? Good.",
+    belongHeadline: "Every body belongs here.",
+    belongLead1:
+      "You don’t need to be flexible. You don’t need to have tried Reformer. You don’t need a “Pilates body.” You just need to want to start.",
+    belongLead2:
+      "Come for flexibility, tone, strength, or just better energy for the week — whatever brought you, you’ll find it here. Small classes, close attention, no rush.",
+    belongSig: "Come for Pilates. Stay for how it feels.",
+    classesEyebrow: "Classes",
+    classesHeadline: "Find your class.",
+    classesNote: "Real coaching. Small classes. Never more than eight of you.",
+    classesHelper:
+      "New to Reformer? Start with Foundations. Not sure where you fit — message us on WhatsApp and we’ll help you choose.",
+    firstEyebrow: "New to VALERI",
+    firstHeadline: "Your first class starts here.",
+    firstLead:
+      "Never tried Reformer Pilates before? That’s completely fine. We’ll show you how everything works and help you feel comfortable from your very first class.",
+    firstVisitLink: "How a first visit works →",
+    firstOfferK: "Your first class",
+    firstOfferFineprint: "First-timers only. Includes 5% VAT.",
+    firstOfferAlt: "Ready for more? The 3-class intro is AED 300, valid 14 days.",
+    socialHeadline: "Lately at VALERI.",
+    socialNote: "Studio moments as they happen.",
+  },
+  classes: {
+    eyebrow: "Classes",
+    headline: "Reformer Pilates.\nYour level, your pace.",
+    lead1:
+      "One workout — Reformer Pilates — done properly: full-body strength, mobility, posture, control. What changes between classes is the pace, the load, and how much the instructor breaks things down.",
+    lead2: "You don’t need to fit yourself into a level. Start where you are and progress from there.",
+    facts: "50 minutes · Never more than eight · Every level welcome",
+    cta: "Book your first class",
+    helper: "Not sure where you fit? Message us — a real person answers, usually within the hour.",
+    bookingHeadline: "Schedule & booking",
+    bookingLead:
+      "The live class schedule, spots, waitlists, class packs and memberships all live in your VALERI account — so what you see is always current. Create an account once and book from your phone.",
+    bookingCta: "Open booking",
+  },
+  firstVisit: {
+    eyebrow: "First Visit",
+    headline: "Never tried Reformer? Come anyway.",
+    lead: "Your first class doesn’t have to be perfect. It just has to be your first. Here’s exactly what happens.",
+    cta: "Book your first class — AED 80",
+    stepsEyebrow: "How it works",
+    stepsHeadline: "Your first class, step by step.",
+    faqEyebrow: "Good to know",
+    faqHeadline: "Common questions.",
+  },
+  team: {
+    eyebrow: "Team",
+    headline: "Meet the people you’ll move with.",
+    lead: "Qualified instructors who coach properly and know your name. This is who’s teaching at VALERI.",
+    instructorsLabel: "Instructors",
+    instructorsLead: "Full profiles go live as the team is confirmed.",
+    storiesLabel: "People of VALERI",
+    storiesHeadline: "Real members, in their own words.",
+    storiesLead:
+      "First classes, milestones, why they started, the friend they met here. We publish these as members are ready to share them.",
+    storiesNote: "This section stays empty until real stories exist — nothing here is invented.",
+    eventsLabel: "What’s happening",
+    eventsHeadline: "Things worth doing together.",
+    eventsLead:
+      "Coffee mornings, workshops, talks, the occasional Saturday walk. Confirmed monthly events show here with a date and an RSVP.",
+    eventsEmpty:
+      "Nothing on the calendar just yet. When an event is confirmed, this is where it lives — image, date, short description and a button to RSVP.",
+    socialLabel: "We’re social",
+    socialHeadline: "Lately at VALERI.",
+    socialNote: "A curated mix of studio posts and tagged client content, pulled from Instagram.",
+  },
+  schedule: {
+    headline: "Schedule.",
+    lead: "See what’s on, pick a time, book. New here? Choose “First Class — AED 80”.",
+    notesLabel: "Before you book",
+    notesHeadline: "A few things to know.",
+    findUsHeadline: "Find us",
+  },
+  pricing: {
+    headline: "Pricing.",
+    lead: "Start easy — pay less as you settle into a routine.",
+    facts: "All prices include 5% VAT · No lock-in",
+    introLabel: "New to VALERI",
+    introHeadline: "Your first classes.",
+    introNote: "The First Class is an introductory rate for new clients — not a free trial. It can be purchased once.",
+    packsLabel: "Move your way",
+    packsHeadline: "Class packs.",
+    packsNote:
+      "Validity starts from your first class. Activate within 30 days of purchase. Any classes left after the validity period expire.",
+    membersLabel: "Make it your routine",
+    membersHeadline: "Memberships.",
+    membersNote:
+      "If you train every week, membership is the lowest per-class rate we offer. Renews automatically each month, no minimum commitment. Cancel any time with 7 days’ notice before your next billing date. One freeze per 12 months, up to 30 days. Unused monthly classes don’t roll over.",
+    privateLabel: "One-to-one",
+    privateHeadline: "Private & semi-private.",
+    privateNote: "Often easiest to book at off-peak times — ask us about availability.",
+    fineLabel: "Good to know",
+    fineHeadline: "The fine print.",
+    termsLink: "Terms & Conditions",
+  },
+  band: {
+    k: "New to VALERI",
+    v: "Your first class — AED 80",
+    sm: "First-timers only · includes 5% VAT · or a 3-class intro for AED 300",
+    cta: "Book your first class",
+  },
+  cta: {
+    headline: "Ready to meet your Reformer?",
+    button: "Book your first class",
+    fine: "Book, cancel and manage everything from your VALERI account.",
+  },
+};
+
+export type ScheduleNote = { text: string; linkLabel?: string; linkHref?: string };
+
+export const scheduleNotes: ScheduleNote[] = [
+  { text: "Create an account once, then book, cancel and manage everything from your VALERI account." },
+  { text: "New to Reformer? Book a Beginner / Foundations class — no experience needed." },
+  { text: "Free cancellation up to 12 hours before class. Inside 12 hours the class credit is used." },
+  {
+    text: "Grip socks are required; arrive about 10 minutes early.",
+    linkHref: "/first-visit",
+    linkLabel: "How a first visit works →",
+  },
+  { text: "All VALERI classes are currently for women." },
+];
 
 export const nav = [
   { href: "/first-visit", label: "First Visit", key: "first" },

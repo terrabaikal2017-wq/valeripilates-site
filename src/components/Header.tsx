@@ -1,11 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav, site } from "@/content";
+import { nav } from "@/content";
 
-export default function Header() {
+export default function Header({
+  name,
+  logoSub,
+  logoUrl,
+  instagram,
+  addressShort,
+  headerCta,
+  footerTagline,
+}: {
+  name: string;
+  logoSub: string;
+  logoUrl?: string;
+  instagram: string;
+  addressShort: string;
+  headerCta: string;
+  footerTagline: string;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -31,14 +48,21 @@ export default function Header() {
   const isCurrent = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
+  const Wordmark = () =>
+    logoUrl ? (
+      <Image src={logoUrl} alt={name} width={180} height={48} className="logo-img" />
+    ) : (
+      <>{name}</>
+    );
+
   return (
     <>
       <header className="header">
         <div className="wrap bar">
-          <Link href="/" className="logo" aria-label={`${site.name} — Pilates studio, home`}>
-            {site.name}
+          <Link href="/" className="logo" aria-label={`${name} — Pilates studio, home`}>
+            <Wordmark />
             <span className="logo-sub" aria-hidden>
-              pilates studio
+              {logoSub}
             </span>
           </Link>
           <nav className="nav" aria-label="Primary">
@@ -54,7 +78,7 @@ export default function Header() {
           </nav>
           <div className="hdr-cta">
             <Link href="/schedule" className="btn btn-fill">
-              Book
+              {headerCta}
             </Link>
           </div>
           <button
@@ -75,9 +99,9 @@ export default function Header() {
       >
         <div className="mm-top">
           <span className="logo">
-            {site.name}
+            <Wordmark />
             <span className="logo-sub" aria-hidden>
-              pilates studio
+              {logoSub}
             </span>
           </span>
           <button
@@ -94,9 +118,9 @@ export default function Header() {
           </Link>
         ))}
         <div className="mm-foot">
-          <span>Oxford Gardens · Arjan · Dubai</span>
-          <span>Reformer Pilates studio</span>
-          <span>{site.instagram}</span>
+          <span>{addressShort}</span>
+          <span>{footerTagline}</span>
+          <span>{instagram}</span>
         </div>
       </div>
     </>

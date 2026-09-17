@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Fraunces, Instrument_Sans } from "next/font/google";
 import localFont from "next/font/local";
+import { getSiteSettings } from "@/data";
 import "./globals.css";
 
-// Brand wordmark face — VALERI logo is set in Insigma (modern decorative serif).
 const insigma = localFont({
   src: "../fonts/Insigma.otf",
   weight: "400",
@@ -11,9 +11,6 @@ const insigma = localFont({
   display: "swap",
 });
 
-// Headline face — soft, slightly wonky terminals, more character than a
-// plain literary serif. Variable opsz axis so it stays crisp/text-like
-// at small sizes and gets more expressive at display sizes.
 const fraunces = Fraunces({
   subsets: ["latin"],
   weight: "variable",
@@ -23,9 +20,6 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-// UI voice — nav, buttons, labels and body copy all read from this one
-// humanist sans so they feel of a piece with the Newsreader headlines,
-// instead of a third, harder-edged typeface fighting the serif.
 const instrument = Instrument_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -33,22 +27,24 @@ const instrument = Instrument_Sans({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://valeri.example"),
-  title: {
-    default: "VALERI | Reformer Pilates in Arjan, Dubai",
-    template: "%s | VALERI",
-  },
-  description:
-    "Reformer Pilates in Oxford Gardens, Arjan — Dubai. Small classes, real coaching, every level welcome. Book your first class from AED 80.",
-  openGraph: {
-    title: "VALERI | Reformer Pilates in Arjan, Dubai",
-    description:
-      "Reformer Pilates in Arjan, Dubai. Small classes, real coaching, every level welcome.",
-    type: "website",
-    locale: "en_AE",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://valeripilates.com"),
+    title: {
+      default: settings.seoTitle,
+      template: `%s | ${settings.name}`,
+    },
+    description: settings.seoDescription,
+    icons: settings.faviconUrl ? { icon: settings.faviconUrl } : undefined,
+    openGraph: {
+      title: settings.seoTitle,
+      description: settings.seoDescription,
+      type: "website",
+      locale: "en_AE",
+    },
+  };
+}
 
 export default function RootLayout({
   children,

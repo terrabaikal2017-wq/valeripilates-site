@@ -10,8 +10,8 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <Link href="/" className="logo">
               {settings.name}
             </Link>
-            <p>Reformer Pilates studio</p>
-            <p>Oxford Gardens · Arjan · Dubai</p>
+            <p>{settings.footerTagline}</p>
+            <p>{settings.addressShort}</p>
           </div>
           <div className="foot-contact">
             <p className={settings.whatsapp ? undefined : "tbd"}>
@@ -28,12 +28,16 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
           </div>
         </div>
         <div className="foot-bottom">
-          <span>© 2026 {settings.legalName}</span>
+          <span>
+            © {settings.copyrightYear} {settings.legalName}
+          </span>
           <nav className="foot-legal" aria-label="Legal">
             <Link href="/terms">Terms &amp; Conditions</Link>
             <Link href="/privacy">Privacy Policy</Link>
           </nav>
-          <span className="proto">Prototype — imagery is placeholder.</span>
+          {settings.showFooterNote ? (
+            <span className="proto">{settings.footerNote}</span>
+          ) : null}
         </div>
       </div>
     </footer>

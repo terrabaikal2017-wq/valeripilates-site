@@ -1,5 +1,33 @@
+const img = (field: string) => `${field}{ "url": asset->url, "alt": alt }`;
+
 export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
-  hours, whatsapp, phone, email, instagramHandle, instagramUrl, mapEmbedUrl
+  name, legalName, tagline, city, addressLine1, addressLine2, addressShort,
+  logoSub, headerCta, bookCta, seoTitle, seoDescription, copyrightYear,
+  footerTagline, footerNote, showFooterNote,
+  hours, whatsapp, phone, email, instagramHandle, instagramUrl, mapEmbedUrl,
+  legalLastUpdated, legalDraft, legalDraftNote,
+  home, classesPage, firstVisit, teamPage, schedulePage, pricingPage, band, cta,
+  faq, firstVisitSteps, introOffers, classPacks, memberships, privateSessions, finePrint,
+  scheduleNotes,
+  "homeHero": ${img("homeHero")},
+  "belongPhoto": ${img("belongPhoto")},
+  "classesHero": ${img("classesHero")},
+  "studioPhoto": ${img("studioPhoto")},
+  "firstVisitHero": ${img("firstVisitHero")},
+  "teamHero": ${img("teamHero")},
+  "logo": logo{ "url": asset->url },
+  "favicon": favicon{ "url": asset->url }
+}`;
+
+export const CLASS_TYPES_QUERY = `*[_type == "classType"] | order(order asc, name asc){
+  "id": _id,
+  "slug": coalesce(slug.current, _id),
+  name, meta, blurb, requirement,
+  "image": image{ "url": asset->url, "alt": alt }
+}`;
+
+export const LEGAL_PAGE_QUERY = `*[_type == "legalPage" && kind == $kind][0]{
+  kind, title, lastUpdated, isDraft, intro, sections
 }`;
 
 export const TEAM_QUERY = `*[_type == "instructor"] | order(order asc, name asc){

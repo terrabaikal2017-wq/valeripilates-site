@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalDoc from "@/components/LegalDoc";
-import { privacy, privacyIntro } from "@/legal";
+import { getLegal } from "@/data";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -9,12 +9,17 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const doc = await getLegal("privacy");
   return (
     <LegalDoc
-      title="Privacy Policy"
-      intro={privacyIntro}
-      sections={privacy}
+      title={doc.title}
+      intro={doc.intro}
+      sections={doc.sections}
+      lastUpdated={doc.lastUpdated}
+      legalName={doc.legalName}
+      isDraft={doc.isDraft}
+      draftNote={doc.draftNote}
     />
   );
 }

@@ -1,61 +1,55 @@
 import Image from "next/image";
 import Link from "next/link";
-import { classLevels } from "@/content";
-import { getSocial, getSiteSettings } from "@/data";
+import { getClassLevels, getSocial, getSiteSettings } from "@/data";
+import Breaks from "@/components/Breaks";
 import FinalCta from "@/components/FinalCta";
 
 export default async function HomePage() {
-  const [social, settings] = await Promise.all([getSocial(), getSiteSettings()]);
+  const [social, settings, classLevels] = await Promise.all([
+    getSocial(),
+    getSiteSettings(),
+    getClassLevels(),
+  ]);
+  const { copy, images } = settings;
+  const home = copy.home;
   return (
     <>
-      {/* HERO */}
       <section className="hero">
         <Image
-          src="/images/home-hero.jpg"
-          alt="VALERI members after a Reformer class"
+          src={images.homeHero.src}
+          alt={images.homeHero.alt}
           fill
           priority
           sizes="100vw"
         />
         <div className="hero-inner">
           <span className="eyebrow">
-            Reformer Pilates in {settings.city}
+            {home.eyebrow || `Reformer Pilates in ${settings.city}`}
           </span>
           <h1>
-            Pilates that
-            <br />
-            feels good.
+            <Breaks text={home.headline} />
           </h1>
-          <p className="sub">Feel stronger. Move better. See progress.</p>
+          <p className="sub">{home.sub}</p>
           <Link href="/schedule" className="btn btn-fill">
-            Book your first class
+            {home.cta}
           </Link>
         </div>
       </section>
 
-      {/* EVERY BODY BELONGS HERE */}
       <section className="section on-sage">
         <div className="wrap">
           <div className="split">
             <div className="col">
-              <span className="eyebrow">New here? Good.</span>
-              <h2>Every body belongs here.</h2>
-              <p className="lead">
-                You don’t need to be flexible. You don’t need to have tried
-                Reformer. You don’t need a “Pilates body.” You just need to want
-                to start.
-              </p>
-              <p className="lead">
-                Come for flexibility, tone, strength, or just better energy for
-                the week — whatever brought you, you’ll find it here. Small
-                classes, close attention, no rush.
-              </p>
-              <p className="sig">Come for Pilates. Stay for how it feels.</p>
+              <span className="eyebrow">{home.belongEyebrow}</span>
+              <h2>{home.belongHeadline}</h2>
+              <p className="lead">{home.belongLead1}</p>
+              <p className="lead">{home.belongLead2}</p>
+              <p className="sig">{home.belongSig}</p>
             </div>
             <div className="ph belong-photo">
               <Image
-                src="/images/belong.jpg"
-                alt="Two VALERI members, different ages, after class"
+                src={images.belong.src}
+                alt={images.belong.alt}
                 width={720}
                 height={540}
               />
@@ -64,16 +58,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* CLASSES PREVIEW */}
       <section id="classes" className="section on-white">
         <div className="wrap">
           <div className="sec-head">
-            <span className="eyebrow">Classes</span>
-            <h2>Find your class.</h2>
+            <span className="eyebrow">{home.classesEyebrow}</span>
+            <h2>{home.classesHeadline}</h2>
           </div>
-          <p className="class-note">
-            Real coaching. Small classes. Never more than eight of you.
-          </p>
+          <p className="class-note">{home.classesNote}</p>
           <div className="class-list">
             {classLevels.map((c) => (
               <div className="class-row" key={c.slug}>
@@ -83,53 +74,40 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-          <p className="helper">
-            New to Reformer? Start with Foundations. Not sure where you fit —
-            message us on WhatsApp and we’ll help you choose.
-          </p>
+          <p className="helper">{home.classesHelper}</p>
         </div>
       </section>
 
-      {/* NEW TO VALERI */}
       <section id="first" className="section on-sand">
         <div className="wrap">
           <div className="split">
             <div className="col">
-              <span className="eyebrow">New to VALERI</span>
-              <h2>Your first class starts here.</h2>
-              <p className="lead">
-                Never tried Reformer Pilates before? That’s completely fine.
-                We’ll show you how everything works and help you feel comfortable
-                from your very first class.
-              </p>
+              <span className="eyebrow">{home.firstEyebrow}</span>
+              <h2>{home.firstHeadline}</h2>
+              <p className="lead">{home.firstLead}</p>
             </div>
             <div className="offer-card">
-              <span className="k">Your first class</span>
-              <span className="v">AED 80</span>
-              <span className="fineprint">
-                First-timers only. Includes 5% VAT.
-              </span>
+              <span className="k">{home.firstOfferK}</span>
+              <span className="v">{settings.introOffers[0]?.amount ?? "AED 80"}</span>
+              <span className="fineprint">{home.firstOfferFineprint}</span>
               <Link href="/schedule" className="btn btn-fill">
-                Book your first class
+                {home.cta}
               </Link>
               <p className="alt">
-                Ready for more? The{" "}
-                <Link href="/pricing">3-class intro is AED 300</Link>, valid 14
-                days.
+                <Link href="/pricing">{home.firstOfferAlt}</Link>
               </p>
               <Link href="/first-visit" className="btn-ghost">
-                How a first visit works →
+                {home.firstVisitLink}
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* LATELY AT VALERI — compact social strip */}
       <section id="lately" className="section">
         <div className="wrap">
           <div className="social-head">
-            <h2>Lately at VALERI.</h2>
+            <h2>{home.socialHeadline}</h2>
             <Link href={settings.instagramUrl} className="btn-ghost">
               Follow {settings.instagram}
             </Link>
@@ -144,11 +122,11 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-          <p className="mnote">Studio moments as they happen.</p>
+          <p className="mnote">{home.socialNote}</p>
         </div>
       </section>
 
-      <FinalCta />
+      <FinalCta settings={settings} />
     </>
   );
 }

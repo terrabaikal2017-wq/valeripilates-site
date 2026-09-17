@@ -10,11 +10,19 @@ export default async function SiteLayout({
   const settings = await getSiteSettings();
   return (
     <>
-      <Header />
+      <Header
+        name={settings.name}
+        logoSub={settings.logoSub}
+        logoUrl={settings.logoUrl}
+        instagram={settings.instagram}
+        addressShort={settings.addressShort}
+        headerCta={settings.headerCta}
+        footerTagline={settings.footerTagline}
+      />
       <main>{children}</main>
       <Footer settings={settings} />
       <FloatingContact settings={settings} />
-      <MobileBook />
+      <MobileBook label={settings.bookCta} />
     </>
   );
 }

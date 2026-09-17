@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { faq, firstVisitSteps } from "@/content";
+import { getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
 
 export const metadata: Metadata = {
@@ -10,26 +10,28 @@ export const metadata: Metadata = {
     "Never tried Reformer? Here’s exactly what happens on your first visit to VALERI — before, during and after class — plus the answers to the common questions.",
 };
 
-export default function FirstVisitPage() {
+export default async function FirstVisitPage() {
+  const settings = await getSiteSettings();
+  const { copy, images, faq, firstVisitSteps } = settings;
+  const page = copy.firstVisit;
+  const band = copy.band;
+
   return (
     <>
       <section className="pagehead has-media">
         <div className="wrap">
           <div className="inner">
-            <span className="eyebrow">First Visit</span>
-            <h1>Never tried Reformer? Come anyway.</h1>
-            <p className="lead">
-              Your first class doesn’t have to be perfect. It just has to be your
-              first. Here’s exactly what happens.
-            </p>
+            <span className="eyebrow">{page.eyebrow}</span>
+            <h1>{page.headline}</h1>
+            <p className="lead">{page.lead}</p>
             <Link href="/schedule" className="btn btn-fill">
-              Book your first class — AED 80
+              {page.cta}
             </Link>
           </div>
           <div className="ph">
             <Image
-              src="/images/fv-hero.jpg"
-              alt="VALERI members together"
+              src={images.firstVisitHero.src}
+              alt={images.firstVisitHero.alt}
               width={720}
               height={540}
             />
@@ -40,12 +42,12 @@ export default function FirstVisitPage() {
       <section className="section on-white">
         <div className="wrap">
           <div className="sec-head">
-            <span className="eyebrow">How it works</span>
-            <h2>Your first class, step by step.</h2>
+            <span className="eyebrow">{page.stepsEyebrow}</span>
+            <h2>{page.stepsHeadline}</h2>
           </div>
           <div className="steps">
-            {firstVisitSteps.map((s) => (
-              <div className="step" key={s.k}>
+            {firstVisitSteps.map((s, i) => (
+              <div className="step" key={`${s.k}-${i}`}>
                 <div className="k">{s.k}</div>
                 <h3>{s.h}</h3>
                 <p>{s.p}</p>
@@ -58,14 +60,12 @@ export default function FirstVisitPage() {
       <section className="section band">
         <div className="wrap">
           <div>
-            <div className="k">New to VALERI</div>
-            <div className="v">Your first class — AED 80</div>
-            <div className="sm">
-              First-timers only · includes 5% VAT · or a 3-class intro for AED 300
-            </div>
+            <div className="k">{band.k}</div>
+            <div className="v">{band.v}</div>
+            <div className="sm">{band.sm}</div>
           </div>
           <Link href="/schedule" className="btn btn-fill">
-            Book your first class
+            {band.cta}
           </Link>
         </div>
       </section>
@@ -73,8 +73,8 @@ export default function FirstVisitPage() {
       <section className="section">
         <div className="wrap">
           <div className="sec-head">
-            <span className="eyebrow">Good to know</span>
-            <h2>Common questions.</h2>
+            <span className="eyebrow">{page.faqEyebrow}</span>
+            <h2>{page.faqHeadline}</h2>
           </div>
           <div className="faq">
             {faq.map((f) => (
@@ -87,7 +87,7 @@ export default function FirstVisitPage() {
         </div>
       </section>
 
-      <FinalCta />
+      <FinalCta settings={settings} />
     </>
   );
 }

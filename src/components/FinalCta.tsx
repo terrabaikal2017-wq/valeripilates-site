@@ -1,21 +1,21 @@
 import Link from "next/link";
+import type { SiteSettings } from "@/data";
 
-export default function FinalCta() {
+export default function FinalCta({ settings }: { settings: SiteSettings }) {
+  const { copy } = settings;
   return (
     <section className="section on-accent final">
       <div className="wrap">
-        <span className="where">Oxford Gardens · Arjan · Dubai</span>
-        <h2>Ready to meet your Reformer?</h2>
+        <span className="where">{settings.addressShort}</span>
+        <h2>{copy.cta.headline}</h2>
         <Link
           href="/schedule"
           className="btn btn-fill"
           style={{ background: "#F8F3E7", color: "var(--accent)" }}
         >
-          Book your first class
+          {copy.cta.button}
         </Link>
-        <p className="fine">
-          Book, cancel and manage everything from your VALERI account.
-        </p>
+        <p className="fine">{copy.cta.fine}</p>
       </div>
     </section>
   );

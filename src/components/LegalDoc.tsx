@@ -29,10 +29,18 @@ export default function LegalDoc({
   title,
   intro,
   sections,
+  lastUpdated,
+  legalName,
+  isDraft,
+  draftNote,
 }: {
   title: string;
   intro: string;
   sections: LegalSection[];
+  lastUpdated: string;
+  legalName: string;
+  isDraft: boolean;
+  draftNote: string;
 }) {
   return (
     <>
@@ -47,11 +55,9 @@ export default function LegalDoc({
       <section className="section">
         <div className="wrap legal">
           <p className="metaline">
-            Valeri Pilates Fitness Club LLC · Last updated: [DATE]
+            {legalName} · Last updated: {lastUpdated}
           </p>
-          <span className="draftnote">
-            Draft — pending final legal review before publication
-          </span>
+          {isDraft ? <span className="draftnote">{draftNote}</span> : null}
           <p className="lead-intro">{intro}</p>
           {sections.map((s, i) => (
             <div key={s.id}>

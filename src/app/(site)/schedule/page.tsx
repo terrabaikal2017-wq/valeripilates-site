@@ -12,15 +12,16 @@ export const metadata: Metadata = {
 
 export default async function SchedulePage() {
   const site = await getSiteSettings();
+  const page = site.copy.schedule;
+  const band = site.copy.band;
   return (
     <>
       <section className="pagehead compact">
         <div className="wrap">
           <div className="inner" style={{ maxWidth: "none" }}>
-            <h1>Schedule.</h1>
+            <h1>{page.headline}</h1>
             <p className="lead" style={{ fontSize: "1rem" }}>
-              See what&rsquo;s on, pick a time, book. New here? Choose “First
-              Class — AED&nbsp;80”.
+              {page.lead}
             </p>
           </div>
         </div>
@@ -35,41 +36,34 @@ export default async function SchedulePage() {
       <section className="section band">
         <div className="wrap">
           <div>
-            <div className="k">New to VALERI</div>
-            <div className="v">Your first class — AED 80</div>
+            <div className="k">{band.k}</div>
+            <div className="v">{band.v}</div>
             <div className="sm">
-              First-timers only · includes 5% VAT · or a 3-class intro for AED 300
-              · <Link href="/pricing">see pricing</Link>
+              {band.sm} · <Link href="/pricing">see pricing</Link>
             </div>
           </div>
           <a href="#widget" className="btn btn-fill">
-            Book your first class
+            {band.cta}
           </a>
         </div>
       </section>
 
       <section className="section on-white">
         <div className="wrap finewrap">
-          <div className="tier-label">Before you book</div>
-          <h2>A few things to know.</h2>
+          <div className="tier-label">{page.notesLabel}</div>
+          <h2>{page.notesHeadline}</h2>
           <ul>
-            <li>
-              Create an account once, then book, cancel and manage everything
-              from your VALERI account.
-            </li>
-            <li>
-              New to Reformer? Book a Beginner / Foundations class — no
-              experience needed.
-            </li>
-            <li>
-              Free cancellation up to 12 hours before class. Inside 12 hours the
-              class credit is used.
-            </li>
-            <li>
-              Grip socks are required; arrive about 10 minutes early.{" "}
-              <Link href="/first-visit">How a first visit works →</Link>
-            </li>
-            <li>All VALERI classes are currently for women.</li>
+            {site.scheduleNotes.map((note, i) => (
+              <li key={i}>
+                {note.text}
+                {note.linkHref && note.linkLabel ? (
+                  <>
+                    {" "}
+                    <Link href={note.linkHref}>{note.linkLabel}</Link>
+                  </>
+                ) : null}
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -77,13 +71,13 @@ export default async function SchedulePage() {
       <section className="section on-sage">
         <div className="wrap">
           <div className="split">
-            <h2>Find us</h2>
+            <h2>{page.findUsHeadline}</h2>
             <div>
               <div className="addr">
                 <p className="big">
-                  Oxford Gardens, Arjan
+                  {site.addressLine1}
                   <br />
-                  Dubai, United Arab Emirates
+                  {site.addressLine2}
                 </p>
                 <p className={site.hours ? undefined : "tbd"}>
                   {site.hours ?? "Opening hours — to confirm"}
@@ -118,7 +112,7 @@ export default async function SchedulePage() {
         </div>
       </section>
 
-      <FinalCta />
+      <FinalCta settings={site} />
     </>
   );
 }

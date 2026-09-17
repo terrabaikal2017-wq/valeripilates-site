@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalDoc from "@/components/LegalDoc";
-import { terms, termsIntro } from "@/legal";
+import { getLegal } from "@/data";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -9,8 +9,17 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-export default function TermsPage() {
+export default async function TermsPage() {
+  const doc = await getLegal("terms");
   return (
-    <LegalDoc title="Terms & Conditions" intro={termsIntro} sections={terms} />
+    <LegalDoc
+      title={doc.title}
+      intro={doc.intro}
+      sections={doc.sections}
+      lastUpdated={doc.lastUpdated}
+      legalName={doc.legalName}
+      isDraft={doc.isDraft}
+      draftNote={doc.draftNote}
+    />
   );
 }
