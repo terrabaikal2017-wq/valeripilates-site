@@ -15,13 +15,15 @@ export default async function HomePage() {
   return (
     <>
       <section className="hero">
-        <Image
-          src={images.homeHero.src}
-          alt={images.homeHero.alt}
-          fill
-          priority
-          sizes="100vw"
-        />
+        <div className="hero-media">
+          <Image
+            src={images.homeHero.src}
+            alt={images.homeHero.alt}
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
         <div className="hero-inner">
           <span className="eyebrow">
             {home.eyebrow || `Reformer Pilates in ${settings.city}`}
@@ -38,13 +40,10 @@ export default async function HomePage() {
 
       <section className="section on-sage">
         <div className="wrap">
-          <div className="split">
-            <div className="col">
+          <div className="split belong-split">
+            <div className="belong-intro">
               <span className="eyebrow">{home.belongEyebrow}</span>
               <h2>{home.belongHeadline}</h2>
-              <p className="lead">{home.belongLead1}</p>
-              <p className="lead">{home.belongLead2}</p>
-              <p className="sig">{home.belongSig}</p>
             </div>
             <div className="ph belong-photo">
               <Image
@@ -53,6 +52,11 @@ export default async function HomePage() {
                 width={720}
                 height={540}
               />
+            </div>
+            <div className="belong-body">
+              <p className="lead">{home.belongLead1}</p>
+              <p className="lead">{home.belongLead2}</p>
+              <p className="sig">{home.belongSig}</p>
             </div>
           </div>
         </div>
@@ -112,10 +116,7 @@ export default async function HomePage() {
               Follow {settings.instagram}
             </Link>
           </div>
-          <div
-            className="social-grid"
-            style={{ gridTemplateColumns: "repeat(5,1fr)" }}
-          >
+          <div className="social-grid">
             {social.slice(0, 5).map((s) => (
               <div className="ph" key={s.id}>
                 <Image src={s.url} alt={s.caption ?? ""} width={400} height={400} />
