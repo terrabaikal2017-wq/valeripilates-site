@@ -20,13 +20,9 @@ export default async function FirstVisitPage() {
     <>
       <section className="pagehead has-media">
         <div className="wrap">
-          <div className="inner">
+          <div className="inner pagehead-intro">
             <span className="eyebrow">{page.eyebrow}</span>
             <h1>{page.headline}</h1>
-            <p className="lead">{page.lead}</p>
-            <Link href="/schedule" className="btn btn-fill">
-              {page.cta}
-            </Link>
           </div>
           <div className="ph">
             <Image
@@ -35,6 +31,12 @@ export default async function FirstVisitPage() {
               width={720}
               height={540}
             />
+          </div>
+          <div className="inner pagehead-body">
+            <p className="lead">{page.lead}</p>
+            <Link href="/schedule" className="btn btn-fill">
+              {page.cta}
+            </Link>
           </div>
         </div>
       </section>

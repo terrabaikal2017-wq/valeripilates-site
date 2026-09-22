@@ -21,17 +21,11 @@ export default async function ClassesPage() {
     <>
       <section className="pagehead has-media">
         <div className="wrap">
-          <div className="inner">
+          <div className="inner pagehead-intro">
             <span className="eyebrow">{page.eyebrow}</span>
             <h1>
               <Breaks text={page.headline} />
             </h1>
-            <p className="lead">{page.lead1}</p>
-            <p className="lead">{page.lead2}</p>
-            <p className="facts">{page.facts}</p>
-            <Link href="/schedule" className="btn btn-fill">
-              {page.cta}
-            </Link>
           </div>
           <div className="ph">
             <Image
@@ -40,6 +34,14 @@ export default async function ClassesPage() {
               width={720}
               height={540}
             />
+          </div>
+          <div className="inner pagehead-body">
+            <p className="lead">{page.lead1}</p>
+            <p className="lead">{page.lead2}</p>
+            <p className="facts">{page.facts}</p>
+            <Link href="/schedule" className="btn btn-fill">
+              {page.cta}
+            </Link>
           </div>
         </div>
       </section>
