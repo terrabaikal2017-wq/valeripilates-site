@@ -11,11 +11,18 @@ export const metadata: Metadata = {
     "Reformer Pilates at VALERI — Beginner to Advanced, plus Private and Semi-private. Every class is 50 minutes and capped at eight. Start where you’re comfortable.",
 };
 
+function imageSize(src: string, fallback: { width: number; height: number }) {
+  const match = src.match(/-(\d+)x(\d+)\.[a-z]+(?:\?|$)/i);
+  if (!match) return fallback;
+  return { width: Number(match[1]), height: Number(match[2]) };
+}
+
 export default async function ClassesPage() {
   const [classLevels, settings] = await Promise.all([getClassLevels(), getSiteSettings()]);
   const { copy, images } = settings;
   const page = copy.classes;
   const band = copy.band;
+  const bandSize = imageSize(images.studio.src, { width: 1600, height: 2000 });
 
   return (
     <>
@@ -75,13 +82,17 @@ export default async function ClassesPage() {
       </section>
 
       <figure className="imgband">
-        <div className="ph">
-          <Image
-            src={images.studio.src}
-            alt={images.studio.alt}
-            width={1600}
-            height={686}
-          />
+        <div className="wrap">
+          <div className="ph">
+            <Image
+              src={images.studio.src}
+              alt={images.studio.alt}
+              width={bandSize.width}
+              height={bandSize.height}
+              sizes="(max-width: 860px) 100vw, 520px"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
         </div>
       </figure>
 
