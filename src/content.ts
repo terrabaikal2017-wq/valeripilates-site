@@ -342,6 +342,15 @@ export const team = [
     offReformer: "Always has a book in her bag.",
     photoUrl: "/images/instructors/priya.jpg",
   },
+  {
+    id: "nia-adeyemi",
+    name: "Nia Adeyemi",
+    style: "Quiet · Exact · Steady",
+    loveIf: "you like a class that stays calm, even when the springs get heavier.",
+    focus: "Core and balance",
+    offReformer: "Keeps a lemon tree on the balcony.",
+    photoUrl: "/images/instructors/nia.jpg",
+  },
 ];
 
 export const stories = [
