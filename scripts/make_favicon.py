@@ -52,27 +52,39 @@ def write_svg(path: Path, size: int = 32) -> None:
     path.write_text(svg, encoding="utf-8")
 
 
-def render_png(size: int) -> Image.Image:
-    img = Image.new("RGB", (size, size), PAPER_RGB)
+def render_png(size: int, *, rounded: bool) -> Image.Image:
+    # Next.js rejects ICO frames whose embedded PNG is RGB. Keep every size RGBA.
+    denim = (*ACCENT_DEEP_RGB, 255)
+    img = Image.new("RGBA", (size, size), denim if not rounded else (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
-    radius = int(size * 0.22)
-    draw.rounded_rectangle((0, 0, size - 1, size - 1), radius=radius, fill=ACCENT_DEEP_RGB)
+    if rounded:
+        radius = max(1, int(round(size * 0.22)))
+        draw.rounded_rectangle((0, 0, size - 1, size - 1), radius=radius, fill=denim)
     font = ImageFont.truetype(str(FONT_PATH), int(size * 0.68))
     cx, cy = size / 2, size / 2 + size * 0.03
-    draw.text((cx, cy), "V", font=font, fill=PAPER_RGB, anchor="mm")
+    draw.text((cx, cy), "V", font=font, fill=(*PAPER_RGB, 255), anchor="mm")
     return img
+
+
+def save_ico(path: Path, sizes: list[int]) -> None:
+    frames = {size: render_png(size, rounded=True) for size in sizes}
+    # Pillow drops any size larger than the image passed as `im`.
+    largest = max(sizes)
+    frames[largest].save(
+        path,
+        format="ICO",
+        sizes=[(size, size) for size in sizes],
+        append_images=[frames[size] for size in sizes if size != largest],
+    )
 
 
 def main() -> None:
     APP.mkdir(parents=True, exist_ok=True)
     write_svg(APP / "icon.svg")
 
-    render_png(180).save(APP / "apple-icon.png", "PNG", optimize=True)
-
-    render_png(256).save(
-        APP / "favicon.ico",
-        sizes=[(16, 16), (32, 32), (48, 48)],
-    )
+    # iOS masks the touch icon itself; a full-bleed square avoids black corners.
+    render_png(180, rounded=False).save(APP / "apple-icon.png", "PNG", optimize=True)
+    save_ico(APP / "favicon.ico", [16, 32, 48, 256])
     print("wrote", APP / "icon.svg")
     print("wrote", APP / "apple-icon.png")
     print("wrote", APP / "favicon.ico")
