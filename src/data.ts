@@ -48,6 +48,13 @@ function img(row: Img, fallback: fb.CmsImage): fb.CmsImage {
   return fallback;
 }
 
+function gallery(rows: Img[] | null | undefined, fallback: fb.CmsImage[]): fb.CmsImage[] {
+  const items = (rows ?? [])
+    .filter((row) => row?.url)
+    .map((row) => ({ src: row!.url as string, alt: row?.alt?.trim() || "The VALERI studio" }));
+  return items.length ? items : fallback;
+}
+
 function formatDate(iso?: string | null): string | null {
   if (!iso) return null;
   const d = new Date(iso.length === 10 ? `${iso}T00:00:00` : iso);
@@ -115,6 +122,7 @@ type SettingsRow = {
   belongPhoto?: Img;
   classesHero?: Img;
   studioPhoto?: Img;
+  studioGallery?: Img[] | null;
   firstVisitHero?: Img;
   teamHero?: Img;
   logo?: Img;
@@ -190,6 +198,7 @@ function mapSettings(s: SettingsRow | null): SiteSettings {
       belong: img(s.belongPhoto, fb.images.belong),
       classesHero: img(s.classesHero, fb.images.classesHero),
       studio: img(s.studioPhoto, fb.images.studio),
+      studioGallery: gallery(s.studioGallery, fb.images.studioGallery),
       firstVisitHero: img(s.firstVisitHero, fb.images.firstVisitHero),
       teamHero: img(s.teamHero, fb.images.teamHero),
     },

@@ -267,20 +267,57 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .split .col .btn { margin-top: 4px; }
 .split h2.sticky { position: sticky; top: 88px; }
 
-/* image band */
+/* image band — a short gallery. Each photo keeps its own ratio. */
 .imgband { position: relative; padding: 8px 0 var(--gap); }
-.imgband .ph {
-  margin: 0 auto;
-  max-width: min(100%, 520px);
-  aspect-ratio: auto;
+.gallery { position: relative; }
+.gallery:has(.gallery-nav) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+.shot-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: safe center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 44px;
+  padding: 2px 0 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-dark) transparent;
+}
+.shot-row:focus-visible { outline: none; }
+.shot-row img {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: auto;
+  height: auto;
+  max-height: min(48vh, 420px);
+  max-width: min(62vw, 620px);
+  object-fit: contain;
+  border-radius: 16px;
   background: var(--sage-bg);
 }
-.imgband .ph img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
+.gallery-nav {
+  position: static;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--line-dark);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 2px;
 }
+.gallery-nav:hover { border-color: var(--ink); }
 .imgband figcaption { max-width: var(--wrap); margin: 12px auto 0; padding: 0 clamp(20px, 5vw, 44px); font-size: .82rem; color: var(--ink-soft); }
 
 /* home: merged belonging section handled by .split */
@@ -498,7 +535,10 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
     grid-row: auto;
   }
   .pagehead.has-media .ph { aspect-ratio: 4 / 3; }
-  .imgband .ph { aspect-ratio: auto; }
+  .gallery:has(.gallery-nav) { display: block; }
+  .gallery-nav { display: none; }
+  .shot-row { justify-content: flex-start; scroll-padding-inline: 0; }
+  .shot-row img { max-height: min(52vh, 420px); max-width: 88vw; }
   .cd { grid-template-columns: 110px 1fr; gap: 12px 20px; }
   .cd > .cd-body { grid-column: 1 / -1; }
   .cd > .cd-head { align-self: center; }

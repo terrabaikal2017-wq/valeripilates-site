@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getClassLevels, getSiteSettings } from "@/data";
 import Breaks from "@/components/Breaks";
 import FinalCta from "@/components/FinalCta";
+import PhotoGallery from "@/components/PhotoGallery";
 
 export const metadata: Metadata = {
   title: "Classes",
@@ -11,10 +12,13 @@ export const metadata: Metadata = {
     "Reformer Pilates at VALERI — Beginner to Advanced, plus Private and Semi-private. Every class is 50 minutes and capped at eight. Start where you’re comfortable.",
 };
 
-function imageSize(src: string, fallback: { width: number; height: number }) {
-  const match = src.match(/-(\d+)x(\d+)\.[a-z]+(?:\?|$)/i);
-  if (!match) return fallback;
-  return { width: Number(match[1]), height: Number(match[2]) };
+function galleryImages(primary: { src: string; alt: string }, extra: { src: string; alt: string }[]) {
+  const seen = new Set<string>();
+  return [primary, ...extra].filter((image) => {
+    if (!image.src || seen.has(image.src)) return false;
+    seen.add(image.src);
+    return true;
+  });
 }
 
 export default async function ClassesPage() {
@@ -22,7 +26,7 @@ export default async function ClassesPage() {
   const { copy, images } = settings;
   const page = copy.classes;
   const band = copy.band;
-  const bandSize = imageSize(images.studio.src, { width: 1600, height: 2000 });
+  const gallery = galleryImages(images.studio, images.studioGallery);
 
   return (
     <>
@@ -83,16 +87,7 @@ export default async function ClassesPage() {
 
       <figure className="imgband">
         <div className="wrap">
-          <div className="ph">
-            <Image
-              src={images.studio.src}
-              alt={images.studio.alt}
-              width={bandSize.width}
-              height={bandSize.height}
-              sizes="(max-width: 860px) 100vw, 520px"
-              style={{ width: "100%", height: "auto" }}
-            />
-          </div>
+          <PhotoGallery images={gallery} />
         </div>
       </figure>
 

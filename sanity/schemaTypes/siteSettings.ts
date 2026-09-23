@@ -96,6 +96,20 @@ export const siteSettings = defineType({
     photo("belongPhoto", "“Every body belongs here” photo", "photos"),
     photo("classesHero", "Classes page photo", "photos"),
     photo("studioPhoto", "Studio band (classes page)", "photos"),
+    defineField({
+      name: "studioGallery",
+      title: "Studio gallery (classes page)",
+      type: "array",
+      group: "photos",
+      description: "More photos beside the studio photo. Each keeps its own shape. Leave empty to keep the current set.",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [defineField({ name: "alt", title: "Alt text", type: "string" })],
+        },
+      ],
+    }),
     photo("firstVisitHero", "First Visit page photo", "photos"),
     photo("teamHero", "Team page photo", "photos"),
 

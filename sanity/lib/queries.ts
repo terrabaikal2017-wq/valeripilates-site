@@ -13,6 +13,7 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   "belongPhoto": ${img("belongPhoto")},
   "classesHero": ${img("classesHero")},
   "studioPhoto": ${img("studioPhoto")},
+  "studioGallery": studioGallery[]{ "url": asset->url, "alt": alt },
   "firstVisitHero": ${img("firstVisitHero")},
   "teamHero": ${img("teamHero")},
   "logo": logo{ "url": asset->url },

@@ -44,6 +44,9 @@ export const images = {
   belong: { src: "/images/belong.jpg", alt: "Two VALERI members, different ages, after class" },
   classesHero: { src: "/images/classes-hero.jpg", alt: "A VALERI class" },
   studio: { src: "/images/studio.jpg", alt: "The VALERI studio" },
+  studioGallery: [
+    { src: "/images/pilates-studio-landscape.jpg", alt: "VALERI members in the studio" },
+  ],
   firstVisitHero: { src: "/images/fv-hero.jpg", alt: "VALERI members together" },
   teamHero: { src: "/images/life-hero.jpg", alt: "VALERI instructors" },
 };
