@@ -106,7 +106,7 @@ export const copy = {
     headline: "Meet the people you’ll move with.",
     lead: "Qualified instructors who coach properly and know your name. This is who’s teaching at VALERI.",
     instructorsLabel: "Instructors",
-    instructorsLead: "Full profiles go live as the team is confirmed.",
+    instructorsLead: "The trial teaching team — you’ll meet one of them on your first visit.",
     storiesLabel: "People of VALERI",
     storiesHeadline: "Real members, in their own words.",
     storiesLead:
@@ -314,15 +314,35 @@ export const flags = {
 };
 
 /* ---------- Team-page placeholders (used only when a flag above is on) ---------- */
-export const team = Array.from({ length: 4 }).map((_, i) => ({
-  id: `placeholder-${i + 1}`,
-  placeholder: true as const,
-  name: "[ Instructor name ]",
-  style: "[ Three-word teaching style ]",
-  loveIf: "[ one honest line ]",
-  focus: "[ e.g. strength & alignment ]",
-  offReformer: "[ one human detail ]",
-}));
+export const team = [
+  {
+    id: "amira-khalil",
+    name: "Amira Khalil",
+    style: "Calm · Clear · Kind",
+    loveIf: "you want to feel guided, not rushed, especially on a first visit.",
+    focus: "Foundations and alignment",
+    offReformer: "Makes cardamom coffee before the early class.",
+    photoUrl: "/images/instructors/amira.jpg",
+  },
+  {
+    id: "elena-moreau",
+    name: "Elena Moreau",
+    style: "Strong · Precise · Warm",
+    loveIf: "you came to actually feel stronger, not just stretched.",
+    focus: "Strength and control",
+    offReformer: "Sunday swims, always.",
+    photoUrl: "/images/instructors/elena.jpg",
+  },
+  {
+    id: "priya-shah",
+    name: "Priya Shah",
+    style: "Patient · Upbeat · Grounded",
+    loveIf: "you’re coming back after a long break and want to start gently.",
+    focus: "Mobility and posture",
+    offReformer: "Always has a book in her bag.",
+    photoUrl: "/images/instructors/priya.jpg",
+  },
+];
 
 export const stories = [
   { format: "Format", title: "My first 50 classes", excerpt: "[ A short member story — what changed over the first fifty. Name and photo with permission. ]", placeholder: true as const },
