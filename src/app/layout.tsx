@@ -29,14 +29,13 @@ const instrument = Instrument_Sans({
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
-  return {
+  const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://valeripilates.com"),
     title: {
       default: settings.seoTitle,
       template: `%s | ${settings.name}`,
     },
     description: settings.seoDescription,
-    icons: settings.faviconUrl ? { icon: settings.faviconUrl } : undefined,
     openGraph: {
       title: settings.seoTitle,
       description: settings.seoDescription,
@@ -44,6 +43,8 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "en_AE",
     },
   };
+  if (settings.faviconUrl) metadata.icons = { icon: settings.faviconUrl };
+  return metadata;
 }
 
 export default function RootLayout({
