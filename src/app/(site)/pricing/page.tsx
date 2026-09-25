@@ -4,7 +4,7 @@ import type { Plan } from "@/content";
 import { getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
 import GlofoxEmbed from "@/components/GlofoxEmbed";
-import { glofoxConfigured } from "@/lib/glofox";
+import { glofoxPortalSrc } from "@/lib/glofox";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -31,6 +31,7 @@ function Cards({ plans }: { plans: Plan[] }) {
 export default async function PricingPage() {
   const settings = await getSiteSettings();
   const page = settings.copy.pricing;
+  const pricingEmbed = glofoxPortalSrc("pricing");
 
   return (
     <div className="pricing-page">
@@ -42,7 +43,7 @@ export default async function PricingPage() {
               {page.lead}
             </p>
             <p className="facts">{page.facts}</p>
-            {!glofoxConfigured && (
+            {!pricingEmbed && (
               <div className="jump">
                 <a href="#intro">New to VALERI</a>
                 <a href="#packs">Class packs</a>
@@ -54,7 +55,7 @@ export default async function PricingPage() {
         </div>
       </section>
 
-      {glofoxConfigured ? (
+      {pricingEmbed ? (
         <section className="section">
           <div className="wrap">
             <GlofoxEmbed view="pricing" />
