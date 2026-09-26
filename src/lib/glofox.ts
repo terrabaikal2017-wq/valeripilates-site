@@ -6,7 +6,7 @@
  * An env override still wins.
  */
 export const glofoxBranchId =
-  process.env.NEXT_PUBLIC_GLOFOX_BRANCH_ID || "65d88c1db867ca6016069ce5";
+  process.env.NEXT_PUBLIC_GLOFOX_BRANCH_ID || "6aa265e5f7b008830e086b56";
 
 /** Path and frame suffix, exactly as Glofox generated them. */
 const PORTALS = {
