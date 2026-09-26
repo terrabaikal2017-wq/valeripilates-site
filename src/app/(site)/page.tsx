@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getClassLevels, getSocial, getSiteSettings } from "@/data";
 import Breaks from "@/components/Breaks";
 import FinalCta from "@/components/FinalCta";
+import SocialGrid from "@/components/SocialGrid";
 
 export default async function HomePage() {
   const [social, settings, classLevels] = await Promise.all([
@@ -116,14 +117,8 @@ export default async function HomePage() {
               Follow {settings.instagram}
             </Link>
           </div>
-          <div className="social-grid">
-            {social.slice(0, 5).map((s) => (
-              <div className="ph" key={s.id}>
-                <Image src={s.url} alt={s.caption ?? ""} width={400} height={400} />
-              </div>
-            ))}
-          </div>
-          <p className="mnote">{home.socialNote}</p>
+          <SocialGrid items={social.slice(0, 5)} profileUrl={settings.instagramUrl} />
+          <p className="mnote">Tap a photo to open it on Instagram.</p>
         </div>
       </section>
 

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import {
   getTeam,
@@ -10,6 +9,7 @@ import {
   preview,
 } from "@/data";
 import FinalCta from "@/components/FinalCta";
+import SocialGrid from "@/components/SocialGrid";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -26,7 +26,6 @@ export default async function TeamPage() {
     getSiteSettings(),
   ]);
   const page = settings.copy.team;
-  const { images } = settings;
 
   const showTeam = team.length > 0;
   const showStories = stories.length > 0;
@@ -34,21 +33,11 @@ export default async function TeamPage() {
 
   return (
     <>
-      <section className="pagehead has-media">
+      <section className="pagehead compact">
         <div className="wrap">
-          <div className="inner pagehead-intro">
+          <div className="inner">
             <span className="eyebrow">{page.eyebrow}</span>
             <h1>{page.headline}</h1>
-          </div>
-          <div className="ph">
-            <Image
-              src={images.teamHero.src}
-              alt={images.teamHero.alt}
-              width={720}
-              height={540}
-            />
-          </div>
-          <div className="inner pagehead-body">
             <p className="lead">{page.lead}</p>
           </div>
         </div>
@@ -64,13 +53,6 @@ export default async function TeamPage() {
             <div className="team-grid">
               {team.map((t) => (
                 <div className="tcard" key={t.id}>
-                  <div className="ph">
-                    {t.photoUrl ? (
-                      <Image src={t.photoUrl} alt={t.name} width={440} height={550} />
-                    ) : (
-                      <span className="plabel">Portrait — to shoot</span>
-                    )}
-                  </div>
                   <div className="nm">{t.name}</div>
                   <div className="st">{t.style}</div>
                   <div className="tr">
@@ -160,14 +142,8 @@ export default async function TeamPage() {
               Follow {settings.instagram}
             </Link>
           </div>
-          <div className="social-grid">
-            {social.map((s) => (
-              <div className="ph" key={s.id}>
-                <Image src={s.url} alt={s.caption ?? ""} width={400} height={400} />
-              </div>
-            ))}
-          </div>
-          <p className="mnote">{page.socialNote}</p>
+          <SocialGrid items={social} profileUrl={settings.instagramUrl} />
+          <p className="mnote">Tap a photo to open it on Instagram.</p>
         </div>
       </section>
 
