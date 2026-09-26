@@ -361,10 +361,19 @@ export const stories = [
 export const events: { title: string; date: string; description: string }[] = [];
 
 export const socialImages = [
-  "/images/social-1.jpg",
-  "/images/social-2.jpg",
-  "/images/social-3.jpg",
-  "/images/social-4.jpg",
-  "/images/social-5.jpg",
-  "/images/social-6.jpg",
+  {
+    url: "/images/social/post-1.jpg",
+    caption: "Opening soon at VALERI — Reformer Pilates in Arjan, Dubai.",
+    link: "https://www.instagram.com/valeripilates/p/Ddrn7ibCd5O/",
+  },
+  {
+    url: "/images/social/post-2.jpg",
+    caption: "Move, feel good, make a little time for yourself.",
+    link: "https://www.instagram.com/valeripilates/p/DdljR1oipJN/",
+  },
+  {
+    url: "/images/social/post-3.jpg",
+    caption: "VALERI Pilates studio — a new place to move in Arjan, Dubai.",
+    link: "https://www.instagram.com/valeripilates/p/DdZVqlriHiB/",
+  },
 ];

@@ -502,5 +502,10 @@ export const getSocial = cache(async function getSocial(): Promise<SocialItem[]>
       .filter((r) => r.url)
       .map((r) => ({ id: r.id, url: r.url as string, caption: r.caption, link: r.link }));
   }
-  return fb.socialImages.map((url, i) => ({ id: `fb-${i}`, url }));
+  return fb.socialImages.map((item, i) => ({
+    id: `fb-${i}`,
+    url: item.url,
+    caption: item.caption,
+    link: item.link,
+  }));
 });
