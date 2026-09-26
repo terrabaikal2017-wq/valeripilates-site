@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   getTeam,
@@ -26,6 +27,7 @@ export default async function TeamPage() {
     getSiteSettings(),
   ]);
   const page = settings.copy.team;
+  const { images } = settings;
 
   const showTeam = team.length > 0;
   const showStories = stories.length > 0;
@@ -33,11 +35,21 @@ export default async function TeamPage() {
 
   return (
     <>
-      <section className="pagehead compact">
+      <section className="pagehead has-media">
         <div className="wrap">
-          <div className="inner">
+          <div className="inner pagehead-intro">
             <span className="eyebrow">{page.eyebrow}</span>
             <h1>{page.headline}</h1>
+          </div>
+          <div className="ph">
+            <Image
+              src={images.teamHero.src}
+              alt={images.teamHero.alt}
+              width={720}
+              height={540}
+            />
+          </div>
+          <div className="inner pagehead-body">
             <p className="lead">{page.lead}</p>
           </div>
         </div>
@@ -138,12 +150,12 @@ export default async function TeamPage() {
               </div>
               <h2>{page.socialHeadline}</h2>
             </div>
-            <Link href={settings.instagramUrl} className="btn-ghost">
+            <a href={settings.instagramUrl} className="btn-ghost" target="_blank" rel="noreferrer">
               Follow {settings.instagram}
-            </Link>
+            </a>
           </div>
-          <SocialGrid items={social} profileUrl={settings.instagramUrl} />
-          <p className="mnote">Tap a photo to open it on Instagram.</p>
+          <SocialGrid items={social} />
+          <p className="mnote">{page.socialNote}</p>
         </div>
       </section>
 

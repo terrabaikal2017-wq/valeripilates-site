@@ -14,8 +14,8 @@ export const site = {
   addressLine2: "Dubai, United Arab Emirates",
   addressLines: ["Oxford Gardens, Arjan", "Dubai, United Arab Emirates"],
   addressShort: "Oxford Gardens · Arjan · Dubai",
-  instagram: "@valeri",
-  instagramUrl: "#", // TODO: real handle URL
+  instagram: "@valeripilates",
+  instagramUrl: "https://www.instagram.com/valeripilates/",
   logoSub: "pilates studio",
   headerCta: "Book",
   bookCta: "Book your first class",
@@ -123,7 +123,7 @@ export const copy = {
       "Nothing on the calendar just yet. When an event is confirmed, this is where it lives — image, date, short description and a button to RSVP.",
     socialLabel: "We’re social",
     socialHeadline: "Lately at VALERI.",
-    socialNote: "A curated mix of studio posts and tagged client content, pulled from Instagram.",
+    socialNote: "Studio moments as they happen.",
   },
   schedule: {
     headline: "Schedule.",
@@ -325,7 +325,6 @@ export const team = [
     loveIf: "you want to feel guided, not rushed, especially on a first visit.",
     focus: "Foundations and alignment",
     offReformer: "Makes cardamom coffee before the early class.",
-    photoUrl: "/images/instructors/amira.jpg",
   },
   {
     id: "elena-moreau",
@@ -334,7 +333,6 @@ export const team = [
     loveIf: "you came to actually feel stronger, not just stretched.",
     focus: "Strength and control",
     offReformer: "Sunday swims, always.",
-    photoUrl: "/images/instructors/elena.jpg",
   },
   {
     id: "priya-shah",
@@ -343,7 +341,6 @@ export const team = [
     loveIf: "you’re coming back after a long break and want to start gently.",
     focus: "Mobility and posture",
     offReformer: "Always has a book in her bag.",
-    photoUrl: "/images/instructors/priya.jpg",
   },
   {
     id: "nia-adeyemi",
@@ -352,7 +349,6 @@ export const team = [
     loveIf: "you like a class that stays calm, even when the springs get heavier.",
     focus: "Core and balance",
     offReformer: "Keeps a lemon tree on the balcony.",
-    photoUrl: "/images/instructors/nia.jpg",
   },
 ];
 

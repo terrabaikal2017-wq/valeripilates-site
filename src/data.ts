@@ -174,8 +174,14 @@ function mapSettings(s: SettingsRow | null): SiteSettings {
     addressLine2,
     addressLines: [addressLine1, addressLine2],
     addressShort: pick(s.addressShort, fb.site.addressShort),
-    instagram: s.instagramHandle || fb.site.instagram,
-    instagramUrl: s.instagramUrl || fb.site.instagramUrl,
+    instagram:
+      s.instagramHandle && s.instagramHandle !== "@valeri"
+        ? s.instagramHandle
+        : fb.site.instagram,
+    instagramUrl:
+      s.instagramUrl && s.instagramUrl !== "#"
+        ? s.instagramUrl
+        : fb.site.instagramUrl,
     logoSub: pick(s.logoSub, fb.site.logoSub),
     headerCta: pick(s.headerCta, fb.site.headerCta),
     bookCta: pick(s.bookCta, fb.site.bookCta),
@@ -372,7 +378,6 @@ export type TeamMember = {
   loveIf: string;
   focus: string;
   offReformer: string;
-  photoUrl?: string;
   placeholder?: boolean;
 };
 
@@ -383,7 +388,6 @@ type TeamRow = {
   loveIf?: string;
   focus?: string;
   offReformer?: string;
-  photo?: { url?: string; alt?: string };
 };
 
 export const getTeam = cache(async function getTeam(): Promise<TeamMember[]> {
@@ -396,10 +400,18 @@ export const getTeam = cache(async function getTeam(): Promise<TeamMember[]> {
       loveIf: r.loveIf ?? "",
       focus: r.focus ?? "",
       offReformer: r.offReformer ?? "",
-      photoUrl: r.photo?.url,
     }));
   }
-  return fb.flags.showTeam ? fb.team.map((t) => ({ ...t })) : [];
+  return fb.flags.showTeam
+    ? fb.team.map(({ id, name, style, loveIf, focus, offReformer }) => ({
+        id,
+        name,
+        style,
+        loveIf,
+        focus,
+        offReformer,
+      }))
+    : [];
 });
 
 /* ---------- member stories ---------- */

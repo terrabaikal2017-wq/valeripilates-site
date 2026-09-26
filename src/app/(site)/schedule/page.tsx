@@ -86,7 +86,9 @@ export default async function SchedulePage() {
                   {site.whatsapp ?? "Phone / WhatsApp — to confirm"}
                 </p>
                 <p>
-                  <Link href={site.instagramUrl}>Instagram {site.instagram}</Link>
+                  <a href={site.instagramUrl} target="_blank" rel="noreferrer">
+                    Instagram {site.instagram}
+                  </a>
                 </p>
               </div>
               {site.mapEmbedUrl ? (

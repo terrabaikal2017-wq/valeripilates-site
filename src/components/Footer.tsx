@@ -21,9 +21,9 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
               {settings.hours ?? "Hours — to confirm"}
             </p>
             <p>
-              <Link href={settings.instagramUrl}>
+              <a href={settings.instagramUrl} target="_blank" rel="noreferrer">
                 Instagram {settings.instagram}
-              </Link>
+              </a>
             </p>
           </div>
         </div>

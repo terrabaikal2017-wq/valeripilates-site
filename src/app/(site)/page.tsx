@@ -113,12 +113,12 @@ export default async function HomePage() {
         <div className="wrap">
           <div className="social-head">
             <h2>{home.socialHeadline}</h2>
-            <Link href={settings.instagramUrl} className="btn-ghost">
+            <a href={settings.instagramUrl} className="btn-ghost" target="_blank" rel="noreferrer">
               Follow {settings.instagram}
-            </Link>
+            </a>
           </div>
-          <SocialGrid items={social.slice(0, 5)} profileUrl={settings.instagramUrl} />
-          <p className="mnote">Tap a photo to open it on Instagram.</p>
+          <SocialGrid items={social.slice(0, 5)} />
+          <p className="mnote">{home.socialNote}</p>
         </div>
       </section>
 
