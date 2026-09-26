@@ -32,8 +32,7 @@ export const LEGAL_PAGE_QUERY = `*[_type == "legalPage" && kind == $kind][0]{
 }`;
 
 export const TEAM_QUERY = `*[_type == "instructor"] | order(order asc, name asc){
-  "id": _id, name, teachingStyle, loveIf, focus, offReformer,
-  "photo": photo{ "url": asset->url, "alt": coalesce(alt, name) }
+  "id": _id, name, teachingStyle, loveIf, focus, offReformer
 }`;
 
 export const STORIES_QUERY = `*[_type == "memberStory" && published == true] | order(_createdAt desc){

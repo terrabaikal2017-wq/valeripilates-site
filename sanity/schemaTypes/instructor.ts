@@ -6,7 +6,13 @@ export const instructor = defineType({
   type: "document",
   fields: [
     defineField({ name: "name", title: "Name", type: "string", validation: (r) => r.required() }),
-    defineField({ name: "photo", title: "Portrait", type: "image", options: { hotspot: true } }),
+    defineField({
+      name: "photo",
+      title: "Portrait",
+      type: "image",
+      options: { hotspot: true },
+      description: "Kept in the studio only. The website does not show instructor photos.",
+    }),
     defineField({ name: "teachingStyle", title: "Teaching style (three words)", type: "string" }),
     defineField({ name: "loveIf", title: "You’ll love her class if…", type: "string" }),
     defineField({ name: "focus", title: "Training focus", type: "string" }),
