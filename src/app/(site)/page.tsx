@@ -117,7 +117,7 @@ export default async function HomePage() {
               Follow {settings.instagram}
             </a>
           </div>
-          <SocialGrid items={social.slice(0, 5)} />
+          <SocialGrid items={social.slice(0, 5)} profileUrl={settings.instagramUrl} />
           <p className="mnote">{home.socialNote}</p>
         </div>
       </section>

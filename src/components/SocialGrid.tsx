@@ -1,6 +1,12 @@
 import Image from "next/image";
 import type { SocialItem } from "@/data";
 
+function postHref(link?: string) {
+  if (!link || !/^https?:\/\//i.test(link)) return null;
+  return link;
+}
+
+/** Studio photos. A tile opens its Instagram post, or the studio profile if no post URL was saved. */
 export default function SocialGrid({
   items,
   profileUrl,
@@ -10,22 +16,26 @@ export default function SocialGrid({
 }) {
   return (
     <div className="social-grid">
-      {items.map((item) => (
-        <a
-          className="ph"
-          key={item.id}
-          href={item.link || profileUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
+      {items.map((item) => {
+        const href = postHref(item.link) || profileUrl;
+        const image = (
           <Image
             src={item.url}
-            alt={item.caption || "VALERI on Instagram"}
+            alt={item.caption || "A moment at VALERI"}
             width={400}
             height={400}
           />
-        </a>
-      ))}
+        );
+        return href ? (
+          <a className="ph" key={item.id} href={href} target="_blank" rel="noreferrer">
+            {image}
+          </a>
+        ) : (
+          <div className="ph" key={item.id}>
+            {image}
+          </div>
+        );
+      })}
     </div>
   );
 }
