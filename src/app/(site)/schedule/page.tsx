@@ -96,6 +96,8 @@ export default async function SchedulePage() {
                   title="VALERI on the map"
                   src={site.mapEmbedUrl}
                   loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
                   style={{
                     marginTop: 20,
                     width: "100%",

@@ -28,9 +28,8 @@ function pick(value: string | null | undefined, fallback: string): string {
 }
 
 function pickNull(value: string | null | undefined, fallback: string | null): string | null {
-  if (value === undefined || value === null) return fallback;
-  const v = value.trim();
-  return v ? v : null;
+  const v = value?.trim();
+  return v ? v : fallback;
 }
 
 function mergeStrings<T extends Record<string, string>>(base: T, overlay?: Partial<T> | null): T {
