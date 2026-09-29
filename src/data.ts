@@ -33,14 +33,13 @@ function pickNull(value: string | null | undefined, fallback: string | null): st
 }
 
 /** Sanity URL fields sometimes pick up a trailing quote from a pasted embed snippet. */
-function cleanEmbedUrl(value: string | null): string | null {
-  if (!value) return null;
+function cleanEmbedUrl(value: string): string {
   const cleaned = value
     .trim()
     .replace(/^["']+|["']+$/g, "")
     .replace(/%22$/i, "")
     .replace(/%27$/i, "");
-  return cleaned || null;
+  return cleaned || value;
 }
 
 function mergeStrings<T extends Record<string, string>>(base: T, overlay?: Partial<T> | null): T {
@@ -209,11 +208,11 @@ function mapSettings(s: SettingsRow | null): SiteSettings {
     footerTagline: pick(s.footerTagline, fb.site.footerTagline),
     footerNote: pick(s.footerNote, fb.site.footerNote),
     showFooterNote: s.showFooterNote ?? fb.site.showFooterNote,
-    hours: pickNull(s.hours, fb.site.hours),
+    hours: pick(s.hours, fb.site.hours),
     whatsapp: pickNull(s.whatsapp, fb.site.whatsapp),
     phone: pickNull(s.phone, fb.site.phone),
     email: pickNull(s.email, fb.site.email),
-    mapEmbedUrl: cleanEmbedUrl(pickNull(s.mapEmbedUrl, fb.site.mapEmbedUrl)),
+    mapEmbedUrl: cleanEmbedUrl(pick(s.mapEmbedUrl, fb.site.mapEmbedUrl)),
     legalLastUpdated: formatDate(s.legalLastUpdated) ?? fb.site.legalLastUpdated,
     legalDraft: s.legalDraft ?? fb.site.legalDraft,
     legalDraftNote: pick(s.legalDraftNote, fb.site.legalDraftNote),

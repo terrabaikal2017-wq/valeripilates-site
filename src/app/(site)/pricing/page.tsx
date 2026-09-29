@@ -56,7 +56,7 @@ export default async function PricingPage() {
       </section>
 
       {pricingEmbed ? (
-        <section className="section">
+        <section id="widget" className="section">
           <div className="wrap">
             <GlofoxEmbed view="pricing" />
           </div>
