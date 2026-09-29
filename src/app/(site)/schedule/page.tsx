@@ -70,49 +70,41 @@ export default async function SchedulePage() {
 
       <section className="section on-sage">
         <div className="wrap">
-          <div className="split">
+          <div className="split top">
             <h2>{page.findUsHeadline}</h2>
-            <div>
-              <div className="addr">
-                <p className="big">
-                  {site.addressLine1}
-                  <br />
-                  {site.addressLine2}
-                </p>
-                <p className={site.hours ? undefined : "tbd"}>
-                  {site.hours ?? "Opening hours — to confirm"}
-                </p>
-                <p className={site.whatsapp ? undefined : "tbd"}>
-                  {site.whatsapp ?? "Phone / WhatsApp — to confirm"}
-                </p>
-                <p>
-                  <a href={site.instagramUrl} target="_blank" rel="noreferrer">
-                    Instagram {site.instagram}
-                  </a>
-                </p>
-              </div>
-              {site.mapEmbedUrl ? (
-                <iframe
-                  title="VALERI on the map"
-                  src={site.mapEmbedUrl}
-                  loading="lazy"
-                  allowFullScreen
-                  referrerPolicy="no-referrer-when-downgrade"
-                  style={{
-                    marginTop: 20,
-                    width: "100%",
-                    minHeight: "clamp(240px,32vw,340px)",
-                    border: 0,
-                    borderRadius: 16,
-                  }}
-                />
-              ) : (
-                <div className="mapbox" style={{ marginTop: 20 }}>
-                  Map — to embed
-                </div>
-              )}
+            <div className="addr">
+              <p className="big">
+                {site.addressLine1}
+                <br />
+                {site.addressLine2}
+              </p>
+              <p className={site.hours ? undefined : "tbd"}>
+                {site.hours ?? "Opening hours — to confirm"}
+              </p>
+              <p className={site.whatsapp ? undefined : "tbd"}>
+                {site.whatsapp ?? "Phone / WhatsApp — to confirm"}
+              </p>
+              <p>
+                <a href={site.instagramUrl} target="_blank" rel="noreferrer">
+                  Instagram {site.instagram}
+                </a>
+              </p>
             </div>
           </div>
+          {site.mapEmbedUrl ? (
+            <iframe
+              className="find-map"
+              title="VALERI on the map"
+              src={site.mapEmbedUrl}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          ) : (
+            <div className="mapbox find-map" style={{ marginTop: 28 }}>
+              Map — to embed
+            </div>
+          )}
         </div>
       </section>
 

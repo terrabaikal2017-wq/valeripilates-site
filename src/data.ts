@@ -32,6 +32,17 @@ function pickNull(value: string | null | undefined, fallback: string | null): st
   return v ? v : fallback;
 }
 
+/** Sanity URL fields sometimes pick up a trailing quote from a pasted embed snippet. */
+function cleanEmbedUrl(value: string | null): string | null {
+  if (!value) return null;
+  const cleaned = value
+    .trim()
+    .replace(/^["']+|["']+$/g, "")
+    .replace(/%22$/i, "")
+    .replace(/%27$/i, "");
+  return cleaned || null;
+}
+
 function mergeStrings<T extends Record<string, string>>(base: T, overlay?: Partial<T> | null): T {
   if (!overlay) return base;
   const out = { ...base };
@@ -40,6 +51,14 @@ function mergeStrings<T extends Record<string, string>>(base: T, overlay?: Parti
     if (typeof v === "string" && v.trim()) out[key] = v as T[typeof key];
   }
   return out;
+}
+
+/** Sanity sometimes still has "Schedule." / "Pricing." — drop a lone trailing period. */
+function stripTrailingPeriod<T extends Record<string, string>>(obj: T, key: keyof T): T {
+  const value = obj[key];
+  if (typeof value !== "string") return obj;
+  const trimmed = value.trim().replace(/\.$/, "");
+  return trimmed === value ? obj : { ...obj, [key]: trimmed };
 }
 
 function img(row: Img, fallback: fb.CmsImage): fb.CmsImage {
@@ -194,7 +213,7 @@ function mapSettings(s: SettingsRow | null): SiteSettings {
     whatsapp: pickNull(s.whatsapp, fb.site.whatsapp),
     phone: pickNull(s.phone, fb.site.phone),
     email: pickNull(s.email, fb.site.email),
-    mapEmbedUrl: pickNull(s.mapEmbedUrl, fb.site.mapEmbedUrl),
+    mapEmbedUrl: cleanEmbedUrl(pickNull(s.mapEmbedUrl, fb.site.mapEmbedUrl)),
     legalLastUpdated: formatDate(s.legalLastUpdated) ?? fb.site.legalLastUpdated,
     legalDraft: s.legalDraft ?? fb.site.legalDraft,
     legalDraftNote: pick(s.legalDraftNote, fb.site.legalDraftNote),
@@ -212,8 +231,8 @@ function mapSettings(s: SettingsRow | null): SiteSettings {
       classes: mergeStrings(fb.copy.classes, s.classesPage),
       firstVisit: mergeStrings(fb.copy.firstVisit, s.firstVisit),
       team: mergeStrings(fb.copy.team, s.teamPage),
-      schedule: mergeStrings(fb.copy.schedule, s.schedulePage),
-      pricing: mergeStrings(fb.copy.pricing, s.pricingPage),
+      schedule: stripTrailingPeriod(mergeStrings(fb.copy.schedule, s.schedulePage), "headline"),
+      pricing: stripTrailingPeriod(mergeStrings(fb.copy.pricing, s.pricingPage), "headline"),
       band: mergeStrings(fb.copy.band, s.band),
       cta: mergeStrings(fb.copy.cta, s.cta),
     },

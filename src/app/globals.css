@@ -190,11 +190,17 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .pagehead.compact { padding: clamp(32px, 5vw, 56px) 0 clamp(22px, 4vw, 36px); }
 .pagehead.compact .inner { gap: 12px; }
 /* Schedule / Pricing: tighter gap under compact pagehead before the widget */
-.pagehead.compact + .section { padding-top: clamp(16px, 2.5vw, 28px); }
+.pagehead.compact + .section,
+#widget.section {
+  padding-top: clamp(16px, 2.5vw, 28px);
+}
 
 /* pricing page — one calm milky ground the Glofox block can sit on later */
 .pricing-page { background: var(--sage-bg); }
 .pricing-page .section:not(.on-accent) { background: transparent; }
+.pricing-page .pagehead.compact + .section {
+  padding-top: clamp(16px, 2.5vw, 28px);
+}
 /* Dividers only between successive content sections, not under the pagehead */
 .pricing-page .section + .section:not(.on-accent) .wrap {
   border-top: 1px solid var(--line-dark); padding-top: clamp(40px, 6vw, 72px);
@@ -436,6 +442,14 @@ h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.4vw, 2.7rem); letter-
 .glofox-powered { display: flex; justify-content: center; margin-top: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--ink-soft); }
 .glofox-powered a { color: inherit; text-decoration: none; font-family: Arial, Helvetica, sans-serif; }
 .mapbox { border-radius: 16px; background: var(--sage-bg); min-height: clamp(240px, 32vw, 340px); display: flex; align-items: center; justify-content: center; font-family: var(--grot); font-weight: 700; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.find-map {
+  display: block;
+  width: 100%;
+  height: clamp(380px, 48vw, 560px);
+  margin-top: 28px;
+  border: 0;
+  border-radius: 16px;
+}
 .addr .big { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); margin-bottom: 10px; }
 .addr p { margin-bottom: 6px; color: var(--ink-soft); font-size: .95rem; }
 .addr a { color: var(--accent); border-bottom: 1px solid currentColor; }
