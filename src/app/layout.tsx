@@ -1,29 +1,46 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import { getSiteSettings } from "@/data";
 import "./globals.css";
 
-const insigma = localFont({
-  src: "../fonts/Insigma.otf",
-  weight: "400",
-  variable: "--font-insigma",
+/* Self-hosted (Google Fonts unreachable at build time on this network).
+   Same CSS variables as next/font/google would expose. */
+const cormorant = localFont({
+  src: [
+    {
+      path: "../fonts/cormorant-garamond-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/cormorant-garamond-latin-600-normal.woff2",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: "variable",
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const instrument = Instrument_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-instrument",
+const jost = localFont({
+  src: [
+    {
+      path: "../fonts/jost-latin-300-normal.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/jost-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/jost-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-jost",
   display: "swap",
 });
 
@@ -59,7 +76,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${instrument.variable} ${insigma.variable}`}
+      className={`${cormorant.variable} ${jost.variable}`}
     >
       <body>{children}</body>
     </html>

@@ -8,7 +8,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
         <div className="foot-inner">
           <div>
             <Link href="/" className="logo">
-              {settings.name}
+              <span className="logo__name">{settings.name}</span>
             </Link>
             <p>{settings.footerTagline}</p>
             <p>{settings.addressShort}</p>

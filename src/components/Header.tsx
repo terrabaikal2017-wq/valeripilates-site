@@ -52,7 +52,7 @@ export default function Header({
     logoUrl ? (
       <Image src={logoUrl} alt={name} width={180} height={48} className="logo-img" />
     ) : (
-      <>{name}</>
+      <span className="logo__name">{name}</span>
     );
 
   return (
@@ -61,7 +61,7 @@ export default function Header({
         <div className="wrap bar">
           <Link href="/" className="logo" aria-label={`${name} — Pilates studio, home`}>
             <Wordmark />
-            <span className="logo-sub" aria-hidden>
+            <span className="logo__tagline" aria-hidden>
               {logoSub}
             </span>
           </Link>
@@ -100,7 +100,7 @@ export default function Header({
         <div className="mm-top">
           <span className="logo">
             <Wordmark />
-            <span className="logo-sub" aria-hidden>
+            <span className="logo__tagline" aria-hidden>
               {logoSub}
             </span>
           </span>

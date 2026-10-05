@@ -92,10 +92,9 @@ export default async function TeamPage() {
               {stories.map((s) => (
                 <div className="scard" key={s.id}>
                   <span className="fmt">{s.format || "Story"}</span>
-                  <h3>{s.title}</h3>
-                  <p>{s.excerpt}</p>
+                  <p className="testimonial__quote">{s.excerpt}</p>
                   {s.memberName ? (
-                    <p style={{ color: "var(--ink)", fontWeight: 500 }}>
+                    <p className="testimonial__author">
                       — {s.memberName}
                     </p>
                   ) : null}

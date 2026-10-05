@@ -60,7 +60,7 @@ export default async function ClassesPage() {
       <section className="section on-white">
         <div className="wrap">
           {classLevels.map((c) => (
-            <div className="cd" key={c.slug}>
+            <div className="cd class-card" key={c.slug}>
               <div className="cd-thumb">
                 {c.image ? (
                   <Image src={c.image} alt={c.name} width={240} height={300} />
@@ -69,8 +69,8 @@ export default async function ClassesPage() {
                 )}
               </div>
               <div className="cd-head">
-                <h3>{c.name}</h3>
-                <div className="meta">{c.meta}</div>
+                <h3 className="class-card__title">{c.name}</h3>
+                <div className="meta class-card__meta">{c.meta}</div>
               </div>
               <div className="cd-body">
                 <p>{c.blurb}</p>

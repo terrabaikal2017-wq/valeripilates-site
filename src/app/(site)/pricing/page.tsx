@@ -19,7 +19,7 @@ function Cards({ plans }: { plans: Plan[] }) {
         <div className={`pc${p.tag ? " best" : ""}`} key={p.name}>
           {p.tag && <span className="tag">{p.tag}</span>}
           <span className="n">{p.name}</span>
-          <span className="amt">{p.amount}</span>
+          <span className="amt price">{p.amount}</span>
           <span className="per">{p.per}</span>
           <span className="metatext">{p.meta}</span>
         </div>

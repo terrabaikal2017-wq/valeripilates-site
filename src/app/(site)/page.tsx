@@ -32,7 +32,7 @@ export default async function HomePage() {
           <h1>
             <Breaks text={home.headline} />
           </h1>
-          <p className="sub">{home.sub}</p>
+          <p className="lead sub">{home.sub}</p>
           <Link href="/schedule" className="btn btn-fill">
             {home.cta}
           </Link>
@@ -72,8 +72,8 @@ export default async function HomePage() {
           <p className="class-note">{home.classesNote}</p>
           <div className="class-list">
             {classLevels.map((c) => (
-              <div className="class-row" key={c.slug}>
-                <h3>{c.name}</h3>
+              <div className="class-row class-card" key={c.slug}>
+                <h3 className="class-card__title">{c.name}</h3>
                 <p>{c.blurb}</p>
                 <Link href="/schedule">Book →</Link>
               </div>
@@ -93,7 +93,7 @@ export default async function HomePage() {
             </div>
             <div className="offer-card">
               <span className="k">{home.firstOfferK}</span>
-              <span className="v">{settings.introOffers[0]?.amount ?? "AED 80"}</span>
+              <span className="v price">{settings.introOffers[0]?.amount ?? "AED 80"}</span>
               <span className="fineprint">{home.firstOfferFineprint}</span>
               <Link href="/schedule" className="btn btn-fill">
                 {home.cta}
