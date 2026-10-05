@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileBook from "@/components/MobileBook";
 import FloatingContact from "@/components/FloatingContact";
+import JsonLd from "@/components/JsonLd";
 import { getSiteSettings } from "@/data";
 
 export default async function SiteLayout({
@@ -10,6 +11,7 @@ export default async function SiteLayout({
   const settings = await getSiteSettings();
   return (
     <>
+      <JsonLd settings={settings} />
       <Header
         name={settings.name}
         logoSub={settings.logoSub}
