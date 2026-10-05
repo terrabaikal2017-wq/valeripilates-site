@@ -9,7 +9,7 @@ import PhotoGallery from "@/components/PhotoGallery";
 export const metadata: Metadata = {
   title: "Classes",
   description:
-    "Reformer Pilates at VALERI — Beginner to Advanced, plus Private and Semi-private. Every class is 50 minutes and capped at eight. Start where you’re comfortable.",
+    "Reformer Pilates at VALERI — First Move, Real Move Beginners to Advanced, and All Levels. Same classes as in booking, with the same photos.",
 };
 
 function galleryImages(primary: { src: string; alt: string }, extra: { src: string; alt: string }[]) {

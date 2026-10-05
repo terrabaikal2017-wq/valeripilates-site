@@ -69,7 +69,7 @@ export const copy = {
     classesHeadline: "Find your class.",
     classesNote: "Real coaching. Small classes. Never more than eight of you.",
     classesHelper:
-      "New to Reformer? Start with Foundations. Not sure where you fit — message us on WhatsApp and we’ll help you choose.",
+      "New to Reformer? Start with Real Move — Beginners, or book First Move while the free opening week is on. Not sure where you fit — message us on WhatsApp and we’ll help you choose.",
     firstEyebrow: "New to VALERI",
     firstHeadline: "Your first class starts here.",
     firstLead:
@@ -87,7 +87,7 @@ export const copy = {
     lead1:
       "One workout — Reformer Pilates — done properly: full-body strength, mobility, posture, control. What changes between classes is the pace, the load, and how much the instructor breaks things down.",
     lead2: "You don’t need to fit yourself into a level. Start where you are and progress from there.",
-    facts: "50 minutes · Never more than eight · Every level welcome",
+    facts: "50 minutes · Small classes · Every level welcome",
     cta: "Book your first class",
     helper: "Not sure where you fit? Message us — a real person answers, usually within the hour.",
     bookingHeadline: "Schedule & booking",
@@ -172,7 +172,7 @@ export type ScheduleNote = { text: string; linkLabel?: string; linkHref?: string
 
 export const scheduleNotes: ScheduleNote[] = [
   { text: "Create an account once, then book, cancel and manage everything from your VALERI account." },
-  { text: "New to Reformer? Book a Beginner / Foundations class — no experience needed." },
+  { text: "New to Reformer? Book Real Move — Beginners, or First Move while the free opening week is on — no experience needed." },
   { text: "Free cancellation up to 12 hours before class. Inside 12 hours the class credit is used." },
   {
     text: "Grip socks are required; arrive about 10 minutes early.",
@@ -202,50 +202,49 @@ export type ClassLevel = {
 
 export const classLevels: ClassLevel[] = [
   {
-    slug: "beginner-foundations",
-    name: "Beginner / Foundations",
-    meta: "50 min · all first-timers",
+    slug: "first-move",
+    name: "First Move — Free Class",
+    meta: "50 min · free · up to 3",
     blurb:
-      "Where almost everyone starts. Slow pace, every position broken down, and plenty of time to get comfortable on the machine. We assume you’ve never done this.",
+      "VALERI’s opening week — come try a full reformer class on us, no experience needed.",
+    requirement: "Opening-week free class. No experience needed.",
+    image: "/images/class-first-move.jpg",
+  },
+  {
+    slug: "real-move-beginners",
+    name: "Real Move — Beginners",
+    meta: "50 min · all levels · up to 8",
+    blurb:
+      "New to reformer or new to VALERI — learn the machine, the basics, and build confidence at your own pace.",
     requirement: "No experience needed.",
-    image: "/images/class-1.jpg",
+    image: "/images/class-beginners.jpg",
   },
   {
-    slug: "intermediate",
-    name: "Intermediate",
-    meta: "50 min · some experience",
+    slug: "all-levels",
+    name: "All Levels",
+    meta: "50 min · all levels · up to 8",
     blurb:
-      "Faster transitions, longer holds, more load. You’ll build real strength, control and flow once the basic repertoire feels familiar.",
-    requirement:
-      "For clients who’ve done a handful of Foundations classes, or have Reformer experience elsewhere.",
-    image: "/images/class-2.jpg",
+      "A bit of challenge if you’re just starting, a bit more stretch and mobility if you’re not — built to work for everyone in the room, whatever your experience.",
+    requirement: "Every level welcome.",
+    image: "/images/class-all-levels.jpg",
   },
   {
-    slug: "advanced",
-    name: "Advanced",
-    meta: "50 min · experienced",
+    slug: "real-move-intermediate",
+    name: "Real Move — Intermediate",
+    meta: "50 min · intermediate · up to 8",
     blurb:
-      "More complex sequencing, coordination and pace, with less setup time between exercises. Not “better” than Intermediate — just a different kind of challenge.",
-    requirement: "For clients who find Intermediate comfortable.",
-    image: "/images/class-3.jpg",
+      "More advanced moves, more resistance — a full-body workout built to grow your strength and endurance.",
+    requirement: "Some Reformer experience.",
+    image: "/images/class-intermediate.jpg",
   },
   {
-    slug: "private",
-    name: "Private 1:1",
-    meta: "One instructor, one client",
+    slug: "real-move-advanced",
+    name: "Real Move — Advanced",
+    meta: "50 min · advanced · up to 8",
     blurb:
-      "Built entirely around your goals, your body and your form. Good for starting from zero, working around an injury, or going deep on technique.",
-    requirement: "Book by request.",
-    image: "/images/class-4.jpg",
-  },
-  {
-    slug: "semi-private",
-    name: "Semi-private",
-    meta: "Two or three, booked together",
-    blurb:
-      "More hands-on attention than a group class, at a lower cost than a private — and more fun with a friend.",
-    requirement: "All participants book together.",
-    image: "/images/class-5.jpg",
+      "For experienced reformer clients — faster pace, complex sequencing, added challenge.",
+    requirement: "For experienced Reformer clients.",
+    image: "/images/class-advanced.jpg",
   },
 ];
 
@@ -289,7 +288,7 @@ export const finePrint = [
 
 /* ---------- first visit FAQ ---------- */
 export const faq: { q: string; a: string }[] = [
-  { q: "I’ve never done Pilates — is that OK?", a: "Completely. Start with Beginner / Foundations — we go slow, explain everything, and assume no experience." },
+  { q: "I’ve never done Pilates — is that OK?", a: "Completely. Start with Real Move — Beginners (or First Move while the free opening week is on) — we go slow, explain everything, and assume no experience." },
   { q: "What should I wear?", a: "Comfortable activewear you can move in. Avoid zips (they can catch on the equipment) and loose jewellery." },
   { q: "Do I need grip socks?", a: "Yes — grip socks are required for all Reformer classes. Bring your own or buy a pair at reception." },
   { q: "How long is a class, and how many people?", a: "Every group class is 50 minutes, with never more than eight clients." },
@@ -364,18 +363,29 @@ export const events: { title: string; date: string; description: string }[] = []
 export const socialImages = [
   {
     url: "/images/social/post-1.jpg",
+    caption: "How it’s going — Reformer rows lined up at VALERI, Arjan.",
+    link: "https://www.instagram.com/valeripilates/reel/DeCP0IxCxjM/",
+  },
+  {
+    url: "/images/social/post-2.jpg",
+    caption:
+      "We’re opening! Free Pilates classes during opening week — book your spot.",
+    link: "https://www.instagram.com/valeripilates/p/Dd1dsIdCK8I/",
+  },
+  {
+    url: "/images/social/post-3.jpg",
     caption:
       "Between everything you have to do,\nmake a little time for yourself.\n\nMove. Breathe. Feel good.\n\nVALERI Pilates · Arjan, Dubai\nOpening soon.",
     link: "https://www.instagram.com/valeripilates/p/Ddrn7ibCd5O/",
   },
   {
-    url: "/images/social/post-2.jpg",
+    url: "/images/social/post-4.jpg",
     caption:
       "Reformer Pilates, small classes, personal attention — and a space you’ll actually look forward to coming back to.",
     link: "https://www.instagram.com/valeripilates/p/DdljR1oipJN/",
   },
   {
-    url: "/images/social/post-3.jpg",
+    url: "/images/social/post-5.jpg",
     caption:
       "Something new is coming to Arjan!\n\nWe’ve been quietly creating VALERI — a Reformer Pilates studio built around movement, people and good energy.\n\nA place to get stronger, feel better, meet good people and make a little time for yourself.\n\nWe’re almost ready to welcome you.\n\nVALERI Pilates · Arjan, Dubai\nOpening soon.\n\nThis is just the beginning.",
     link: "https://www.instagram.com/valeripilates/p/DdZVqlriHiB/",
