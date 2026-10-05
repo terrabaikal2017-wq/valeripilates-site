@@ -246,6 +246,15 @@ export const classLevels: ClassLevel[] = [
     requirement: "For experienced Reformer clients.",
     image: "/images/class-advanced.jpg",
   },
+  {
+    slug: "private",
+    name: "Private 1:1",
+    meta: "One instructor, one client",
+    blurb:
+      "Built entirely around your goals, your body and your form. Good for starting from zero, working around an injury, or going deep on technique.",
+    requirement: "Book by request.",
+    image: "/images/class-4.jpg",
+  },
 ];
 
 /* ---------- pricing ---------- */

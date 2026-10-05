@@ -9,7 +9,7 @@ import PhotoGallery from "@/components/PhotoGallery";
 export const metadata: Metadata = {
   title: "Classes",
   description:
-    "Reformer Pilates at VALERI — First Move, Real Move Beginners to Advanced, and All Levels. Same classes as in booking, with the same photos.",
+    "Reformer Pilates at VALERI — First Move, Real Move Beginners to Advanced, All Levels, and Private 1:1.",
 };
 
 function galleryImages(primary: { src: string; alt: string }, extra: { src: string; alt: string }[]) {

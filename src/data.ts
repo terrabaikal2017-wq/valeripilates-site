@@ -226,7 +226,11 @@ function mapSettings(s: SettingsRow | null): SiteSettings {
       teamHero: img(s.teamHero, fb.images.teamHero),
     },
     copy: {
-      home: mergeStrings(fb.copy.home, s.home),
+      home: {
+        ...mergeStrings(fb.copy.home, s.home),
+        // Keep Glofox-aligned class guidance in code (Sanity often lags renames).
+        classesHelper: fb.copy.home.classesHelper,
+      },
       classes: mergeStrings(fb.copy.classes, s.classesPage),
       firstVisit: mergeStrings(fb.copy.firstVisit, s.firstVisit),
       team: mergeStrings(fb.copy.team, s.teamPage),
