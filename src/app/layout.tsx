@@ -3,15 +3,11 @@ import localFont from "next/font/local";
 import { getSiteSettings } from "@/data";
 import "./globals.css";
 
-/* Self-hosted (Google Fonts unreachable at build time on this network).
-   Same CSS variables as next/font/google would expose. */
+/* Self-hosted copies of Google Fonts (Google CDN blocked at build time here).
+   Same CSS variables as next/font/google would expose:
+   Cormorant_Garamond 600, Jost 400/500, Newsreader 400/500, Figtree 400/500. */
 const cormorant = localFont({
   src: [
-    {
-      path: "../fonts/cormorant-garamond-latin-500-normal.woff2",
-      weight: "500",
-      style: "normal",
-    },
     {
       path: "../fonts/cormorant-garamond-latin-600-normal.woff2",
       weight: "600",
@@ -25,11 +21,6 @@ const cormorant = localFont({
 const jost = localFont({
   src: [
     {
-      path: "../fonts/jost-latin-300-normal.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
       path: "../fonts/jost-latin-400-normal.woff2",
       weight: "400",
       style: "normal",
@@ -41,6 +32,40 @@ const jost = localFont({
     },
   ],
   variable: "--font-jost",
+  display: "swap",
+});
+
+const newsreader = localFont({
+  src: [
+    {
+      path: "../fonts/newsreader-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/newsreader-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const figtree = localFont({
+  src: [
+    {
+      path: "../fonts/figtree-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/figtree-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-figtree",
   display: "swap",
 });
 
@@ -76,7 +101,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${jost.variable}`}
+      className={`${cormorant.variable} ${jost.variable} ${newsreader.variable} ${figtree.variable}`}
     >
       <body>{children}</body>
     </html>
