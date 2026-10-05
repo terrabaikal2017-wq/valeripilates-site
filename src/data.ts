@@ -275,17 +275,9 @@ type ClassRow = {
 };
 
 export const getClassLevels = cache(async function getClassLevels(): Promise<ClassLevel[]> {
-  const rows = await sanityFetch<ClassRow[]>(CLASS_TYPES_QUERY);
-  if (rows && rows.length) {
-    return rows.map((r, i) => ({
-      slug: r.slug || r.id,
-      name: r.name,
-      meta: r.meta ?? "",
-      blurb: r.blurb ?? "",
-      requirement: r.requirement ?? "",
-      image: r.image?.url || fb.classLevels[i]?.image || "",
-    }));
-  }
+  // Class catalog is kept in content.ts so it stays aligned with Glofox
+  // (names, blurbs, photos). Sanity classType docs are ignored until they
+  // are re-seeded to match; otherwise stale CMS rows override production.
   return fb.classLevels;
 });
 
