@@ -287,7 +287,7 @@ export const getClassLevels = cache(async function getClassLevels(): Promise<Cla
 
 /* ---------- legal ---------- */
 function fillPlaceholders(text: string, s: SiteSettings): string {
-  const email = s.email?.trim() || "[EMAIL]";
+  const email = s.email?.trim() || fb.site.email?.trim() || "[EMAIL]";
   const number = (s.whatsapp || s.phone)?.trim() || "[NUMBER]";
   const date = s.legalLastUpdated || "[DATE]";
   return text.replaceAll("[EMAIL]", email).replaceAll("[NUMBER]", number).replaceAll("[DATE]", date);
