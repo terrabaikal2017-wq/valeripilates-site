@@ -286,8 +286,21 @@ export const getClassLevels = cache(async function getClassLevels(): Promise<Cla
 });
 
 /* ---------- legal ---------- */
+function legalContactEmail(s: SiteSettings): string {
+  const raw = s.email?.trim() || fb.site.email?.trim() || "";
+  if (!raw) return "[EMAIL]";
+  const parts = raw
+    .split(/\s*\/\s*|\s*,\s*|\s*;\s*/)
+    .map((e) => e.trim())
+    .filter(Boolean);
+  if (!parts.includes("info@valeripilates.com")) {
+    parts.push("info@valeripilates.com");
+  }
+  return parts.join(" / ");
+}
+
 function fillPlaceholders(text: string, s: SiteSettings): string {
-  const email = s.email?.trim() || fb.site.email?.trim() || "[EMAIL]";
+  const email = legalContactEmail(s);
   const number = (s.whatsapp || s.phone)?.trim() || "[NUMBER]";
   const date = s.legalLastUpdated || "[DATE]";
   return text.replaceAll("[EMAIL]", email).replaceAll("[NUMBER]", number).replaceAll("[DATE]", date);

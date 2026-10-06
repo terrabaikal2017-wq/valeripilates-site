@@ -33,7 +33,7 @@ export const site = {
   // TODO — confirm before launch:
   whatsapp: null as string | null,
   phone: null as string | null,
-  email: "valeripilates@gmail.com" as string | null,
+  email: "valeripilates@gmail.com / info@valeripilates.com" as string | null,
   mapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.2!2d55.247516!3d25.065706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6fddb0a638bf%3A0x6882423bf4cad536!2sOxford%20Gardens-%20Iman%20Developers!5e0!3m2!1sen!2sae!4v1710000000000!5m2!1sen!2sae",
 };
