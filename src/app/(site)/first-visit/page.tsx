@@ -34,7 +34,7 @@ export default async function FirstVisitPage() {
           </div>
           <div className="inner pagehead-body">
             <p className="lead">{page.lead}</p>
-            <Link href="/schedule" className="btn btn-fill">
+            <Link href="https://valeripilates.com/pricing" className="btn btn-fill">
               {page.cta}
             </Link>
           </div>
@@ -66,7 +66,7 @@ export default async function FirstVisitPage() {
             <div className="v">{band.v}</div>
             <div className="sm">{band.sm}</div>
           </div>
-          <Link href="/schedule" className="btn btn-fill">
+          <Link href="https://valeripilates.com/pricing" className="btn btn-fill">
             {band.cta}
           </Link>
         </div>
@@ -89,7 +89,7 @@ export default async function FirstVisitPage() {
         </div>
       </section>
 
-      <FinalCta settings={settings} />
+      <FinalCta settings={settings} href="https://valeripilates.com/pricing" />
     </>
   );
 }

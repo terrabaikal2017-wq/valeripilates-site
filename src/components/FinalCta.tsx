@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { SiteSettings } from "@/data";
 
-export default function FinalCta({ settings }: { settings: SiteSettings }) {
+export default function FinalCta({ settings, href = "/schedule" }: { settings: SiteSettings; href?: string }) {
   const { copy } = settings;
   return (
     <section className="section on-accent final">
@@ -9,7 +9,7 @@ export default function FinalCta({ settings }: { settings: SiteSettings }) {
         <span className="where">{settings.addressShort}</span>
         <h2>{copy.cta.headline}</h2>
         <Link
-          href="/schedule"
+          href={href}
           className="btn btn-fill"
           style={{ background: "#F8F3E7", color: "var(--accent)" }}
         >
