@@ -36,6 +36,8 @@ export const site = {
   email: "valeripilates@gmail.com / info@valeripilates.com" as string | null,
   mapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.2!2d55.247516!3d25.065706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6fddb0a638bf%3A0x6882423bf4cad536!2sOxford%20Gardens-%20Iman%20Developers!5e0!3m2!1sen!2sae!4v1710000000000!5m2!1sen!2sae",
+  mapUrl:
+    "https://www.google.com/maps/search/?api=1&query=Oxford+Gardens+Arjan+Dubai",
 };
 
 export type CmsImage = { src: string; alt: string };
@@ -110,7 +112,7 @@ export const copy = {
     headline: "Meet the people you’ll move with.",
     lead: "Qualified instructors who coach properly and know your name. This is who’s teaching at VALERI.",
     instructorsLabel: "Instructors",
-    instructorsLead: "The trial teaching team — you’ll meet one of them on your first visit.",
+    instructorsLead: "The people teaching at VALERI — you’ll meet one of them on your first visit.",
     storiesLabel: "People of VALERI",
     storiesHeadline: "Real members, in their own words.",
     storiesLead:
@@ -328,36 +330,40 @@ export const flags = {
 /* ---------- Team-page placeholders (used only when a flag above is on) ---------- */
 export const team = [
   {
-    id: "amira-khalil",
-    name: "Amira Khalil",
-    style: "Calm · Clear · Kind",
-    loveIf: "you want to feel guided, not rushed, especially on a first visit.",
-    focus: "Foundations and alignment",
-    offReformer: "Makes cardamom coffee before the early class.",
+    id: "ines",
+    name: "Inès",
+    aka: "Coach Ness",
+    style: "",
+    bio: "I’m Inès, also known as Coach Ness, a Pilates instructor from Paris. I specialise in supporting women with disabilities and hormonal conditions through adapted, mindful movement.\n\nI teach Classical Pilates with a focus on breathing, precision and body awareness.",
+    loveIf: "",
+    focus: "",
+    offReformer: "",
+    photo: "/images/instructors/ines.png",
+    photoPosition: "70% 38%",
   },
   {
-    id: "elena-moreau",
-    name: "Elena Moreau",
-    style: "Strong · Precise · Warm",
-    loveIf: "you came to actually feel stronger, not just stretched.",
-    focus: "Strength and control",
-    offReformer: "Sunday swims, always.",
+    id: "nadia",
+    name: "Nadia",
+    aka: "",
+    style: "",
+    bio: "I am passionate about sports and movement since childhood. Certified in Pilates Mat, Reformer, ITTAP and Active IQ.\n\nMy teaching style focuses on helping clients build strength, improve body awareness, and progress toward their individual goals through supportive, motivating, and personalized sessions.",
+    loveIf: "",
+    focus: "",
+    offReformer: "",
+    photo: "/images/instructors/nadia.jpg",
+    photoPosition: "50% 35%",
   },
   {
-    id: "priya-shah",
-    name: "Priya Shah",
-    style: "Patient · Upbeat · Grounded",
-    loveIf: "you’re coming back after a long break and want to start gently.",
-    focus: "Mobility and posture",
-    offReformer: "Always has a book in her bag.",
-  },
-  {
-    id: "nia-adeyemi",
-    name: "Nia Adeyemi",
-    style: "Quiet · Exact · Steady",
-    loveIf: "you like a class that stays calm, even when the springs get heavier.",
-    focus: "Core and balance",
-    offReformer: "Keeps a lemon tree on the balcony.",
+    id: "daisy",
+    name: "Daisy",
+    aka: "",
+    style: "",
+    bio: "Daisy is a passionate Pilates instructor with training in both Mat and Reformer Pilates. With a background in sports and coaching, she brings plenty of energy, motivation and positivity to every class.\n\nExpect a fun, bubbly atmosphere, spicy burn and plenty of encouragement to push yourself while enjoying every minute!",
+    loveIf: "",
+    focus: "",
+    offReformer: "",
+    photo: "/images/instructors/daisy.png",
+    photoPosition: "52% 30%",
   },
 ];
 

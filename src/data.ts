@@ -400,44 +400,64 @@ export const getLegal = cache(async function getLegal(kind: "terms" | "privacy")
 export type TeamMember = {
   id: string;
   name: string;
+  aka?: string;
+  bio?: string;
   style: string;
   loveIf: string;
   focus: string;
   offReformer: string;
+  photo?: string;
+  photoPosition?: string;
   placeholder?: boolean;
 };
 
 type TeamRow = {
   id: string;
   name: string;
+  aka?: string;
+  bio?: string;
   teachingStyle?: string;
   loveIf?: string;
   focus?: string;
   offReformer?: string;
+  photo?: { url?: string };
 };
+
+function mapTeamMember(
+  r: Pick<TeamMember, "id" | "name" | "aka" | "bio" | "style" | "loveIf" | "focus" | "offReformer" | "photo" | "photoPosition">,
+): TeamMember {
+  return {
+    id: r.id,
+    name: r.name,
+    aka: r.aka,
+    bio: r.bio,
+    style: r.style ?? "",
+    loveIf: r.loveIf ?? "",
+    focus: r.focus ?? "",
+    offReformer: r.offReformer ?? "",
+    photo: r.photo,
+    photoPosition: r.photoPosition,
+  };
+}
 
 export const getTeam = cache(async function getTeam(): Promise<TeamMember[]> {
   const rows = await sanityFetch<TeamRow[]>(TEAM_QUERY);
   if (rows && rows.length) {
-    return rows.map((r) => ({
-      id: r.id,
-      name: r.name,
-      style: r.teachingStyle ?? "",
-      loveIf: r.loveIf ?? "",
-      focus: r.focus ?? "",
-      offReformer: r.offReformer ?? "",
-    }));
+    return rows.map((r) =>
+      mapTeamMember({
+        id: r.id,
+        name: r.name,
+        aka: r.aka,
+        bio: r.bio,
+        style: r.teachingStyle ?? "",
+        loveIf: r.loveIf ?? "",
+        focus: r.focus ?? "",
+        offReformer: r.offReformer ?? "",
+        photo: r.photo?.url,
+      }),
+    );
   }
-  return fb.flags.showTeam
-    ? fb.team.map(({ id, name, style, loveIf, focus, offReformer }) => ({
-        id,
-        name,
-        style,
-        loveIf,
-        focus,
-        offReformer,
-      }))
-    : [];
+  return fb.flags.showTeam ? fb.team.map(mapTeamMember) : [];
 });
 
 /* ---------- member stories ---------- */

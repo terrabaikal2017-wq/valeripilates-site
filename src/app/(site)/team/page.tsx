@@ -64,17 +64,36 @@ export default async function TeamPage() {
             <div className="team-grid">
               {team.map((t) => (
                 <div className="tcard" key={t.id}>
+                  {t.photo ? (
+                    <div className="tcard-photo">
+                      <Image
+                        src={t.photo}
+                        alt={t.name}
+                        fill
+                        sizes="(max-width: 700px) 92vw, 280px"
+                        style={t.photoPosition ? { objectPosition: t.photoPosition } : undefined}
+                      />
+                    </div>
+                  ) : null}
                   <div className="nm">{t.name}</div>
-                  <div className="st">{t.style}</div>
-                  <div className="tr">
-                    <b>You’ll love her class if…</b> {t.loveIf}
-                  </div>
-                  <div className="tr">
-                    <b>Training focus</b> {t.focus}
-                  </div>
-                  <div className="tr">
-                    <b>Off the Reformer</b> {t.offReformer}
-                  </div>
+                  {t.aka ? <div className="aka">{t.aka}</div> : null}
+                  {t.style ? <div className="st">{t.style}</div> : null}
+                  {t.bio ? <p className="bio">{t.bio}</p> : null}
+                  {t.loveIf ? (
+                    <div className="tr">
+                      <b>You’ll love her class if…</b> {t.loveIf}
+                    </div>
+                  ) : null}
+                  {t.focus ? (
+                    <div className="tr">
+                      <b>Training focus</b> {t.focus}
+                    </div>
+                  ) : null}
+                  {t.offReformer ? (
+                    <div className="tr">
+                      <b>Off the Reformer</b> {t.offReformer}
+                    </div>
+                  ) : null}
                 </div>
               ))}
             </div>
