@@ -279,10 +279,18 @@ type ClassRow = {
 };
 
 export const getClassLevels = cache(async function getClassLevels(): Promise<ClassLevel[]> {
-  // Class catalog is kept in content.ts so it stays aligned with Glofox
-  // (names, blurbs, photos). Sanity classType docs are ignored until they
-  // are re-seeded to match; otherwise stale CMS rows override production.
-  return fb.classLevels;
+  const rows = await sanityFetch<ClassRow[]>(CLASS_TYPES_QUERY);
+  const mapped = (rows ?? [])
+    .filter((row) => row?.name?.trim())
+    .map((row) => ({
+      slug: row.slug?.trim() || row.id,
+      name: row.name.trim(),
+      meta: row.meta?.trim() ?? "",
+      blurb: row.blurb?.trim() ?? "",
+      requirement: row.requirement?.trim() ?? "",
+      image: row.image?.url ?? "",
+    }));
+  return mapped.length ? mapped : fb.classLevels;
 });
 
 /* ---------- legal ---------- */

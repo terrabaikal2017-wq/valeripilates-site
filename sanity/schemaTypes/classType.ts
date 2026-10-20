@@ -5,7 +5,7 @@ export const classType = defineType({
   title: "Class",
   type: "document",
   description:
-    "Legacy CMS class list. The live site currently reads classes from code (src/content.ts) so they stay matched to Glofox. Re-seed these docs before turning Sanity back on.",
+    "Classes on the homepage and the Classes page, including each card photo. An empty list keeps the built-in set.",
   fields: [
     defineField({ name: "name", title: "Name", type: "string", validation: (r) => r.required() }),
     defineField({
