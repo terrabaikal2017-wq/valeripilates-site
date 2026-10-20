@@ -344,7 +344,7 @@ export const team = [
   {
     id: "nadia",
     name: "Nadia",
-    aka: "",
+    aka: "Coach Nadia",
     style: "",
     bio: "I am passionate about sports and movement since childhood. Certified in Pilates Mat, Reformer, ITTAP and Active IQ.\n\nMy teaching style focuses on helping clients build strength, improve body awareness, and progress toward their individual goals through supportive, motivating, and personalized sessions.",
     loveIf: "",
@@ -356,7 +356,7 @@ export const team = [
   {
     id: "daisy",
     name: "Daisy",
-    aka: "",
+    aka: "Coach Daisy",
     style: "",
     bio: "Daisy is a passionate Pilates instructor with training in both Mat and Reformer Pilates. With a background in sports and coaching, she brings plenty of energy, motivation and positivity to every class.\n\nExpect a fun, bubbly atmosphere, spicy burn and plenty of encouragement to push yourself while enjoying every minute!",
     loveIf: "",
