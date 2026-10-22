@@ -710,6 +710,7 @@ small, .caption, label, input, select, textarea, table, .footer {
 .foot-inner .logo { color: #F6EEE9; display: block; margin-bottom: 10px; }
 .foot-inner p { font-size: .88rem; margin-bottom: 5px; color: #A7A19C; }
 .foot-contact { text-align: right; }
+.foot-contact .opening-hours { white-space: pre-line; }
 .footer a:hover { color: #F6EEE9; }
 .foot-bottom { margin-top: 30px; padding-top: 16px; border-top: 1px solid #362E30; display: flex; align-items: center; gap: 10px 22px; flex-wrap: wrap; font-size: .74rem; color: #7C7570; }
 .foot-legal { display: flex; gap: 18px; }
