@@ -35,9 +35,10 @@ plus the pre-launch checklist.
 
 ## Updating the Instagram gallery manually
 
-The home and Team pages use the same gallery: six cards initially, **Show More**
-adds six, and **Show Less** returns to the first six. Controls appear only when
-there are more than six entries. Photos/carousels and Reels can be mixed in any
+The home and Team pages use the same gallery: three newest cards initially,
+**Show More** reveals all remaining cards, and **Show Less** returns to the first
+three. Keep entries ordered newest first (in code, or using Sanity's Order field).
+Controls appear only when there are more than three entries. Photos/carousels and Reels can be mixed in any
 order. Reels display a badge and open on Instagram; there is no API, scraping,
 embedded player, or automatic cover download.
 
