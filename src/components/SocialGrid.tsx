@@ -9,7 +9,7 @@ function postHref(link?: string) {
   return link;
 }
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 3;
 
 /** Manually curated photos and Reels; videos open on Instagram. */
 export default function SocialGrid({
@@ -75,14 +75,14 @@ export default function SocialGrid({
             Showing {shown} of {items.length} posts
           </p>
           <div className="social-actions">
-            <button ref={moreRef} type="button" className="btn-ghost"
+            <button ref={moreRef} type="button" className="btn btn-fill"
               aria-controls={gridId} aria-expanded={expanded}
               disabled={shown === items.length}
-              onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}>
+              onClick={() => setVisibleCount(items.length)}>
               Show More
             </button>
             {expanded ? (
-              <button type="button" className="btn-ghost" aria-controls={gridId}
+              <button type="button" className="btn btn-fill" aria-controls={gridId}
                 aria-expanded={expanded} onClick={showLess}>Show Less</button>
             ) : null}
           </div>
