@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
 import GlofoxEmbed from "@/components/GlofoxEmbed";
+import FirstClassOffer from "@/components/FirstClassOffer";
 
 export const metadata: Metadata = {
   title: "Schedule",
@@ -13,7 +14,6 @@ export const metadata: Metadata = {
 export default async function SchedulePage() {
   const site = await getSiteSettings();
   const page = site.copy.schedule;
-  const band = site.copy.band;
   return (
     <>
       <section className="pagehead compact">
@@ -33,20 +33,7 @@ export default async function SchedulePage() {
         </div>
       </section>
 
-      <section className="section band">
-        <div className="wrap">
-          <div>
-            <div className="k">{band.k}</div>
-            <div className="v">{band.v}</div>
-            <div className="sm">
-              {band.sm} · <Link href="/pricing">see pricing</Link>
-            </div>
-          </div>
-          <a href="#widget" className="btn btn-fill">
-            {band.cta}
-          </a>
-        </div>
-      </section>
+      <FirstClassOffer settings={site} bookingHref="#widget" />
 
       <section className="section on-white">
         <div className="wrap finewrap">
@@ -81,9 +68,7 @@ export default async function SchedulePage() {
               <p className={site.hours ? undefined : "tbd"}>
                 {site.hours ?? "Opening hours — to confirm"}
               </p>
-              <p className={site.whatsapp ? undefined : "tbd"}>
-                {site.whatsapp ?? "Phone / WhatsApp — to confirm"}
-              </p>
+
               <p>
                 <a href={site.instagramUrl} target="_blank" rel="noreferrer">
                   Instagram {site.instagram}
