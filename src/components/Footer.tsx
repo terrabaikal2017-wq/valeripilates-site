@@ -18,8 +18,8 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
           </div>
           <div className="foot-contact">
             <WhatsAppButton number={settings.whatsapp} placement="footer" />
-            <p className={settings.hours ? undefined : "tbd"}>
-              {settings.hours ?? "Hours — to confirm"}
+            <p className={settings.hours ? "opening-hours" : "tbd"}>
+              {settings.hours?.trim().replace(/\s+(?=Saturday\b)/i, "\n") ?? "Hours — to confirm"}
             </p>
             <p>
               <a href={settings.instagramUrl} target="_blank" rel="noreferrer">
