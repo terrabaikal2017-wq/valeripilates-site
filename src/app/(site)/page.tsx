@@ -4,6 +4,7 @@ import { getClassLevels, getSocial, getSiteSettings } from "@/data";
 import Breaks from "@/components/Breaks";
 import FinalCta from "@/components/FinalCta";
 import SocialGrid from "@/components/SocialGrid";
+import FirstClassOffer from "@/components/FirstClassOffer";
 
 export default async function HomePage() {
   const [social, settings, classLevels] = await Promise.all([
@@ -83,31 +84,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="first" className="section on-sand">
-        <div className="wrap">
-          <div className="split">
-            <div className="col">
-              <span className="eyebrow">{home.firstEyebrow}</span>
-              <h2>{home.firstHeadline}</h2>
-              <p className="lead">{home.firstLead}</p>
-            </div>
-            <div className="offer-card">
-              <span className="k">{home.firstOfferK}</span>
-              <span className="v price">{settings.introOffers[0]?.amount ?? "AED 80"}</span>
-              <span className="fineprint">{home.firstOfferFineprint}</span>
-              <Link href="/schedule" className="btn btn-fill">
-                {home.cta}
-              </Link>
-              <p className="alt">
-                <Link href="/pricing">{home.firstOfferAlt}</Link>
-              </p>
-              <Link href="/first-visit" className="btn-ghost">
-                {home.firstVisitLink}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FirstClassOffer settings={settings} />
 
       <section id="lately" className="section">
         <div className="wrap">
