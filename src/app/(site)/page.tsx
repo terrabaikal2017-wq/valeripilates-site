@@ -112,13 +112,15 @@ export default async function HomePage() {
       <section id="lately" className="section">
         <div className="wrap">
           <div className="social-head">
-            <h2>{home.socialHeadline}</h2>
-            <a href={settings.instagramUrl} className="btn-ghost" target="_blank" rel="noreferrer">
+            <div>
+              <h2>{home.socialHeadline}</h2>
+              <p className="social-subtitle">{home.socialNote}</p>
+            </div>
+            <a href={settings.instagramUrl} className="btn btn-fill" target="_blank" rel="noreferrer">
               Follow {settings.instagram}
             </a>
           </div>
-          <SocialGrid items={social.slice(0, 5)} profileUrl={settings.instagramUrl} />
-          <p className="mnote">{home.socialNote}</p>
+          <SocialGrid items={social} profileUrl={settings.instagramUrl} />
         </div>
       </section>
 

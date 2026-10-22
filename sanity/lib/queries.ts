@@ -47,6 +47,6 @@ export const EVENTS_QUERY = `*[_type == "event" && date >= now()] | order(date a
 }`;
 
 export const SOCIAL_QUERY = `*[_type == "socialPost"] | order(order asc, _createdAt desc){
-  "id": _id, caption, link,
+  "id": _id, caption, link, type,
   "url": image.asset->url
 }`;
