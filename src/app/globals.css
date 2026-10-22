@@ -623,6 +623,7 @@ img { max-width: 100%; display: block; }
 .mnote { margin-top: 22px; font-size: .86rem; color: var(--ink-soft); font-style: italic; }
 .ecard { border: 1px dashed var(--line-dark); border-radius: 14px; padding: 28px; margin-top: 24px; color: var(--ink-soft); font-size: .95rem; max-width: 60ch; }
 .social-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.social-subtitle { margin: 8px 0 0; color: var(--ink-soft); font-size: .96rem; line-height: 1.5; }
 .social-gallery { scroll-margin-top: 100px; }
 .social-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 14px; }
 .social-reel { position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: rgba(0, 0, 0, .72); color: #fff; font-size: .78rem; }
