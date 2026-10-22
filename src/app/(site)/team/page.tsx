@@ -166,13 +166,13 @@ export default async function TeamPage() {
                 {page.socialLabel}
               </div>
               <h2>{page.socialHeadline}</h2>
+              <p className="social-subtitle">{page.socialNote}</p>
             </div>
-            <a href={settings.instagramUrl} className="btn-ghost" target="_blank" rel="noreferrer">
+            <a href={settings.instagramUrl} className="btn btn-fill" target="_blank" rel="noreferrer">
               Follow {settings.instagram}
             </a>
           </div>
           <SocialGrid items={social} profileUrl={settings.instagramUrl} />
-          <p className="mnote">{page.socialNote}</p>
         </div>
       </section>
 
