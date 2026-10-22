@@ -31,7 +31,7 @@ export const site = {
   legalDraftNote: "Draft — pending final legal review before publication",
   hours: "7.00 AM – 9.00 PM",
   // TODO — confirm before launch:
-  whatsapp: null as string | null,
+  whatsapp: "+971 50 177 0521" as string | null,
   phone: null as string | null,
   email: "valeripilates@gmail.com / info@valeripilates.com" as string | null,
   mapEmbedUrl:
