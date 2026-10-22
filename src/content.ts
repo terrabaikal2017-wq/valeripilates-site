@@ -324,7 +324,7 @@ export const firstVisitSteps = [
 export const flags = {
   showTeam: true,
   showStories: false,
-  showEvents: true,
+  showEvents: false,
 };
 
 /* ---------- Team-page placeholders (used only when a flag above is on) ---------- */
