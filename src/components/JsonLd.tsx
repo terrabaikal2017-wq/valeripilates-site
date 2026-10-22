@@ -31,7 +31,6 @@ export default function JsonLd({ settings }: { settings: SiteSettings }) {
       "@type": "Place",
       name: "Arjan, Dubai",
     },
-    ...(settings.phone ? { telephone: settings.phone } : {}),
     ...(settings.email ? { email: settings.email } : {}),
     ...(sameAs.length ? { sameAs } : {}),
     priceRange: "$$",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Image from "next/image";
 import Link from "next/link";
 import { getClassLevels, getSiteSettings } from "@/data";
@@ -94,14 +95,18 @@ export default async function ClassesPage() {
       <section className="section on-sage">
         <div className="wrap">
           <div className="split">
-            <h2>{page.bookingHeadline}</h2>
-            <div>
+            <div className="col">
+              <h2>{page.bookingHeadline}</h2>
               <p className="lead">{page.bookingLead}</p>
-              <div style={{ marginTop: 20 }}>
-                <Link href="/schedule" className="btn btn-fill">
-                  {page.bookingCta}
-                </Link>
-              </div>
+              <WhatsAppButton number={settings.whatsapp} />
+            </div>
+            <div className="offer-card">
+              <span className="k">Your VALERI account</span>
+              <h3>Find your next class.</h3>
+              <p className="fineprint">Class times, available spots and bookings in one place.</p>
+              <Link href="/schedule" className="btn btn-fill">
+                {page.bookingCta}
+              </Link>
             </div>
           </div>
         </div>

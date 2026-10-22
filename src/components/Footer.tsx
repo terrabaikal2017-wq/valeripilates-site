@@ -1,7 +1,10 @@
 import Link from "next/link";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import type { SiteSettings } from "@/data";
 
 export default function Footer({ settings }: { settings: SiteSettings }) {
+
+
   return (
     <footer className="footer">
       <div className="wrap">
@@ -14,9 +17,7 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <p>{settings.addressShort}</p>
           </div>
           <div className="foot-contact">
-            <p className={settings.whatsapp ? undefined : "tbd"}>
-              {settings.whatsapp ?? "WhatsApp — to confirm"}
-            </p>
+            <WhatsAppButton number={settings.whatsapp} placement="footer" />
             <p className={settings.hours ? undefined : "tbd"}>
               {settings.hours ?? "Hours — to confirm"}
             </p>
@@ -35,9 +36,6 @@ export default function Footer({ settings }: { settings: SiteSettings }) {
             <Link href="/terms">Terms &amp; Conditions</Link>
             <Link href="/privacy">Privacy Policy</Link>
           </nav>
-          {settings.showFooterNote ? (
-            <span className="proto">{settings.footerNote}</span>
-          ) : null}
         </div>
       </div>
     </footer>
