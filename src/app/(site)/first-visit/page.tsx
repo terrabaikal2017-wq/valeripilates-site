@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getSiteSettings } from "@/data";
 import FinalCta from "@/components/FinalCta";
+import FirstClassOffer from "@/components/FirstClassOffer";
 
 export const metadata: Metadata = {
   title: "First Visit",
@@ -14,7 +15,7 @@ export default async function FirstVisitPage() {
   const settings = await getSiteSettings();
   const { copy, images, faq, firstVisitSteps } = settings;
   const page = copy.firstVisit;
-  const band = copy.band;
+
 
   return (
     <>
@@ -59,18 +60,7 @@ export default async function FirstVisitPage() {
         </div>
       </section>
 
-      <section className="section band">
-        <div className="wrap">
-          <div>
-            <div className="k">{band.k}</div>
-            <div className="v">{band.v}</div>
-            <div className="sm">{band.sm}</div>
-          </div>
-          <Link href="https://valeripilates.com/pricing" className="btn btn-fill">
-            {band.cta}
-          </Link>
-        </div>
-      </section>
+      <FirstClassOffer settings={settings} bookingHref="/pricing" />
 
       <section className="section">
         <div className="wrap">
