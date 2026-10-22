@@ -18,6 +18,7 @@ import {
 } from "@/sanity/lib/queries";
 import * as fb from "@/content";
 import type { ClassLevel, Plan, ScheduleNote } from "@/content";
+import { instagramPosts, type InstagramPost } from "@/instagram";
 import { privacy, privacyIntro, terms, termsIntro, type LegalSection } from "@/legal";
 
 type Img = { url?: string; alt?: string } | null | undefined;
@@ -545,21 +546,14 @@ export const preview = {
 };
 
 /* ---------- social strip ---------- */
-export type SocialItem = { id: string; url: string; caption?: string; link?: string };
+export type SocialItem = InstagramPost;
 
-type SocialRow = { id: string; url?: string; caption?: string; link?: string };
+type SocialRow = Omit<SocialItem, "url"> & { url?: string };
 
 export const getSocial = cache(async function getSocial(): Promise<SocialItem[]> {
   const rows = await sanityFetch<SocialRow[]>(SOCIAL_QUERY);
-  if (rows && rows.length) {
-    return rows
-      .filter((r) => r.url)
-      .map((r) => ({ id: r.id, url: r.url as string, caption: r.caption, link: r.link }));
-  }
-  return fb.socialImages.map((item, i) => ({
-    id: `fb-${i}`,
-    url: item.url,
-    caption: item.caption,
-    link: item.link,
-  }));
+  const posts = (rows ?? [])
+    .filter((r) => r.url)
+    .map((r) => ({ id: r.id, url: r.url as string, caption: r.caption, link: r.link, type: r.type }));
+  return posts.length ? posts : instagramPosts;
 });
