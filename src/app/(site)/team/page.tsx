@@ -172,7 +172,7 @@ export default async function TeamPage() {
               Follow {settings.instagram}
             </a>
           </div>
-          <SocialGrid items={social} profileUrl={settings.instagramUrl} />
+          <SocialGrid items={social.slice(0, 5)} profileUrl={settings.instagramUrl} />
         </div>
       </section>
 
