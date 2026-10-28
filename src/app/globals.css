@@ -624,8 +624,9 @@ img { max-width: 100%; display: block; }
 .ecard { border: 1px dashed var(--line-dark); border-radius: 14px; padding: 28px; margin-top: 24px; color: var(--ink-soft); font-size: .95rem; max-width: 60ch; }
 .social-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
 .social-subtitle { margin: 8px 0 0; color: var(--ink-soft); font-size: .96rem; line-height: 1.5; }
-.social-gallery { scroll-margin-top: 100px; }
-.social-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px 10px; }
+.social-gallery { display: flex; flex-direction: column; align-items: center; scroll-margin-top: 100px; }
+.social-grid { display: grid; width: 100%; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px 10px; }
+.social-more { display: none; }
 .social-reel { position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: rgba(0, 0, 0, .72); color: #fff; font-size: .78rem; }
 .social-controls { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 26px; }
 .social-count { margin: 0; color: var(--ink-soft); font-size: .84rem; }
@@ -739,6 +740,15 @@ small, .caption, label, input, select, textarea, table, .footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px 10px;
     overflow: visible;
+  }
+  .social-grid.is-collapsed .social-tile:nth-child(n+5) { display: none; }
+  .social-more {
+    display: inline-block;
+    margin-top: 18px;
+    background: none;
+    border: 0;
+    border-bottom: 1.5px solid currentColor;
+    cursor: pointer;
   }
 }
 @media (max-width: 860px) {
