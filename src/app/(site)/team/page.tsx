@@ -76,7 +76,6 @@ export default async function TeamPage() {
                     </div>
                   ) : null}
                   <div className="nm">{t.name}</div>
-                  <div className="aka">{t.aka || `Coach ${t.name}`}</div>
                   {t.style ? <div className="st">{t.style}</div> : null}
                   {t.bio ? <p className="bio">{t.bio}</p> : null}
                   {t.loveIf ? (

@@ -332,7 +332,7 @@ export const team = [
   {
     id: "ines",
     name: "Inès",
-    aka: "Coach Ness",
+    aka: "",
     style: "",
     bio: "I’m Inès, also known as Coach Ness, a Pilates instructor from Paris. I specialise in supporting women with disabilities and hormonal conditions through adapted, mindful movement.\n\nI teach Classical Pilates with a focus on breathing, precision and body awareness.",
     loveIf: "",
@@ -344,7 +344,7 @@ export const team = [
   {
     id: "nadia",
     name: "Nadia",
-    aka: "Coach Nadia",
+    aka: "",
     style: "",
     bio: "I am passionate about sports and movement since childhood. Certified in Pilates Mat, Reformer, ITTAP and Active IQ.\n\nMy teaching style focuses on helping clients build strength, improve body awareness, and progress toward their individual goals through supportive, motivating, and personalized sessions.",
     loveIf: "",
@@ -356,7 +356,7 @@ export const team = [
   {
     id: "daisy",
     name: "Daisy",
-    aka: "Coach Daisy",
+    aka: "",
     style: "",
     bio: "Daisy is a passionate Pilates instructor with training in both Mat and Reformer Pilates. With a background in sports and coaching, she brings plenty of energy, motivation and positivity to every class.\n\nExpect a fun, bubbly atmosphere, spicy burn and plenty of encouragement to push yourself while enjoying every minute!",
     loveIf: "",
