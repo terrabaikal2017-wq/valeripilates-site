@@ -5,7 +5,7 @@ import "./globals.css";
 
 /* Self-hosted copies of Google Fonts (Google CDN blocked at build time here).
    Same CSS variables as next/font/google would expose:
-   Cormorant_Garamond 600, Jost 400/500, Newsreader 400/500, Figtree 400/500. */
+   Cormorant_Garamond 600, Jost 400/500, Manrope 200–800, Figtree 400/500. */
 const cormorant = localFont({
   src: [
     {
@@ -35,20 +35,11 @@ const jost = localFont({
   display: "swap",
 });
 
-const newsreader = localFont({
-  src: [
-    {
-      path: "../fonts/newsreader-latin-400-normal.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/newsreader-latin-500-normal.woff2",
-      weight: "500",
-      style: "normal",
-    },
-  ],
-  variable: "--font-newsreader",
+const manrope = localFont({
+  src: "../fonts/manrope-latin-wght-normal.woff2",
+  weight: "200 800",
+  style: "normal",
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -101,7 +92,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${jost.variable} ${newsreader.variable} ${figtree.variable}`}
+      className={`${cormorant.variable} ${jost.variable} ${manrope.variable} ${figtree.variable}`}
     >
       <body>{children}</body>
     </html>
