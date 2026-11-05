@@ -1,27 +1,27 @@
 /* ============================================================
    VALERI — design system
-   Warm near-white + one butter band, deep denim accent. Single warm light theme.
+   Warm Studio Editorial — cream, beige, caramel, terracotta and cocoa.
    ============================================================ */
 
 :root {
   color-scheme: light;
 
-  --paper: #FCFAF4;        /* near-white, faint warmth (was butter #FBF6EA) */
-  --card: #FFFFFF;
-  --sand: #F6ECC6;        /* butter — used only for the intro-offer moments */
-  --sage-bg: #F1EDE2;     /* soft warm greige panel (was powder-blue) */
-  --ink: #2A2E36;
-  --ink-soft: #5F6470;
-  --line: #E9E3D6;
-  --line-dark: #D5CEBE;
-  --accent: #3F5E86;      /* deep denim — the only real colour */
-  --accent-deep: #324C6E;
+  --paper: #F8F3EB;        /* cream */
+  --card: #FFFCF7;         /* warm ivory */
+  --sand: #E7C9A5;         /* soft caramel */
+  --sage-bg: #EFE3D5;      /* beige */
+  --ink: #3E2C25;          /* cocoa */
+  --ink-soft: #70594D;
+  --line: #E4D5C5;
+  --line-dark: #CDB7A2;
+  --accent: #93583E;       /* terracotta brown */
+  --accent-deep: #75432F;
 
   /* Typography — from valeri-typography.css
-     Logo: Cormorant 600 · UI caps: Jost 500 · Display: Newsreader · Body: Figtree 400 */
+     Logo: Cormorant 600 · UI caps: Jost 500 · Display: Manrope · Body: Figtree 400 */
   --font-logo:    var(--font-cormorant, "Cormorant Garamond"), "Times New Roman", serif;
   --font-ui:      var(--font-jost, "Jost"), system-ui, sans-serif;
-  --font-display: var(--font-newsreader, "Newsreader"), Georgia, serif;
+  --font-display: var(--font-manrope, "Manrope"), system-ui, sans-serif;
   --font-body:    var(--font-figtree, "Figtree"), system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --fs-hero:  clamp(2.5rem, 1.9rem + 2.4vw, 3.25rem);    /* 40 → 52px */
@@ -36,7 +36,7 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-accent: var(--accent);
-  --color-taupe: #7A6A58;
+  --color-taupe: #80644F;
 
   /* Back-compat aliases */
   --display: var(--font-display);
@@ -68,7 +68,7 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
-h1, h2, h3, h4, .display {
+h1, h2, h3, h4, h5, h6, .display {
   margin: 0;
   font-family: var(--font-display);
   font-optical-sizing: auto;
@@ -247,7 +247,7 @@ img { max-width: 100%; display: block; }
 .fc-btn {
   width: 48px; height: 48px; border-radius: 999px;
   display: flex; align-items: center; justify-content: center;
-  color: #fff; box-shadow: 0 6px 20px -6px rgba(20,24,32,.4);
+  color: #fff; box-shadow: 0 6px 20px -6px rgba(62,44,37,.4);
   transition: transform .12s ease, filter .16s ease;
 }
 .fc-btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
@@ -262,7 +262,7 @@ img { max-width: 100%; display: block; }
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 65; display: none;
   padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
   background: var(--paper); border-top: 1px solid var(--line);
-  box-shadow: 0 -8px 24px -14px rgba(40,45,56,.28);
+  box-shadow: 0 -8px 24px -14px rgba(62,44,37,.28);
 }
 .mobilebook .btn { width: 100%; }
 
@@ -272,7 +272,7 @@ img { max-width: 100%; display: block; }
 .on-sage { background: var(--sage-bg); }
 .on-sand { background: var(--sand); }
 .on-accent { background: var(--accent); color: #F1ECDD; }
-.on-accent .eyebrow, .on-accent .where { color: #E6D3A0; }
+.on-accent .eyebrow, .on-accent .where { color: #E7C9A5; }
 
 /* media */
 .ph { border-radius: 16px; background: #D9D2C4; overflow: hidden; position: relative; }
@@ -673,7 +673,7 @@ img { max-width: 100%; display: block; }
   gap: 4px 14px;
   margin-top: 8px;
   font-size: .88rem;
-  color: #A7A19C;
+  color: #CCB7A6;
 }
 .app-download--footer a { color: #F6EEE9; border-bottom: 0; }
 .glofox-powered { display: flex; justify-content: center; margin-top: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: var(--ink-soft); }
@@ -697,24 +697,24 @@ img { max-width: 100%; display: block; }
 .final .wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; }
 .final .where { font-family: var(--font-ui); font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; }
 .final h2 { max-width: 16ch; }
-.final .fine { font-size: .86rem; color: #CBC3AE; }
+.final .fine { font-size: .86rem; color: #EFE3D5; }
 
 /* footer + small UI — Jost only (Cormorant never below 20px) */
 small, .caption, label, input, select, textarea, table, .footer {
   font-family: var(--font-body);
 }
-.footer { background: var(--ink); color: #CFC9C4; padding: 44px 0 26px; }
+.footer { background: var(--ink); color: #E4D5C5; padding: 44px 0 26px; }
 .foot-whatsapp { display: flex; justify-content: flex-end; margin-bottom: 16px; }
 .first-whatsapp { margin-top: 24px; }
 .whatsapp-button { gap: 10px; max-width: 100%; padding: 14px 22px; font-size: clamp(.85rem, 3.5vw, 1rem); letter-spacing: 0; text-transform: none; text-align: center; }
 .whatsapp-button__icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%; background: #25d366; color: #fff; }
 .foot-inner { display: flex; justify-content: space-between; gap: 28px 40px; flex-wrap: wrap; }
 .foot-inner .logo { color: #F6EEE9; display: block; margin-bottom: 10px; }
-.foot-inner p { font-size: .88rem; margin-bottom: 5px; color: #A7A19C; }
+.foot-inner p { font-size: .88rem; margin-bottom: 5px; color: #CCB7A6; }
 .foot-contact { text-align: right; }
 .foot-contact .opening-hours { white-space: pre-line; }
 .footer a:hover { color: #F6EEE9; }
-.foot-bottom { margin-top: 30px; padding-top: 16px; border-top: 1px solid #362E30; display: flex; align-items: center; gap: 10px 22px; flex-wrap: wrap; font-size: .74rem; color: #7C7570; }
+.foot-bottom { margin-top: 30px; padding-top: 16px; border-top: 1px solid #70594D; display: flex; align-items: center; gap: 10px 22px; flex-wrap: wrap; font-size: .74rem; color: #CDB7A2; }
 .foot-legal { display: flex; gap: 18px; }
 .foot-bottom .proto { margin-left: auto; }
 .tbd { font-style: italic; }

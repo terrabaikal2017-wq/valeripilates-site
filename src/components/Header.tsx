@@ -25,6 +25,13 @@ export default function Header({
 }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [previousPathname, setPreviousPathname] = useState(pathname);
+
+  // Reset before committing the new page so the menu and scroll lock stay in sync.
+  if (pathname !== previousPathname) {
+    setPreviousPathname(pathname);
+    setOpen(false);
+  }
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -32,10 +39,6 @@ export default function Header({
       document.body.style.overflow = "";
     };
   }, [open]);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -48,7 +51,7 @@ export default function Header({
   const isCurrent = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  const Wordmark = () =>
+  const wordmark =
     logoUrl ? (
       <Image src={logoUrl} alt={name} width={180} height={48} className="logo-img" />
     ) : (
@@ -60,7 +63,7 @@ export default function Header({
       <header className="header">
         <div className="wrap bar">
           <Link href="/" className="logo" aria-label={`${name} — Pilates studio, home`}>
-            <Wordmark />
+            {wordmark}
             <span className="logo__tagline" aria-hidden>
               {logoSub}
             </span>
@@ -99,7 +102,7 @@ export default function Header({
       >
         <div className="mm-top">
           <span className="logo">
-            <Wordmark />
+            {wordmark}
             <span className="logo__tagline" aria-hidden>
               {logoSub}
             </span>
