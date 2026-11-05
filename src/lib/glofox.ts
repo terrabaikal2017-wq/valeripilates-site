@@ -24,11 +24,11 @@ const PORTALS = {
  * Glofox applies these inside the cross-origin iframe. Parent CSS cannot.
  * The portal reads `colors` from the hash query as `key-HEX` pairs
  * (no #): background, accent, text. Hex values match globals.css:
- * --paper, --accent (denim), --ink.
+ * --paper, --accent (terracotta brown), --ink.
  * Button labels are painted with the background colour, so cream on
- * denim matches .btn-fill.
+ * terracotta matches .btn-fill.
  */
-const PORTAL_COLORS = "background-FCFAF4,accent-3F5E86,text-2A2E36";
+const PORTAL_COLORS = "background-F8F3EB,accent-93583E,text-3E2C25";
 
 export type GlofoxView = "schedule" | "pricing" | "memberships";
 
