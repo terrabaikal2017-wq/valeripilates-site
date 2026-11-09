@@ -287,7 +287,9 @@ img { max-width: 100%; display: block; }
 .hero-media img { object-fit: cover; object-position: 42% 32%; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, rgba(18,14,12,.26), rgba(18,14,12,0) 34%, rgba(18,14,12,.5) 76%, rgba(18,14,12,.74));
+  background:
+    radial-gradient(ellipse at 25% 72%, rgba(18,14,12,.58), rgba(18,14,12,.48) 24%, transparent 54%),
+    linear-gradient(180deg, rgba(18,14,12,.26), rgba(18,14,12,0) 34%, rgba(18,14,12,.5) 76%, rgba(18,14,12,.74));
 }
 .hero-inner {
   width: 100%; max-width: var(--wrap); margin: 0 auto;
