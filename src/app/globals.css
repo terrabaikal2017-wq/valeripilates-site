@@ -164,16 +164,17 @@ img { max-width: 100%; display: block; }
   padding: 15px 26px; border-radius: 999px; cursor: pointer;
   border: 1.5px solid transparent; transition: background .18s, color .18s, transform .12s;
 }
-.btn-fill { background: var(--rose); color: var(--on-rose); border-color: var(--on-rose); }
-.btn-fill:hover { background: var(--sand); transform: translateY(-1px); }
-.btn-line { background: transparent; color: var(--ink); border-color: var(--ink); }
-.btn-line:hover { background: var(--ink); color: var(--paper); transform: translateY(-1px); }
+.btn-fill { background: var(--rose); color: var(--on-rose); }
+.btn-fill:hover { background: color-mix(in srgb, var(--rose) 84%, var(--paper)); transform: translateY(-1px); }
+.btn-line { background: transparent; color: var(--ink); border-color: #8D6C5F; }
+.btn-line:hover { background: var(--sage-bg); transform: translateY(-1px); }
 .btn-ghost {
   font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-label); letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--accent); border-bottom: 1.5px solid currentColor; padding-bottom: 3px;
 }
 .btn-ghost:hover { color: var(--accent-deep); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.btn:focus-visible { border-radius: 999px; }
 
 /* header */
 .header {
@@ -527,7 +528,8 @@ img { max-width: 100%; display: block; }
 
 /* offer card (home "new to VALERI") */
 .offer-card {
-  background: var(--card); border: 1px solid var(--line-dark); border-radius: 18px; padding: 30px 32px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 30px 32px;
+  box-shadow: 0 8px 24px rgba(81, 65, 61, .07);
   display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
 }
 .offer-card .k { font-family: var(--font-ui); font-weight: 500; font-size: var(--fs-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
