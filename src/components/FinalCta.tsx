@@ -8,11 +8,7 @@ export default function FinalCta({ settings, href = "/schedule" }: { settings: S
       <div className="wrap">
         <span className="where">{settings.addressShort}</span>
         <h2>{copy.cta.headline}</h2>
-        <Link
-          href={href}
-          className="btn btn-fill"
-          style={{ background: "#F8F3E7", color: "var(--accent)" }}
-        >
+        <Link href={href} className="btn btn-fill">
           {copy.cta.button}
         </Link>
         <p className="fine">{copy.cta.fine}</p>
