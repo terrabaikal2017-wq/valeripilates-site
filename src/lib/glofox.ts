@@ -28,7 +28,7 @@ const PORTALS = {
  * Glofox uses the background colour for button labels, so use the darker
  * accent here to keep those labels legible.
  */
-const PORTAL_COLORS = "background-FAF7F3,accent-684D45,text-51413D";
+const PORTAL_COLORS = "background-FFFFFF,accent-45454B,text-3A3A3E";
 
 export type GlofoxView = "schedule" | "pricing" | "memberships";
 
