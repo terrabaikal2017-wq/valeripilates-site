@@ -11,38 +11,40 @@ export type InstagramPost = {
 
 export const instagramPosts: InstagramPost[] = [
   {
-    id: "DfCUROzi-ps",
+    id: "Dfh2uWKC_p7",
     type: "reel",
     url: "/images/social/post-1.jpg",
-    caption: "Halloween Pilates Class — Saturday, 31 October. Every guest wins a prize.",
-    link: "https://www.instagram.com/valeripilates/reel/DfCUROzi-ps/",
+    caption:
+      "Meet Nadia — certified Mat and Reformer instructor. Her classes are personal, and she’ll help you build strength and see real progress.",
+    link: "https://www.instagram.com/p/Dfh2uWKC_p7/",
   },
   {
-    id: "DfASFUjCCbr",
+    id: "Dfg6-03um7U",
     type: "reel",
     url: "/images/social/post-2.jpg",
-    caption: "Nobody walks in flexible. You build it, one class at a time.",
-    link: "https://www.instagram.com/valeripilates/reel/DfASFUjCCbr/",
+    caption: "A little shake, a little burn, and always a spicy finisher. Come flow with Daisy at VALERI.",
+    link: "https://www.instagram.com/p/Dfg6-03um7U/",
   },
   {
-    id: "De8Y0CPiUtg",
+    id: "DfZzF4BtF0c",
     type: "reel",
     url: "/images/social/post-3.jpg",
-    caption: "Sending you good energy for the week ahead.",
-    link: "https://www.instagram.com/valeripilates/reel/De8Y0CPiUtg/",
+    caption: "Come teach a Pilates class with me at VALERI.",
+    link: "https://www.instagram.com/p/DfZzF4BtF0c/",
   },
   {
-    id: "De60Y6xgq04",
-    type: "photo",
+    id: "DfZPYJ1C58S",
+    type: "reel",
     url: "/images/social/post-4.jpg",
-    caption: "Three reasons to start Pilates — and keep coming back.",
-    link: "https://www.instagram.com/valeripilates/p/De60Y6xgq04/",
+    caption: "Happy Friday from VALERI. Our doors are open, and November comes with some special offers.",
+    link: "https://www.instagram.com/p/DfZPYJ1C58S/",
   },
   {
-    id: "De4GnRNiS8r",
+    id: "DfXOIxmiNDs",
     type: "reel",
     url: "/images/social/post-5.jpg",
-    caption: "Welcome to VALERI. We’ve just opened in Oxford Gardens, Arjan.",
-    link: "https://www.instagram.com/valeripilates/reel/De4GnRNiS8r/",
+    caption:
+      "Meet Millie. She teaches mat and reformer with clear cues and a big smile — strength, better movement, and confidence, whether it’s your first class or your fiftieth.",
+    link: "https://www.instagram.com/p/DfXOIxmiNDs/",
   },
 ];
