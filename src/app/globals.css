@@ -686,18 +686,26 @@ main > .section + .section { border-top: 1px solid #DEDEE0; }
 small, .caption, label, input, select, textarea, table, .footer {
   font-family: var(--font-body);
 }
-.footer { background: var(--paper); color: var(--ink); border-top: 1px solid var(--line); padding: 44px 0 26px; }
+.footer {
+  --footer-ink: #353639;
+  --footer-ink-soft: #5B5C5F;
+  background: #D8D7D4;
+  color: var(--footer-ink);
+  border-top: 1px solid var(--line);
+  padding: 44px 0 26px;
+}
 .foot-whatsapp { display: flex; justify-content: flex-end; margin-bottom: 16px; }
 .first-whatsapp { margin-top: 24px; }
 .whatsapp-button { gap: 10px; max-width: 100%; padding: 14px 22px; font-size: clamp(.85rem, 3.5vw, 1rem); letter-spacing: 0; text-transform: none; text-align: center; }
 .whatsapp-button__icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%; background: #25d366; color: #fff; }
 .foot-inner { display: flex; justify-content: space-between; gap: 28px 40px; flex-wrap: wrap; }
-.foot-inner .logo { color: var(--ink); display: block; margin-bottom: 10px; }
-.foot-inner p { font-size: .88rem; margin-bottom: 5px; color: var(--ink-soft); }
+.foot-inner .logo { color: var(--footer-ink); display: block; margin-bottom: 10px; }
+.foot-inner p { font-size: .88rem; margin-bottom: 5px; color: var(--footer-ink-soft); }
 .foot-contact { text-align: right; }
 .foot-contact .opening-hours { white-space: pre-line; }
-.footer a:not(.btn):hover { color: var(--accent-deep); }
-.foot-bottom { margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 10px 22px; flex-wrap: wrap; font-size: .74rem; color: var(--ink-soft); }
+.footer a:not(.btn) { color: var(--footer-ink); }
+.footer a:not(.btn):is(:hover, :focus-visible) { text-decoration: underline; }
+.foot-bottom { margin-top: 30px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 10px 22px; flex-wrap: wrap; font-size: .74rem; color: var(--footer-ink-soft); }
 .foot-legal { display: flex; gap: 18px; }
 .foot-bottom .proto { margin-left: auto; }
 .tbd { font-style: italic; }
