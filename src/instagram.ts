@@ -9,40 +9,45 @@ export type InstagramPost = {
   link?: string;
 };
 
+// Updated post links supplied by VALERI, newest first.
+// IMPORTANT: the post-*.jpg files are PREVIOUS covers, retained temporarily.
+// Replace all five covers with matching thumbnails before publishing this feed.
+// Instagram's public post URL uses /p/ even for some Reels; video types can be
+// set to "reel" once the media have been verified.
 export const instagramPosts: InstagramPost[] = [
   {
-    id: "DfCUROzi-ps",
-    type: "reel",
+    id: "Dfh2uWKC_p7",
+    type: "photo",
     url: "/images/social/post-1.jpg",
-    caption: "Halloween Pilates Class — Saturday, 31 October. Every guest wins a prize.",
-    link: "https://www.instagram.com/valeripilates/reel/DfCUROzi-ps/",
+    caption: "View the latest post from VALERI Pilates on Instagram.",
+    link: "https://www.instagram.com/p/Dfh2uWKC_p7/",
   },
   {
-    id: "DfASFUjCCbr",
-    type: "reel",
+    id: "Dfg6-03um7U",
+    type: "photo",
     url: "/images/social/post-2.jpg",
-    caption: "Nobody walks in flexible. You build it, one class at a time.",
-    link: "https://www.instagram.com/valeripilates/reel/DfASFUjCCbr/",
+    caption: "View the latest post from VALERI Pilates on Instagram.",
+    link: "https://www.instagram.com/p/Dfg6-03um7U/",
   },
   {
-    id: "De8Y0CPiUtg",
-    type: "reel",
+    id: "DfZzF4BtF0c",
+    type: "photo",
     url: "/images/social/post-3.jpg",
-    caption: "Sending you good energy for the week ahead.",
-    link: "https://www.instagram.com/valeripilates/reel/De8Y0CPiUtg/",
+    caption: "View the latest post from VALERI Pilates on Instagram.",
+    link: "https://www.instagram.com/p/DfZzF4BtF0c/",
   },
   {
-    id: "De60Y6xgq04",
+    id: "DfZPYJ1C58S",
     type: "photo",
     url: "/images/social/post-4.jpg",
-    caption: "Three reasons to start Pilates — and keep coming back.",
-    link: "https://www.instagram.com/valeripilates/p/De60Y6xgq04/",
+    caption: "View the latest post from VALERI Pilates on Instagram.",
+    link: "https://www.instagram.com/p/DfZPYJ1C58S/",
   },
   {
-    id: "De4GnRNiS8r",
-    type: "reel",
+    id: "DfXOIxmiNDs",
+    type: "photo",
     url: "/images/social/post-5.jpg",
-    caption: "Welcome to VALERI. We’ve just opened in Oxford Gardens, Arjan.",
-    link: "https://www.instagram.com/valeripilates/reel/De4GnRNiS8r/",
+    caption: "View the latest post from VALERI Pilates on Instagram.",
+    link: "https://www.instagram.com/p/DfXOIxmiNDs/",
   },
 ];
